@@ -2,30 +2,47 @@ var bg = chrome.extension.getBackgroundPage();
 
 function myFunction(input) {
   // Declare variables
-  var filter, ul, li, a, i, txtValue;
+  var filter,results, row, a, i, txtValue;
   filter = input.toUpperCase();
-  ul = document.getElementById("myUL");
-  li = ul.getElementsByTagName('li');
+  results = document.getElementById("results");
+  row = results.getElementsByTagName('tr');
 
   // Loop through all list items, and hide those who don't match the search query
-  for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
+  for (i = 0; i < row.length; i++) {
+    a = row[i].getElementsByTagName("a")[0];
     txtValue = a.textContent || a.innerText;
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
+      row[i].style.display = "";
     } else {
-      li[i].style.display = "none";
+      row[i].style.display = "none";
     }
   }
 }
 
 $(document).ready(function() {
-  console.log("here");
-  $('#myInput').on({
+
+  $('body').on('click', 'a', function(){
+    chrome.tabs.create({url: $(this).attr('href')});
+    return false;
+  });
+
+  bg.onPopupLoad(function(response) {
+    const list = $("#results");
+    list.empty();
+    response._embedded.entitlements.forEach(function(entitlement) {
+      if (entitlement._links.launch !== undefined) {
+        list.append('<tr><td><img width="40" src="'+ entitlement._links.icon.href + '"></td><td><a href="' + entitlement._links.launch.href + '">'+entitlement.name+'</a></td></tr>');
+      }
+    });
+  });
+  const input = $('#appSearch');
+
+  input.on({
     'keyup': function() {
-      console.log("here");
-      let str = $("#myInput").val();
+      let str = $("#appSearch").val();
       myFunction(str);
     }
   });
+
+  input.focus();
 });

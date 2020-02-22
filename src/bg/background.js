@@ -1,21 +1,27 @@
 const BASE_URL = 'https://myvmware.workspaceair.com';
-// function getCookies(domain, name, callback) {
-    // chrome.cookies.get({"url": domain, "name": name}, function(cookie) {
-        // if(callback) {
-            // callback(cookie.value);
-        // }
-    // });
-// }
+let currentResults = null;
 
-// //usage:
-// getCookies("https://myvmware.workspaceair.com/", "USER_CATALOG_CONTEXT", function(id) {
-    // alert(id);
-// });
+function storeSuccess(results) {
+    currentResults = results;
+    return results;
+}
 
+function checkAuthenticated(results) {
+    if (results.status === 401) {
+        chrome.tabs.create({url: BASE_URL});
+    }
+    return results;
+}
 
-// fetch(BASE_URL + '/catalog-portal/services/api/entitlements?appType=&category=&label=&q=concur', {
-  // credentials: 'include'
-// }).then(res => res.json())
-  // .then(populateThingie);
-
-
+function onPopupLoad(successCallback) {
+    if (currentResults !== null) {
+        successCallback(currentResults);
+    } else {
+        fetch(BASE_URL + '/catalog-portal/services/api/entitlements', {
+            credentials: 'include'
+        }).then(checkAuthenticated)
+            .then(res => res.json())
+            .then(storeSuccess)
+            .then(successCallback)
+    }
+}
