@@ -1,13 +1,21 @@
-// if you checked "fancy-settings" in extensionizr.com, uncomment this lines
+const BASE_URL = 'https://myvmware.workspaceair.com';
+// function getCookies(domain, name, callback) {
+    // chrome.cookies.get({"url": domain, "name": name}, function(cookie) {
+        // if(callback) {
+            // callback(cookie.value);
+        // }
+    // });
+// }
 
-// var settings = new Store("settings", {
-//     "sample_setting": "This is how you use Store.js to remember values"
+// //usage:
+// getCookies("https://myvmware.workspaceair.com/", "USER_CATALOG_CONTEXT", function(id) {
+    // alert(id);
 // });
 
 
-//example of using a message handler from the inject scripts
-chrome.extension.onMessage.addListener(
-  function(request, sender, sendResponse) {
-  	chrome.pageAction.show(sender.tab.id);
-    sendResponse();
-  });
+// fetch(BASE_URL + '/catalog-portal/services/api/entitlements?appType=&category=&label=&q=concur', {
+  // credentials: 'include'
+// }).then(res => res.json())
+  // .then(populateThingie);
+
+
