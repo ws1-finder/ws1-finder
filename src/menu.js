@@ -30,7 +30,8 @@ $(document).ready(function() {
     const list = $("#results");
     list.empty();
     response._embedded.entitlements.forEach(function(entitlement) {
-      if (entitlement._links.launch !== undefined) {
+      const links = entitlement._links;
+      if ('launch' in links && !('appLaunchUrls' in links) && !('appLaunchUrlsV2' in links)) {
         list.append('<tr><td><img width="40" src="'+ entitlement._links.icon.href + '"></td><td><a href="' + entitlement._links.launch.href + '">'+entitlement.name+'</a></td></tr>');
       }
     });
