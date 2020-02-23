@@ -1,20 +1,19 @@
 var bg = chrome.extension.getBackgroundPage();
 
-function myFunction(input) {
+function filterEntitlements(input) {
   // Declare variables
-  var filter,results, row, a, i, txtValue;
+  let filter,entitlements, entitlement, a, i, txtValue;
   filter = input.toUpperCase();
-  results = document.getElementById("results");
-  row = results.getElementsByTagName('tr');
+  entitlements = document.getElementById("results");
+  entitlement = entitlements.getElementsByTagName('tr');
 
-  // Loop through all list items, and hide those who don't match the search query
-  for (i = 0; i < row.length; i++) {
-    a = row[i].getElementsByTagName("a")[0];
+  for (i = 0; i < entitlement.length; i++) {
+    a = entitlement[i].getElementsByTagName("a")[0];
     txtValue = a.textContent || a.innerText;
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      row[i].style.display = "";
+      entitlement[i].style.display = "";
     } else {
-      row[i].style.display = "none";
+      entitlement[i].style.display = "none";
     }
   }
 }
@@ -41,7 +40,7 @@ $(document).ready(function() {
   input.on({
     'keyup': function() {
       let str = $("#appSearch").val();
-      myFunction(str);
+      filterEntitlements(str);
     }
   });
 
