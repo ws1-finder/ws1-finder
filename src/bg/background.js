@@ -32,8 +32,8 @@ function onPopupLoad(successCallback) {
             credentials: 'include'
         }).then(checkAuthenticated)
             .then(res => res.json())
-            .then(storeSuccess)
             .then(filterResults)
+            .then(storeSuccess)
             .then(successCallback)
     }
 }
