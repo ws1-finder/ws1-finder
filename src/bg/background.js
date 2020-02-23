@@ -10,6 +10,13 @@ function storeSuccess(results) {
     return results;
 }
 
+function filterResults(results) {
+    return results._embedded.entitlements.filter(function (entitlement) {
+        const links = entitlement._links;
+        return ('launch' in links) && !('appLaunchUrls' in links) && !('appLaunchUrlsV2' in links)
+    });
+}
+
 function checkAuthenticated(results) {
     if (results.status === 401) {
         chrome.tabs.create({url: BASE_URL});
@@ -26,6 +33,7 @@ function onPopupLoad(successCallback) {
         }).then(checkAuthenticated)
             .then(res => res.json())
             .then(storeSuccess)
+            .then(filterResults)
             .then(successCallback)
     }
 }
