@@ -27,6 +27,7 @@ $(document).ready(function () {
     bg.onPopupLoad(function (entitlements) {
         const list = $("#results");
         list.empty();
+
         entitlements.forEach(function (entitlement) {
             list.append('<tr><td><img width="40" src="' + entitlement._links.icon.href + '"></td><td><a href="' + entitlement._links.launch.href + '">' + entitlement.name + '</a></td></tr>');
         });
