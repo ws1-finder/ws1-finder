@@ -1,9 +1,9 @@
 {
-  "name": "Chooser for VMware Workspace One",
+  "name": "AppFinder for Workspace One",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "Quickly open any app you have access to from Workspace One",
-  "homepage_url": "http://github.com/mikfreedman/workspace-one-chooser",
+  "description": "Quickly open any app you have access to from VMware Workspace One",
+  "homepage_url": "http://github.com/mikfreedman/appfinder-for-workspace-one",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -14,21 +14,17 @@
     "default_popup": "src/menu.html"
   },
   "background": {
-    "scripts": ["src/bg/background.js"],
-    "persistent": false
+    "scripts": ["src/bg/background.js"]
   },
   "permissions": [
     "cookies",
     "https://*.workspaceair.com/*"
   ],
-  "omnibox": {
-    "keyword": "w1"
-  },
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {
-        "default": "Ctrl+Shift+F",
-        "mac": "MacCtrl+Shift+F"
+        "default": "Ctrl+Shift+K",
+        "mac": "Ctrl+Shift+K"
       }
     }
   }
