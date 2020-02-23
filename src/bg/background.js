@@ -2,7 +2,9 @@ const BASE_URL = 'https://myvmware.workspaceair.com';
 let currentResults = null;
 
 function storeSuccess(results) {
-    currentResults = results;
+    if (results.status === 200) {
+        currentResults = results.json;
+    }
     return results;
 }
 
@@ -20,8 +22,8 @@ function onPopupLoad(successCallback) {
         fetch(BASE_URL + '/catalog-portal/services/api/entitlements', {
             credentials: 'include'
         }).then(checkAuthenticated)
-            .then(res => res.json())
             .then(storeSuccess)
+            .then(res => res.json())
             .then(successCallback)
     }
 }
