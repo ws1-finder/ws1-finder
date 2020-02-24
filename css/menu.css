@@ -18,7 +18,7 @@
   display: block; /* Make it into a block element to fill the whole list */
 }
 
-#results tr td:hover:not(.header) {
+.withfocus {
   background-color: #eee; /* Add a hover effect to all links, except for headers */
 }
 
