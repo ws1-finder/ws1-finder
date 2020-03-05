@@ -5,7 +5,7 @@
 
 <img src="https://img.shields.io/chrome-web-store/stars/aehfcfgkfhkaclkhjhonjoabaklkpggc"> <img src="https://img.shields.io/chrome-web-store/v/aehfcfgkfhkaclkhjhonjoabaklkpggc"> <img src="https://img.shields.io/chrome-web-store/users/aehfcfgkfhkaclkhjhonjoabaklkpggc">
 
-#Limitations
+# Limitations
 Currently, AppFinder only lists Applications that can be launched from your web browser, that is where the application is not a virtual app / Launched by Horizon.
 
 # Install
