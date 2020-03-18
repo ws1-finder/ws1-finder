@@ -1,5 +1,8 @@
-const BASE_URL = 'https://myvmware.workspaceair.com';
 let currentResults = null;
+
+function clearCache() {
+    currentResults = null;
+}
 
 function storeSuccess(results) {
     if ('_embedded' in results) {
@@ -19,7 +22,9 @@ function filterResults(results) {
 
 function checkAuthenticated(results) {
     if (results.status === 401) {
-        chrome.tabs.create({url: BASE_URL});
+        baseURL(function (url) {
+            chrome.tabs.create({url: url});
+        });
     }
     return results;
 }
@@ -28,12 +33,22 @@ function onPopupLoad(successCallback) {
     if (currentResults !== null) {
         successCallback(currentResults);
     } else {
-        fetch(BASE_URL + '/catalog-portal/services/api/entitlements', {
-            credentials: 'include'
-        }).then(checkAuthenticated)
-            .then(res => res.json())
-            .then(filterResults)
-            .then(storeSuccess)
-            .then(successCallback)
+        baseURL(function (url) {
+            fetch(url + '/catalog-portal/services/api/entitlements', {
+                credentials: 'include'
+            }).then(checkAuthenticated)
+                .then(res => res.json())
+                .then(filterResults)
+                .then(storeSuccess)
+                .then(successCallback)
+        });
     }
+}
+
+function baseURL(success) {
+    chrome.storage.sync.get({
+        vmwareOneUrl: 'https://myvmware.workspaceair.com'
+    }, function(response) {
+        success(response.vmwareOneUrl);
+    });
 }

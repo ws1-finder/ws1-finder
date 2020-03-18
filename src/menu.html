@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <link rel="stylesheet" type="text/css" href="/css/menu.css">
-  </head>
+</head>
 
-  <body>
-    <div class="wrapper">
-      <div class="title">
+<body>
+<div class="wrapper">
+    <div class="title">
         AppFinder for <a href="https://www.vmware.com/products/workspace-one.html">VMware Workspace One</a>
-      </div>
-    <form autocomplete="off">
-      <input type="text" id="appSearch" placeholder="Search for apps..">
-
-      <table id="results">
-      </table>
-    </form>
-
-    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.hotkeys-0.8.js"></script>
-    <script type="module" src="menu.js"></script>
     </div>
-  </body>
+    <form autocomplete="off">
+        <input type="text" id="appSearch" placeholder="Search for apps..">
+
+        <table id="results">
+        </table>
+    </form>
+</div>
+
+<div class="footer">
+  <a href="#" id="go-to-options">options</a>
+</div>
+
+<script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery.hotkeys-0.8.js"></script>
+<script type="module" src="menu.js"></script>
+</body>
 </html>

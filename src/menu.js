@@ -26,6 +26,16 @@ $(document).ready(function () {
         return false;
     });
 
+    $('#go-to-options').on('click', function (e) {
+        e.preventDefault();
+
+        if (chrome.runtime.openOptionsPage) {
+            chrome.runtime.openOptionsPage();
+        } else {
+            window.open(chrome.runtime.getURL('options.html'));
+        }
+        return false;
+    });
 
     bg.onPopupLoad(function (entitlements) {
         const list = $("#results");
