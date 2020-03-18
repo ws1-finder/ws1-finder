@@ -12,3 +12,6 @@ Currently, AppFinder only lists Applications that can be launched from your web 
 You can find this extension in the [Chrome Web Store](https://chrome.google.com/webstore/detail/appfinder-for-workspace-o/aehfcfgkfhkaclkhjhonjoabaklkpggc)
 
 Alternatively you may download this repository and [load it as an unpacked extension](https://developer.chrome.com/extensions/getstarted#manifest)
+
+# Attributions
+[Keyboard behaviors](src/keyboard_behaviors.js) are based on [babyman/quick-tabs-chrome-extension](https://github.com/babyman/quick-tabs-chrome-extension)

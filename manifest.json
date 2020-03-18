@@ -9,6 +9,9 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
+  "web_accessible_resources": [
+    "src/keyboard_behaviors.js"
+  ],
   "default_locale": "en",
   "browser_action": {
     "default_popup": "src/menu.html"
