@@ -24,6 +24,10 @@ function checkAuthenticated(results) {
     if (results.status === 401) {
         baseURL(function (url) {
             chrome.tabs.create({url: url});
+
+            chrome.runtime.sendMessage({
+                msg: "close_appfinder_extension"
+            });
         });
     }
     return results;

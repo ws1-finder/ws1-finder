@@ -18,7 +18,13 @@ function filterEntitlements(input) {
         }
     }
 }
-
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        if (request.msg === "close_appfinder_extension") {
+            window.close();
+        }
+    }
+);
 
 $(document).ready(function () {
     $('body').on('click', 'a', function () {
@@ -46,7 +52,13 @@ $(document).ready(function () {
         });
     });
 
-    const keyboardBehaviors = new KeyboardBehaviors(chrome.tabs.create, $);
+    const launchAndClose = function(createProperties)
+    {
+        chrome.tabs.create(createProperties);
+        window.close();
+    };   
+
+    const keyboardBehaviors = new KeyboardBehaviors(launchAndClose, $);
     keyboardBehaviors.bindBehaviors($(document));
 
     const input = $('#appSearch');
