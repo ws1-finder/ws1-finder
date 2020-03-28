@@ -16,7 +16,9 @@
   "browser_action": {
     "default_popup": "src/menu.html"
   },
-  "options_page": "src/options.html",
+  "options_ui": {
+    "page":   "src/options.html"
+  },
   "background": {
     "scripts": ["src/bg/background.js"]
   },
