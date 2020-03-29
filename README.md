@@ -12,7 +12,7 @@ Currently, AppFinder only lists Applications that can be launched from your web 
 ## Install
 You can find this extension in the [Chrome Web Store](https://chrome.google.com/webstore/detail/appfinder-for-workspace-o/aehfcfgkfhkaclkhjhonjoabaklkpggc)
 
-Alternatively you may download this repository and load the `/web-extension` directory [as an unpacked extension](https://developer.chrome.com/extensions/getstarted#manifest)
+Alternatively you may download this repository and load the [/web-extension] directory [as an unpacked extension](https://developer.chrome.com/extensions/getstarted#manifest)
 
 # Firefox
 <img src="https://img.shields.io/amo/stars/appfinder-for-workspace-one"> <img src="https://img.shields.io/amo/v/appfinder-for-workspace-one"> <img src="https://img.shields.io/amo/users/appfinder-for-workspace-one">
@@ -20,7 +20,7 @@ Alternatively you may download this repository and load the `/web-extension` dir
 ## Install
 You can find this extension here: [Firefox Browser Add-Ons](https://addons.mozilla.org/en-US/firefox/addon/appfinder-for-workspace-one)
 
-Alternatively you may download this repository and install the `/web-extension` directory as a temporary addon: (https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
+Alternatively you may download this repository and install the [/web-extension] directory as a temporary addon: (https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
 
 # Attributions
 [Keyboard behaviors](src/keyboard_behaviors.js) are based on [babyman/quick-tabs-chrome-extension](https://github.com/babyman/quick-tabs-chrome-extension)
