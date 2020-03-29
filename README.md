@@ -20,7 +20,7 @@ Alternatively you may download this repository and load the [/web-extension](/we
 ## Install
 You can find this extension here: [Firefox Browser Add-Ons](https://addons.mozilla.org/en-US/firefox/addon/appfinder-for-workspace-one)
 
-Alternatively you may download this repository and install the [/web-extension](/web-extension) directory as a temporary addon: (https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
+Alternatively you may download this repository and install the [/web-extension](/web-extension) directory as a [temporary addon](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
 
 # Attributions
 [Keyboard behaviors](src/keyboard_behaviors.js) are based on [babyman/quick-tabs-chrome-extension](https://github.com/babyman/quick-tabs-chrome-extension)
