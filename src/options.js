@@ -1,7 +1,6 @@
 var bg = chrome.extension.getBackgroundPage();
 
-function save_options() {
-    var vmwareOneUrl = document.getElementById('vmware-one-url').value;
+function save_options(vmwareOneUrl) {
     chrome.storage.sync.set({
         vmwareOneUrl: vmwareOneUrl
     }, function() {
@@ -15,6 +14,14 @@ function save_options() {
     });
 }
 
+function originURL(url) {
+    return cleanURL(url)+ "/*";
+}
+function cleanURL(url) {
+    return url.replace(/\/?\*?$/,"");
+}
+
+
 // stored in chrome.storage.
 function restore_options() {
     chrome.storage.sync.get({
@@ -25,4 +32,17 @@ function restore_options() {
 }
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click',
-    save_options);
+    function() {
+        var vmwareOneUrl = document.getElementById('vmware-one-url').value;
+
+        chrome.permissions.request({
+            origins: [originURL(vmwareOneUrl)]
+        }, function(granted) {
+            if (granted) {
+                save_options(cleanURL(vmwareOneUrl));
+            } else {
+                var status = document.getElementById('status');
+                status.textContent = 'Permission not granted, options not saved!';
+            }
+        });
+    });

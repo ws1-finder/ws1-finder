@@ -1,6 +1,6 @@
 {
   "name": "AppFinder for Workspace One",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "manifest_version": 2,
   "description": "Quickly open any app you have access to from VMware Workspace One",
   "homepage_url": "http://github.com/mikfreedman/appfinder-for-workspace-one",
@@ -16,6 +16,10 @@
   "browser_action": {
     "default_popup": "src/menu.html"
   },
+  "optional_permissions": [
+    "http://*/",
+    "https://*/"
+  ],
   "options_ui": {
     "page":   "src/options.html"
   },
