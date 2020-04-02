@@ -1,4 +1,4 @@
-<img src="icons/icon48.png" align="right" />
+<img src="web-extension/icons/icon48.png" align="right" />
 
 # AppFinder for VMware Workspace One
 >This extension will display a searchable list of the applications to which your are entitled in [VMware Workspace One](https://www.vmware.com/products/workspace-one.html)
