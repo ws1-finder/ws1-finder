@@ -20,6 +20,10 @@ function filterResults(results) {
     });
 }
 
+function sortResults(results) {
+  return results.sort(function(a,b){return b.favorite-a.favorite});
+}
+
 function checkAuthenticated(results) {
     if (results.status === 401) {
         baseURL(function (url) {
@@ -43,6 +47,7 @@ function onPopupLoad(successCallback) {
             }).then(checkAuthenticated)
                 .then(res => res.json())
                 .then(filterResults)
+                .then(sortResults)
                 .then(storeSuccess)
                 .then(successCallback)
         });

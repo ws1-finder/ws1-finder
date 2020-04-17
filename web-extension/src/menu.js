@@ -48,7 +48,8 @@ $(document).ready(function () {
         list.empty();
 
         entitlements.forEach(function (entitlement) {
-            list.append('<tr class="item"><td><img width="40" src="' + entitlement._links.icon.href + '"></td><td><a href="' + entitlement._links.launch.href + '">' + entitlement.name + '</a></td></tr>');
+          let favorite = entitlement.favorite ? '<img src="/css/favorite.png" width="20" height="20">' : '';
+          list.append('<tr class="item"><td><img width="40" src="' + entitlement._links.icon.href + '"></td><td><a href="' + entitlement._links.launch.href + '">' + entitlement.name + '</a></td><td class="favorite">' + favorite + '</td></tr>');
         });
     });
 

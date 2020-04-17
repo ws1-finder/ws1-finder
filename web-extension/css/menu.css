@@ -8,6 +8,10 @@
   font-weight: bold;
 }
 
+.favorite {
+  padding-right: 7px;
+}
+
 .title a {
   color: white;
   text-decoration: none;
