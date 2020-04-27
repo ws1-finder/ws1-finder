@@ -23,4 +23,4 @@ You can find this extension here: [Firefox Browser Add-Ons](https://addons.mozil
 Alternatively you may download this repository and install the [/web-extension](/web-extension) directory as a [temporary addon](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
 
 # Attributions
-[Keyboard behaviors](src/keyboard_behaviors.js) are based on [babyman/quick-tabs-chrome-extension](https://github.com/babyman/quick-tabs-chrome-extension)
+[Keyboard behaviors](web-extension/src/keyboard_behaviors.js) are based on [babyman/quick-tabs-chrome-extension](https://github.com/babyman/quick-tabs-chrome-extension)
