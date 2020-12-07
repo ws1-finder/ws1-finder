@@ -2,9 +2,9 @@ import KeyboardBehaviors from "./keyboard_behaviors.js"
 
 var bg = chrome.extension.getBackgroundPage();
 
-function filterEntitlements(input) {
+function filterEntitlements() {
     let filter, entitlements, entitlement, a, i, txtValue;
-    filter = input.toUpperCase();
+    filter = document.getElementById("appSearch").value.toUpperCase();
     entitlements = document.getElementById("results");
     entitlement = entitlements.getElementsByTagName('tr');
 
@@ -51,6 +51,8 @@ $(document).ready(function () {
           let favorite = entitlement.favorite ? '<img src="/css/favorite.png" width="20" height="20">' : '';
           list.append('<tr class="item"><td><img width="40" src="' + entitlement._links.icon.href + '"></td><td><a href="' + entitlement._links.launch.href + '">' + entitlement.name + '</a></td><td class="favorite">' + favorite + '</td></tr>');
         });
+
+        filterEntitlements();
     });
 
     const launchAndClose = function(createProperties)
@@ -64,12 +66,7 @@ $(document).ready(function () {
 
     const input = $('#appSearch');
 
-    input.on({
-        'keyup': function () {
-            let str = $("#appSearch").val();
-            filterEntitlements(str);
-        }
-    });
+    input.on({'keyup': filterEntitlements});
 
     input.focus();
 });
