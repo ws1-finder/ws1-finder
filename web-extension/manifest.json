@@ -27,7 +27,6 @@
     "scripts": ["src/bg/background.js"]
   },
   "permissions": [
-    "cookies",
     "storage",
     "https://*.workspaceair.com/*"
   ],
