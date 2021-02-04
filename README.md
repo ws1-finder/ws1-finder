@@ -22,5 +22,14 @@ You can find this extension here: [Firefox Browser Add-Ons](https://addons.mozil
 
 Alternatively you may download this repository and install the [/web-extension](/web-extension) directory as a [temporary addon](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
 
+# Edge
+[![](https://img.shields.io/badge/dynamic/json?label=rating&suffix=/5&query=%24.averageRating&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Ffaalidmfeahkcajpjccbgdfglmhepbfk)](https://microsoftedge.microsoft.com/addons/detail/workspace-one-finder/faalidmfeahkcajpjccbgdfglmhepbfk)
+[![](https://img.shields.io/badge/dynamic/json?label=edge%20add-on&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Ffaalidmfeahkcajpjccbgdfglmhepbfk)](https://microsoftedge.microsoft.com/addons/detail/workspace-one-finder/faalidmfeahkcajpjccbgdfglmhepbfk)
+
+## Install
+You can find this extension at [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/workspace-one-finder/faalidmfeahkcajpjccbgdfglmhepbfk)
+
+Alternatively you may download this repository and [sideload](https://docs.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading) the [/web-extension](/web-extension) directory
+
 # Attributions
 [Keyboard behaviors](web-extension/src/keyboard_behaviors.js) are based on [babyman/quick-tabs-chrome-extension](https://github.com/babyman/quick-tabs-chrome-extension)
