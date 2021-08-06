@@ -43,9 +43,14 @@ $(document).ready(function () {
         return false;
     });
 
+    bg.baseURL(function(url) {
+        document.getElementById("ws1-url").href = url;
+    });
+
     bg.onPopupLoad(function (entitlements) {
         const list = $("#results");
         list.empty();
+
 
         entitlements.forEach(function (entitlement) {
           let favorite = entitlement.favorite ? '<img src="/css/favorite.png" width="20" height="20">' : '';
