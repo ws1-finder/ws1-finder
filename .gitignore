@@ -2,6 +2,6 @@
 
 dist/*
 
-web-extension/popup.js
+web-extension/popup.js*
 
 node_modules/*
