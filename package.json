@@ -1,0 +1,26 @@
+{
+  "name": "ws1-finder",
+  "version": "1.0.0",
+  "description": "<img src=\"web-extension/icons/icon48.png\" align=\"right\" />",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack  --config ./webpack.config.js --mode production",
+    "watch": "webpack watch --config ./webpack.config.js --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ws1-finder/ws1-finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ws1-finder/ws1-finder/issues"
+  },
+  "homepage": "https://github.com/ws1-finder/ws1-finder#readme",
+  "devDependencies": {
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
+}
