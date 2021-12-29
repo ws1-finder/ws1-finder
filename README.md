@@ -10,10 +10,10 @@ Currently, Finder only lists Applications that can be launched from your web bro
 
 This project uses `webpack` to bundle assets in [/src](/src)
 
-Use npx to run webpack in watch mode like so
+Use npm to run webpack in watch mode like so
 
 ```
-npx run watch
+npm run watch
 ```
 
 You may then load the [/web-extension](/web-extension) directory as an unpacked extension in Chrome
@@ -50,7 +50,7 @@ Alternatively you may [sideload](https://docs.microsoft.com/en-us/microsoft-edge
 run the following command from the root directory of this repository
 
 ```
-npx run build
+npm run build
 ```
 
 
