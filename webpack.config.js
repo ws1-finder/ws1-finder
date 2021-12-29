@@ -9,5 +9,17 @@ module.exports = {
     path: path.resolve(__dirname, './web-extension'),
     filename: '[name].js',
   },
+  module: {
+    rules: [
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['*', '.js']
+  },
   devtool: 'inline-source-map'
 };
