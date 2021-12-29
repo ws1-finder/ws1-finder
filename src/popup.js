@@ -19,7 +19,7 @@ function filterEntitlements() {
     }
 }
 chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {
+    function (request, sender, sendResponse) {
         if (request.msg === "close_appfinder_extension") {
             window.close();
         }
@@ -28,7 +28,7 @@ chrome.runtime.onMessage.addListener(
 
 $(document).ready(function () {
     $('body').on('click', 'a', function () {
-        chrome.tabs.create({url: $(this).attr('href')});
+        chrome.tabs.create({ url: $(this).attr('href') });
         return false;
     });
 
@@ -43,7 +43,7 @@ $(document).ready(function () {
         return false;
     });
 
-    bg.baseURL(function(url) {
+    bg.baseURL(function (url) {
         document.getElementById("ws1-url").href = url;
     });
 
@@ -60,18 +60,17 @@ $(document).ready(function () {
         filterEntitlements();
     });
 
-    const launchAndClose = function(createProperties)
-    {
+    const launchAndClose = function (createProperties) {
         chrome.tabs.create(createProperties);
         window.close();
-    };   
+    };
 
     const keyboardBehaviors = new KeyboardBehaviors(launchAndClose, $);
     keyboardBehaviors.bindBehaviors($(document));
 
     const input = $('#appSearch');
 
-    input.on({'keyup': filterEntitlements});
+    input.on({ 'keyup': filterEntitlements });
 
     input.focus();
 });
