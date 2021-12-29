@@ -5,5 +5,6 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './web-extension'),
     filename: 'popup.js',
-  }
+  },
+  devtool: 'inline-source-map'
 };
