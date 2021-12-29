@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from "./app.js";
 import KeyboardBehaviors from "./keyboard_behaviors.js"
 
 var bg = chrome.extension.getBackgroundPage();
@@ -47,19 +50,6 @@ $(document).ready(function () {
         document.getElementById("ws1-url").href = url;
     });
 
-    bg.onPopupLoad(function (entitlements) {
-        const list = $("#results");
-        list.empty();
-
-
-        entitlements.forEach(function (entitlement) {
-          let favorite = entitlement.favorite ? '<img src="/css/favorite.png" width="20" height="20">' : '';
-          list.append('<tr class="item"><td><img width="40" src="' + entitlement._links.icon.href + '"></td><td><a href="' + entitlement._links.launch.href + '">' + entitlement.name + '</a></td><td class="favorite">' + favorite + '</td></tr>');
-        });
-
-        filterEntitlements();
-    });
-
     const launchAndClose = function (createProperties) {
         chrome.tabs.create(createProperties);
         window.close();
@@ -74,3 +64,8 @@ $(document).ready(function () {
 
     input.focus();
 });
+
+ReactDOM.render(
+    <App entitlementLoader={bg.onPopupLoad}/>,
+    document.getElementById('app')
+);
