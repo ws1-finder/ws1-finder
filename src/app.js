@@ -1,20 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Entitlements from './entitlements';
 
-const App = ({ entitlementLoader }) => {
-    const [entitlements, setEntitlements] = useState([]);
-
-    useEffect(() => {
-        let mounted = true;
-
-        entitlementLoader((entitlements) => {
-            if(mounted) {
-              setEntitlements(entitlements)
-            }
-        })
-        return () => mounted = false;
-      }, [])
-
+const App = () => {
     return <div>
         <div className="title">
             <a id="ws1-url" href="https://www.vmware.com/products/workspace-one.html">Workspace One Finder</a>
@@ -23,7 +10,7 @@ const App = ({ entitlementLoader }) => {
             <input type="text" id="appSearch" placeholder="Search for apps.."></input>
         </form>
 
-        <Entitlements entitlements = {entitlements} />,
+        <Entitlements />,
     </div>
 }
 export default App
