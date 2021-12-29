@@ -19,7 +19,7 @@ const Entitlements = () => {
     return <div>
         <table id="results">
             <tbody>
-                {entitlements.map(entitlement => <Entitlement entitlement={entitlement} key={entitlement.id} />)}
+                {entitlements.map(entitlement => <Entitlement entitlement={entitlement} key={entitlement.appId} />)}
             </tbody>
         </table>
     </div >
