@@ -10,21 +10,21 @@
     "128": "icons/icon128.png"
   },
   "web_accessible_resources": [
-    "src/keyboard_behaviors.js"
+    "keyboard_behaviors.js"
   ],
   "default_locale": "en",
   "browser_action": {
-    "default_popup": "src/popup.html"
+    "default_popup": "popup.html"
   },
   "optional_permissions": [
     "http://*/",
     "https://*/"
   ],
   "options_ui": {
-    "page":   "src/options.html"
+    "page":   "options.html"
   },
   "background": {
-    "scripts": ["src/bg/background.js"]
+    "scripts": ["background.js"]
   },
   "permissions": [
     "storage",
