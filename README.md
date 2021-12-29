@@ -26,7 +26,7 @@ You may then load the [/web-extension](/web-extension) directory as an unpacked 
 ### Install
 You can find this extension in the [Chrome Web Store](https://chrome.google.com/webstore/detail/appfinder-for-workspace-o/aehfcfgkfhkaclkhjhonjoabaklkpggc)
 
-Alternatively load the [build](#local-installation) as an [unpacked extension](https://developer.chrome.com/extensions/getstarted#manifest)
+Alternatively load the [build](#how-to-build-the-extension) as an [unpacked extension](https://developer.chrome.com/extensions/getstarted#manifest)
 
 ## Firefox
 <img src="https://img.shields.io/amo/stars/appfinder-for-workspace-one"> <img src="https://img.shields.io/amo/v/appfinder-for-workspace-one"> <img src="https://img.shields.io/amo/users/appfinder-for-workspace-one">
@@ -34,7 +34,7 @@ Alternatively load the [build](#local-installation) as an [unpacked extension](h
 ### Install
 You can find this extension here: [Firefox Browser Add-Ons](https://addons.mozilla.org/en-US/firefox/addon/appfinder-for-workspace-one)
 
-Alternatively load the [build](#local-installation) as a [temporary addon](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
+Alternatively load the [build](#how-to-build-the-extension) as a [temporary addon](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
 
 ## Edge
 [![](https://img.shields.io/badge/dynamic/json?label=rating&suffix=/5&query=%24.averageRating&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Ffaalidmfeahkcajpjccbgdfglmhepbfk)](https://microsoftedge.microsoft.com/addons/detail/workspace-one-finder/faalidmfeahkcajpjccbgdfglmhepbfk)
@@ -43,9 +43,9 @@ Alternatively load the [build](#local-installation) as a [temporary addon](https
 ### Install
 You can find this extension at [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/workspace-one-finder/faalidmfeahkcajpjccbgdfglmhepbfk)
 
-Alternatively you may [sideload](https://docs.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading) the [build](#local-installation)
+Alternatively you may [sideload](https://docs.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading) the [build](#how-to-build-the-extension)
 
-## Local Installation
+## How to build the extension
 
 run the following command from the root directory of this repository
 
