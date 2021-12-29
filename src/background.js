@@ -53,6 +53,7 @@ function onPopupLoad(successCallback) {
         });
     }
 }
+window.onPopupLoad = onPopupLoad;
 
 function baseURL(success) {
     chrome.storage.sync.get({
@@ -61,3 +62,4 @@ function baseURL(success) {
         success(response.vmwareOneUrl);
     });
 }
+window.baseURL = baseURL;

@@ -3,5 +3,6 @@
 dist/*
 
 web-extension/popup.js*
+web-extension/background.js*
 
 node_modules/*
