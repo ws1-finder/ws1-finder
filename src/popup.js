@@ -41,10 +41,6 @@ $(document).ready(function () {
 
     const keyboardBehaviors = new KeyboardBehaviors(launchAndClose, $);
     keyboardBehaviors.bindBehaviors($(document));
-
-    const input = $('#appSearch');
-
-    input.focus();
 });
 
 ReactDOM.render(

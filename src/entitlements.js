@@ -35,7 +35,7 @@ const Entitlements = () => {
 
     return <div>
         <form autoComplete="off">
-            <input type="search" id="appSearch" placeholder="Search Workspace ONE" onChange={handleChange}></input>
+            <input type="search" id="appSearch" placeholder="Search Workspace ONE" onChange={handleChange} autoFocus />
         </form>
 
         <table id="results">
