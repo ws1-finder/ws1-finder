@@ -44,6 +44,6 @@ $(document).ready(function () {
 });
 
 ReactDOM.render(
-    <App entitlementLoader={bg.onPopupLoad}/>,
+    <App />,
     document.getElementById('app')
 );
