@@ -27,31 +27,24 @@ function sortResults(results) {
 
 function checkAuthenticated(results) {
     if (results.status === 401) {
-        baseURL().then(url => {
-            chrome.tabs.create({ url: url });
-
-            chrome.runtime.sendMessage({
-                msg: "close_appfinder_extension"
-            });
-        })
+        throw Error('Not authenticated');
     }
     return results;
 }
 
-function getEntitlements(successCallback) {
+function getEntitlements() {
     if (currentResults !== null) {
-        successCallback(currentResults);
+        return Promise.resolve(currentResults);
     } else {
-        baseURL()
+        return baseURL()
             .then(url => {
-                fetch(url + '/catalog-portal/services/api/entitlements', {
+                return fetch(url + '/catalog-portal/services/api/entitlements', {
                     credentials: 'include'
                 }).then(checkAuthenticated)
                     .then(res => res.json())
                     .then(filterResults)
                     .then(sortResults)
                     .then(storeSuccess)
-                    .then(successCallback)
             });
     }
 }
