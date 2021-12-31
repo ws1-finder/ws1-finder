@@ -37,7 +37,7 @@ function checkAuthenticated(results) {
     return results;
 }
 
-function onPopupLoad(successCallback) {
+function getEntitlements(successCallback) {
     if (currentResults !== null) {
         successCallback(currentResults);
     } else {
@@ -53,7 +53,7 @@ function onPopupLoad(successCallback) {
         });
     }
 }
-window.onPopupLoad = onPopupLoad;
+window.getEntitlements = getEntitlements;
 
 function baseURL(success) {
     chrome.storage.sync.get({
