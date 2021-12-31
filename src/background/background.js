@@ -1,3 +1,4 @@
+import { baseURL } from './base_url';
 let currentResults = null;
 
 function clearCache() {
@@ -56,13 +57,4 @@ function getEntitlements(successCallback) {
 }
 window.getEntitlements = getEntitlements;
 
-function baseURL() {
-    return new Promise((resolve, _reject) => {
-        chrome.storage.sync.get({
-            vmwareOneUrl: 'https://myvmware.workspaceair.com'
-        }, function (response) {
-            resolve(response.vmwareOneUrl);
-        });
-    })
-}
 window.baseURL = baseURL;
