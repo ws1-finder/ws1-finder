@@ -1,13 +1,11 @@
 import React from 'react';
 import Entitlements from './entitlements';
 import Options from './options';
+import WorkspaceOneHeader from './workspace_one_header';
 
 const App = () => {
     return <div>
-        <div className="title">
-            <a id="ws1-url" href="https://www.vmware.com/products/workspace-one.html">Workspace One Finder</a>
-        </div>
-
+        <WorkspaceOneHeader />
         <Entitlements />
         <Options />
     </div>
