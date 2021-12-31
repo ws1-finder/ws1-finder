@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Entitlement from './entitlement';
 import { getEntitlements } from './services/entitlements';
 
-const Entitlements = () => {
+const Search = () => {
     const [entitlements, setEntitlements] = useState([]);
     const [searchField, setSearchField] = useState("");
 
@@ -46,4 +46,4 @@ const Entitlements = () => {
     </div >
 }
 
-export default Entitlements
+export default Search
