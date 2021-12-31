@@ -12,9 +12,5 @@ export function launchURLAndClose(e) {
 }
 
 export function getBaseURL(backgroundPage = chrome.extension.getBackgroundPage()) {
-    return new Promise((resolve, reject) => {
-        backgroundPage.baseURL(function (url) {
-            resolve(url);
-        });
-    });
+    return backgroundPage.baseURL()
 }

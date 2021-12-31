@@ -21,18 +21,18 @@ function filterResults(results) {
 }
 
 function sortResults(results) {
-  return results.sort(function(a,b){return b.favorite-a.favorite});
+    return results.sort(function (a, b) { return b.favorite - a.favorite });
 }
 
 function checkAuthenticated(results) {
     if (results.status === 401) {
-        baseURL(function (url) {
-            chrome.tabs.create({url: url});
+        baseURL().then(url => {
+            chrome.tabs.create({ url: url });
 
             chrome.runtime.sendMessage({
                 msg: "close_appfinder_extension"
             });
-        });
+        })
     }
     return results;
 }
@@ -41,25 +41,28 @@ function getEntitlements(successCallback) {
     if (currentResults !== null) {
         successCallback(currentResults);
     } else {
-        baseURL(function (url) {
-            fetch(url + '/catalog-portal/services/api/entitlements', {
-                credentials: 'include'
-            }).then(checkAuthenticated)
-                .then(res => res.json())
-                .then(filterResults)
-                .then(sortResults)
-                .then(storeSuccess)
-                .then(successCallback)
-        });
+        baseURL()
+            .then(url => {
+                fetch(url + '/catalog-portal/services/api/entitlements', {
+                    credentials: 'include'
+                }).then(checkAuthenticated)
+                    .then(res => res.json())
+                    .then(filterResults)
+                    .then(sortResults)
+                    .then(storeSuccess)
+                    .then(successCallback)
+            });
     }
 }
 window.getEntitlements = getEntitlements;
 
-function baseURL(success) {
-    chrome.storage.sync.get({
-        vmwareOneUrl: 'https://myvmware.workspaceair.com'
-    }, function(response) {
-        success(response.vmwareOneUrl);
-    });
+function baseURL() {
+    return new Promise((resolve, _reject) => {
+        chrome.storage.sync.get({
+            vmwareOneUrl: 'https://myvmware.workspaceair.com'
+        }, function (response) {
+            resolve(response.vmwareOneUrl);
+        });
+    })
 }
 window.baseURL = baseURL;
