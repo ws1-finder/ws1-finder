@@ -56,5 +56,5 @@ function getEntitlements(successCallback) {
     }
 }
 window.getEntitlements = getEntitlements;
-
 window.baseURL = baseURL;
+window.clearCache = clearCache;
