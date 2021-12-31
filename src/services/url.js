@@ -6,6 +6,10 @@ export function launchURL(e) {
         chrome.tabs.create({ url: e });
     }
 }
+export function launchURLAndClose(e) {
+    launchURL(e)
+    window.close();
+}
 
 export function getBaseURL(backgroundPage = chrome.extension.getBackgroundPage()) {
     return new Promise((resolve, reject) => {

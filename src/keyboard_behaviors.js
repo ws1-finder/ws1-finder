@@ -29,11 +29,10 @@
 // CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 // OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
+import { launchURLAndClose } from "./services/url";
 export default class KeyboardBehaviors {
-  constructor (launchURL, jQuery) {
+  constructor (jQuery) {
     this.jQuery = jQuery;
-    this.launchURL = launchURL;
 
     this.entryWithFocus = this.entryWithFocus.bind(this);
     this.isFocusSet = this.isFocusSet.bind(this);
@@ -138,7 +137,7 @@ export default class KeyboardBehaviors {
       }
 
       if (keyboardBehaviors.isFocusSet()) {
-        keyboardBehaviors.launchURL({url: keyboardBehaviors.jQuery(keyboardBehaviors.entryWithFocus().find("a")[0]).attr('href')});
+        launchURLAndClose(keyboardBehaviors.jQuery(keyboardBehaviors.entryWithFocus().find("a")[0]).attr('href'));
       }
     });
 

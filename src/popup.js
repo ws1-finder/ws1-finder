@@ -12,12 +12,7 @@ chrome.runtime.onMessage.addListener(
 );
 
 $(document).ready(function () {
-    const launchAndClose = function (createProperties) {
-        chrome.tabs.create(createProperties);
-        window.close();
-    };
-
-    const keyboardBehaviors = new KeyboardBehaviors(launchAndClose, $);
+    const keyboardBehaviors = new KeyboardBehaviors($);
     keyboardBehaviors.bindBehaviors($(document));
 });
 
