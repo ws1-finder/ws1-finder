@@ -14,11 +14,6 @@ chrome.runtime.onMessage.addListener(
 );
 
 $(document).ready(function () {
-    $('body').on('click', 'a', function () {
-        chrome.tabs.create({ url: $(this).attr('href') });
-        return false;
-    });
-
     $('#go-to-options').on('click', function (e) {
         e.preventDefault();
 
