@@ -1,5 +1,6 @@
 import { baseURL as _baseURL } from './base_url';
 import { clear, get as cacheGet } from './cached_response';
+import { checkStatus } from './check_status';
 
 function filterResults(results) {
     return results._embedded.entitlements.filter(function (entitlement) {
@@ -12,28 +13,12 @@ function sortResults(results) {
     return results.sort(function (a, b) { return b.favorite - a.favorite });
 }
 
-function checkAuthenticated(results) {
-    if (results.status === 401) {
-        throw Error('Not authenticated');
-    }
-    return results;
-}
-
-function checkOk(response) {
-    if (!response.ok) {
-        throw Error(response.statusText);
-    }
-
-    return response;
-}
-
 function get(baseURL = _baseURL) {
     return baseURL()
         .then(url => {
             return fetch(url + '/catalog-portal/services/api/entitlements', {
                 credentials: 'include'
-            }).then(checkAuthenticated)
-                .then(checkOk)
+            }).then(checkStatus)
                 .then(res => res.json())
                 .then(filterResults)
                 .then(sortResults)
