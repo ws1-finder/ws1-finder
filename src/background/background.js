@@ -1,7 +1,7 @@
 import { baseURL } from './base_url';
 let currentResults = null;
 
-function clearCache() {
+function clear() {
     currentResults = null;
 }
 
@@ -50,4 +50,4 @@ function getEntitlements() {
 }
 window.getEntitlements = getEntitlements;
 window.baseURL = baseURL;
-window.clearCache = clearCache;
+window.clear = clear;
