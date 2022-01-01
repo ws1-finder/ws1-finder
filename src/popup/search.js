@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Entitlement from './entitlement';
+import Result from './result';
 import { getEntitlements } from './services/entitlements';
 
 const Search = () => {
@@ -44,7 +44,7 @@ const Search = () => {
 
         <table id="results">
             <tbody>
-                {filteredEntitlements.map(entitlement => <Entitlement entitlement={entitlement} key={entitlement.appId} />)}
+                {filteredEntitlements.map(entitlement => <Result icon={entitlement._links.icon.href} target={entitlement._links.launch.href} name={entitlement.name} isFavorite={entitlement.favorite} key={entitlement.appId} />)}
             </tbody>
         </table>
         {errorMessage && (
