@@ -2,14 +2,14 @@ import { baseURL as _baseURL } from './base_url';
 import { clear, get as cacheGet } from './cached_response';
 import { checkStatus } from './check_status';
 
-function filterResults(results) {
+function filter(results) {
     return results._embedded.entitlements.filter(function (entitlement) {
         const links = entitlement._links;
         return ('launch' in links) && !('appLaunchUrls' in links) && !('appLaunchUrlsV2' in links)
     });
 }
 
-function sortResults(results) {
+function sort(results) {
     return results.sort(function (a, b) { return b.favorite - a.favorite });
 }
 
@@ -20,8 +20,8 @@ function get(baseURL = _baseURL) {
                 credentials: 'include'
             }).then(checkStatus)
                 .then(res => res.json())
-                .then(filterResults)
-                .then(sortResults)
+                .then(filter)
+                .then(sort)
         });
 }
 
