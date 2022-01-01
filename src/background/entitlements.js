@@ -33,6 +33,14 @@ function checkAuthenticated(results) {
     return results;
 }
 
+function checkOk(response) {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+
+    return response;
+}
+
 export function getEntitlements() {
     if (currentResults !== null) {
         return Promise.resolve(currentResults);
@@ -42,6 +50,7 @@ export function getEntitlements() {
                 return fetch(url + '/catalog-portal/services/api/entitlements', {
                     credentials: 'include'
                 }).then(checkAuthenticated)
+                    .then(checkOk)
                     .then(res => res.json())
                     .then(filterResults)
                     .then(sortResults)

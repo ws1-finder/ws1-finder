@@ -5,6 +5,7 @@ import { getEntitlements } from './services/entitlements';
 const Search = () => {
     const [entitlements, setEntitlements] = useState([]);
     const [searchField, setSearchField] = useState("");
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         let mounted = true;
@@ -14,6 +15,9 @@ const Search = () => {
                     setEntitlements(items)
                 }
             })
+            .catch(err => {
+                setErrorMessage(err);
+            });
         return () => mounted = false;
     }, [])
 
@@ -43,6 +47,9 @@ const Search = () => {
                 {filteredEntitlements.map(entitlement => <Entitlement entitlement={entitlement} key={entitlement.appId} />)}
             </tbody>
         </table>
+        {errorMessage && (
+            <p className="error"> {errorMessage} </p>
+        )}
     </div >
 }
 
