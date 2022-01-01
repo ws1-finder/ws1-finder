@@ -1,19 +1,5 @@
-import { baseURL } from './base_url';
-
-let currentResults = null;
-
-export function clear() {
-    currentResults = null;
-}
-
-function storeSuccess(results) {
-    if (results.length && results.length > 0) {
-        currentResults = results;
-    } else {
-        currentResults = null;
-    }
-    return results;
-}
+import { baseURL as _baseURL } from './base_url';
+import { clear, get as cacheGet } from './cached_response';
 
 function filterResults(results) {
     return results._embedded.entitlements.filter(function (entitlement) {
@@ -41,20 +27,21 @@ function checkOk(response) {
     return response;
 }
 
+function get(baseURL = _baseURL) {
+    return baseURL()
+        .then(url => {
+            return fetch(url + '/catalog-portal/services/api/entitlements', {
+                credentials: 'include'
+            }).then(checkAuthenticated)
+                .then(checkOk)
+                .then(res => res.json())
+                .then(filterResults)
+                .then(sortResults)
+        });
+}
+
+export { clear }
+
 export function getEntitlements() {
-    if (currentResults !== null) {
-        return Promise.resolve(currentResults);
-    } else {
-        return baseURL()
-            .then(url => {
-                return fetch(url + '/catalog-portal/services/api/entitlements', {
-                    credentials: 'include'
-                }).then(checkAuthenticated)
-                    .then(checkOk)
-                    .then(res => res.json())
-                    .then(filterResults)
-                    .then(sortResults)
-                    .then(storeSuccess)
-            });
-    }
+    return cacheGet(get)
 }
