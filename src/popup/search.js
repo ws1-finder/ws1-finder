@@ -1,54 +1,42 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Result from './result';
 import { getEntitlements } from './services/entitlements';
+import  useSearch from './use_search';
 
 const Search = () => {
-    const [entitlements, setEntitlements] = useState([]);
-    const [searchField, setSearchField] = useState("");
-    const [errorMessage, setErrorMessage] = useState('');
+    const [query, setQuery] = useState('');
 
-    useEffect(() => {
-        let mounted = true;
-        getEntitlements()
-            .then(items => {
-                if (mounted) {
-                    setEntitlements(items)
-                }
-            })
-            .catch(err => {
-                setErrorMessage(err);
-            });
-        return () => mounted = false;
-    }, [])
-
-    const filteredEntitlements = entitlements.filter(
-        entitlement => {
-            return (
-                entitlement
-                    .name
-                    .toLowerCase()
-                    .includes(searchField.toLowerCase())
-            );
-        }
-    );
+    const { status, results, error } = useSearch(getEntitlements, query)
 
     const handleChange = e => {
-        setSearchField(e.target.value);
-    };
+        const query = e.target.value;
 
+        if (query) {
+            setQuery(query)
+        }
+    };
 
     return <div>
         <form autoComplete="off">
             <input type="search" id="appSearch" placeholder="Search Workspace ONE" onChange={handleChange} autoFocus />
         </form>
 
-        <table id="results">
-            <tbody>
-                {filteredEntitlements.map(entitlement => <Result icon={entitlement._links.icon.href} target={entitlement._links.launch.href} name={entitlement.name} isFavorite={entitlement.favorite} key={entitlement.appId} />)}
-            </tbody>
-        </table>
-        {errorMessage && (
-            <p className="error"> {errorMessage} </p>
+        {status === 'idle' && (
+            <div>Nothing loaded</div>
+        )}
+        {status === 'error' && <div>{error}</div>}
+        {status === 'fetching' && <div className="loading"></div>}
+        {status === 'fetched' && (
+            <>
+                {results.length === 0 && <div> No results</div>}
+                <table id="results">
+                    <tbody>
+                {results.map((result) => (
+                    <Result result={result} key={result.key} /> 
+                ))}
+                </tbody>
+                </table>
+            </>
         )}
     </div >
 }
