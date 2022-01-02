@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Result from './result';
 import { getEntitlements } from './services/entitlements';
-import  useSearch from './use_search';
+import useSearch from './use_search';
 
 const Search = () => {
     const [query, setQuery] = useState('');
