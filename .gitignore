@@ -4,5 +4,7 @@ dist/*
 
 web-extension/popup.js*
 web-extension/background.js*
+web-extension/*.woff*
 
 node_modules/*
+
