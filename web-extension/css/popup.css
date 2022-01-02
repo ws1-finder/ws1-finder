@@ -46,10 +46,6 @@ input {
   display: block; /* Make it into a block element to fill the whole list */
 }
 
-.withfocus {
-  background-color: #eee; /* Add a hover effect to all links, except for headers */
-}
-
 .wrapper {
    width: 450px;
    margin-left: auto;
