@@ -73,7 +73,7 @@ const useSearch = (getEntitlements, query) => {
         dispatch({ type: 'FETCHED', payload: filteredEntitlements });
 
         return () => cancelRequest = true;
-    }, [query, state]);
+    }, [query]);
 
     return state;
 };
