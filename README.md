@@ -18,6 +18,12 @@ npm run watch
 
 You may then load the [/web-extension](/web-extension) directory as an unpacked extension in Chrome
 
+# TODO
+
+- [ ] Keyboard Navigation
+- [ ] Tests
+- [ ] People Search
+
 # Installation
 
 ## Chrome
