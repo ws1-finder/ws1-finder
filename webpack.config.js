@@ -1,3 +1,4 @@
+const CopyPlugin = require("copy-webpack-plugin");
 const path = require('path');
 
 module.exports = {
@@ -25,5 +26,12 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },
-  devtool: 'inline-source-map'
+  devtool: 'inline-source-map',
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: "assets", to: "" }
+      ],
+    }),
+  ],
 };

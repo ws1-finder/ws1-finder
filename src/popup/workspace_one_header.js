@@ -32,7 +32,7 @@ const WorkspaceOneHeader = () => {
                             Workspace One Finder
                         </Link>
                     </Typography>
-                    <Avatar alt="Workspace One Finder" src="/css/white-bg-icon.png" />
+                    <Avatar alt="Workspace One Finder" src="/ws1-finder.svg" />
                 </Toolbar>
             </AppBar>
         </Box>

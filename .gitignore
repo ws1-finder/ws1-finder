@@ -5,6 +5,7 @@ dist/*
 web-extension/popup.js*
 web-extension/background.js*
 web-extension/*.woff*
+web-extension/ws1-finder.svg
 
 node_modules/*
 
