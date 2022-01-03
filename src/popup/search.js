@@ -20,15 +20,24 @@ const Search = () => {
     };
 
     return <div>
-        <form autoComplete="off">
-            <input type="search" id="appSearch" placeholder="Search Workspace ONE" onChange={handleChange} autoFocus />
-        </form>
+        <TextField
+            id="outlined-basic"
+            variant="standard"
+            onChange={handleChange}
+            placeholder="Search VMware Workspace One"
+            fullWidth
+            autoFocus
+            InputProps={{
+                startAdornment: <SearchIcon />
+            }}
+            sx={{ mt: "1em" }}
+        />
 
         {status === 'idle' && (
             <div>Nothing loaded</div>
         )}
         {status === 'error' && <div>{error}</div>}
-        {status === 'fetching' && <div className="loading"></div>}
+        {status === 'fetching' && <CircularProgress />}
         {status === 'fetched' && (
             <>
                 {results.length === 0 && <div> No results</div>}
