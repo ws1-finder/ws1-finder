@@ -1,7 +1,3 @@
-.favorite {
-  padding-right: 7px;
-}
-
 .title a {
   color: white;
   text-decoration: none;
@@ -25,15 +21,6 @@ input {
   padding: 12px 20px 12px 40px; /* Add some padding */
   border: 1px solid #ddd; /* Add a grey border */
   margin-bottom: 12px; /* Add some space below the input */
-}
-
-#results td a {
-  margin-top: -1px; /* Prevent double borders */
-  padding: 12px; /* Add some padding */
-  text-decoration: none; /* Remove default text underline */
-  font-size: 18px; /* Increase the font-size */
-  color: black; /* Add a black text color */
-  display: block; /* Make it into a block element to fill the whole list */
 }
 
 .wrapper {

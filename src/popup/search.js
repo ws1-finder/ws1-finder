@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Result from './result';
+import { styled, alpha } from '@mui/material/styles';
+import Results from './results';
 import { getEntitlements } from './services/entitlements';
 import useSearch from './use_search';
 
@@ -29,13 +30,7 @@ const Search = () => {
         {status === 'fetched' && (
             <>
                 {results.length === 0 && <div> No results</div>}
-                <table id="results">
-                    <tbody>
-                {results.map((result) => (
-                    <Result result={result} key={result.key} /> 
-                ))}
-                </tbody>
-                </table>
+                <Results results={results} />
             </>
         )}
     </div >

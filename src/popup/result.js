@@ -1,16 +1,28 @@
 import React from 'react';
 import { launchURL } from './services/url';
-// icon, target, name, isFavorite
+import Star from '@mui/icons-material/Star';
+import ListItem from '@mui/material/ListItem';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+
 const Result = ({ result }) => {
-    return <tr className="item">
-        <td><img width="40" src={result.icon} /></td>
-        <td><a href={result.target} onClick={launchURL}>{result.name}</a></td>
-        <td className="favorite">
-            {result.isFavorite &&
-                <img src="/css/favorite.png" width="20" height="20" />
-            }
-        </td>
-    </tr>
+    return <ListItem>
+        <ListItemAvatar>
+            <Avatar>
+                <img width="40" src={result.icon} />
+            </Avatar>
+        </ListItemAvatar>
+        <ListItemButton component="a" href={result.target} onClick={launchURL}>
+            <ListItemText primary={result.name} />
+        </ListItemButton>
+        {result.isFavorite &&
+            <ListItemAvatar edge="end">
+                <Star className="result-favorite" sx={{ fontSize: 30, fill: "#f2cb2f", stroke: "#f7a430" }} />
+            </ListItemAvatar>
+        }
+    </ListItem>
 }
 
 export default Result
