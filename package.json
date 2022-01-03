@@ -1,6 +1,6 @@
 {
   "name": "ws1-finder",
-  "version": "1.0.0",
+  "version": "0.1.0-alpha",
   "description": "<img src=\"web-extension/icons/icon48.png\" align=\"right\" />",
   "main": "index.js",
   "scripts": {
