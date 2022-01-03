@@ -5,6 +5,9 @@ import useSearch from './use_search';
 import SearchIcon from '@mui/icons-material/Search';
 import { TextField } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
+import Chip from '@mui/material/Chip';
+import Box from '@mui/material/Box';
+import { Alert } from '@mui/material';
 
 const Search = () => {
     const [query, setQuery] = useState('');
@@ -18,6 +21,12 @@ const Search = () => {
             setQuery(query)
         }
     };
+
+    const showMessage = (message) => {
+        return <Box display="flex" flexDirection="column" sx={{ m: "2em" }}>
+            <Chip label={message} variant="outlined" />
+        </Box>
+    }
 
     return <div>
         <TextField
@@ -34,13 +43,13 @@ const Search = () => {
         />
 
         {status === 'idle' && (
-            <div>Nothing loaded</div>
+            showMessage("Nothing Loaded")
         )}
-        {status === 'error' && <div>{error}</div>}
+        {status === 'error' && <Alert severity="error">{error}</Alert>}
         {status === 'fetching' && <CircularProgress />}
         {status === 'fetched' && (
             <>
-                {results.length === 0 && <div> No results</div>}
+                {results.length === 0 && showMessage("No Results Found")}
                 <Results results={results} />
             </>
         )}
