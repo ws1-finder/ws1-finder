@@ -1,7 +1,7 @@
 export const EntitlementToResult = (entitlement) => {
     return {
         icon: entitlement._links.icon.href,
-        target: entitlement._links.launch.href,
+        target: entitlement.launchUrl,
         name: entitlement.name,
         isFavorite: entitlement.favorite,
         key: entitlement.appId
