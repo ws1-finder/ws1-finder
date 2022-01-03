@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { styled, alpha } from '@mui/material/styles';
 import Results from './results';
 import { getEntitlements } from './services/entitlements';
 import useSearch from './use_search';
+import SearchIcon from '@mui/icons-material/Search';
+import { TextField } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Search = () => {
     const [query, setQuery] = useState('');

@@ -7,7 +7,6 @@ const App = () => {
     return <div>
         <WorkspaceOneHeader />
         <Search />
-        <Options />
     </div>
 }
 export default App
