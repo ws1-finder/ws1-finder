@@ -1,10 +1,10 @@
+import makeBrowserService from "../browser";
+
 var bg = chrome.extension.getBackgroundPage();
+const browserService = makeBrowserService();
 
 function save_options(vmwareOneUrl) {
-    chrome.storage.sync.set({
-        vmwareOneUrl: vmwareOneUrl
-    }, function() {
-        // Update status to let user know options were saved.
+    browserService.setStorage('vmwareOneUrl', vmwareOneUrl).then(() => {
         var status = document.getElementById('status');
         status.textContent = 'Options saved.';
         bg.clear();
@@ -21,13 +21,9 @@ function cleanURL(url) {
     return url.replace(/\/?\*?$/, "");
 }
 
-
-// stored in chrome.storage.
 function restore_options() {
-    chrome.storage.sync.get({
-        vmwareOneUrl: 'https://myvmware.workspaceair.com'
-    }, function(items) {
-        document.getElementById('vmware-one-url').value = items.vmwareOneUrl;
+    browserService.getStorage('vmwareOneUrl', 'https://myvmware.workspaceair.com').then((url) => {
+        document.getElementById('vmware-one-url').value = url;
     });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
