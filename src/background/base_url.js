@@ -1,6 +1,5 @@
-import makeBrowserService from "../browser";
+import { browserService } from "../browser";
 
 export function baseURL() {
-    const browserService = makeBrowserService();
     return browserService.getStorage('vmwareOneUrl', 'https://myvmware.workspaceair.com');
 }

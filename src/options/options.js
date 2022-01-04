@@ -1,7 +1,6 @@
-import makeBrowserService from "../browser";
+import { browserService } from "../browser";
 
 var bg = chrome.extension.getBackgroundPage();
-const browserService = makeBrowserService();
 
 function save_options(vmwareOneUrl) {
     browserService.setStorage('vmwareOneUrl', vmwareOneUrl).then(() => {

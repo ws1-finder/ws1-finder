@@ -27,4 +27,5 @@ const makeBrowserService = () => {
     }
 }
 
+export const browserService = makeBrowserService();
 export default makeBrowserService
