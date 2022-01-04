@@ -1,5 +1,7 @@
 const CopyPlugin = require("copy-webpack-plugin");
 const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 var config = {
   entry: {
@@ -21,9 +23,16 @@ var config = {
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
     ]
+  },
+  optimization: {
+    minimizer: [
+      // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
+      `...`,
+      new CssMinimizerPlugin(),
+    ],
   },
   resolve: {
     extensions: ['*', '.js', '.jsx']
@@ -34,6 +43,7 @@ var config = {
         { from: "assets", to: "" }
       ],
     }),
+    new MiniCssExtractPlugin(),
   ],
 }
 
