@@ -6,6 +6,7 @@ web-extension/popup.js*
 web-extension/background.js*
 web-extension/*.woff*
 web-extension/ws1-finder.svg
+web-extension/popup.html
 
 node_modules/*
 
