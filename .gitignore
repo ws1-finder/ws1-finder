@@ -11,6 +11,7 @@ web-extension/_locales/*
 web-extension/icons/*
 web-extension/options.html
 web-extension/options.js
+web-extension/manifest.json
 
 node_modules/*
 
