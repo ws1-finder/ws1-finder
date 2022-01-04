@@ -3,11 +3,11 @@ import Results from './results';
 import { getEntitlements } from './services/entitlements';
 import useSearch from './use_search';
 import SearchIcon from '@mui/icons-material/Search';
-import { TextField } from '@mui/material';
+import TextField from '@mui/material/TextField';
 import CircularProgress from '@mui/material/CircularProgress';
 import Chip from '@mui/material/Chip';
 import Box from '@mui/material/Box';
-import { Alert } from '@mui/material';
+import Alert from '@mui/material/Alert';
 
 const Search = () => {
     const [query, setQuery] = useState('');
