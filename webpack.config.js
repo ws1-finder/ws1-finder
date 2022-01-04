@@ -1,7 +1,7 @@
 const CopyPlugin = require("copy-webpack-plugin");
 const path = require('path');
 
-module.exports = {
+var config = {
   entry: {
     popup: path.resolve(__dirname, './src/popup/popup.js'),
     background: path.resolve(__dirname, './src/background/background.js'),
@@ -28,7 +28,6 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },
-  devtool: 'inline-source-map',
   plugins: [
     new CopyPlugin({
       patterns: [
@@ -36,4 +35,16 @@ module.exports = {
       ],
     }),
   ],
+}
+
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    config.devtool = 'inline-source-map';
+  }
+
+  if (argv.mode === 'production') {
+    //...
+  }
+
+  return config;
 };
