@@ -24,7 +24,8 @@
     "page":   "src/options.html"
   },
   "background": {
-    "scripts": ["src/bg/background.js"]
+    "scripts": ["src/bg/background.js"],
+    "persistent": false
   },
   "permissions": [
     "storage",

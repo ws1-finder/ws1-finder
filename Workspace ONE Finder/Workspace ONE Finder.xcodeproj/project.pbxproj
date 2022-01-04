@@ -1,0 +1,953 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D8196ED027850E0900A7F35D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8196ECF27850E0900A7F35D /* AppDelegate.swift */; };
+		D8196ED227850E0900A7F35D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8196ED127850E0900A7F35D /* SceneDelegate.swift */; };
+		D8196ED527850E0900A7F35D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8196ED327850E0900A7F35D /* LaunchScreen.storyboard */; };
+		D8196ED827850E0900A7F35D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8196ED627850E0900A7F35D /* Main.storyboard */; };
+		D8196EE127850E0900A7F35D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8196EE027850E0900A7F35D /* AppDelegate.swift */; };
+		D8196EE427850E0900A7F35D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8196EE227850E0900A7F35D /* Main.storyboard */; };
+		D8196EEC27850E0900A7F35D /* Workspace ONE Finder Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D8196EEB27850E0900A7F35D /* Workspace ONE Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D8196EF627850E0900A7F35D /* Workspace ONE Finder Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D8196EF527850E0900A7F35D /* Workspace ONE Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D8196EFC27850E0900A7F35D /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = D8196EBF27850E0800A7F35D /* Main.html */; };
+		D8196EFD27850E0900A7F35D /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = D8196EBF27850E0800A7F35D /* Main.html */; };
+		D8196EFE27850E0900A7F35D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D8196EC127850E0800A7F35D /* Icon.png */; };
+		D8196EFF27850E0900A7F35D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D8196EC127850E0800A7F35D /* Icon.png */; };
+		D8196F0027850E0900A7F35D /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = D8196EC227850E0800A7F35D /* Style.css */; };
+		D8196F0127850E0900A7F35D /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = D8196EC227850E0800A7F35D /* Style.css */; };
+		D8196F0227850E0900A7F35D /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = D8196EC327850E0800A7F35D /* Script.js */; };
+		D8196F0327850E0900A7F35D /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = D8196EC327850E0800A7F35D /* Script.js */; };
+		D8196F0427850E0900A7F35D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8196EC427850E0800A7F35D /* ViewController.swift */; };
+		D8196F0527850E0900A7F35D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8196EC427850E0800A7F35D /* ViewController.swift */; };
+		D8196F0627850E0900A7F35D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8196EC527850E0900A7F35D /* Assets.xcassets */; };
+		D8196F0727850E0900A7F35D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8196EC527850E0900A7F35D /* Assets.xcassets */; };
+		D8196F0827850E0900A7F35D /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8196EC727850E0900A7F35D /* SafariWebExtensionHandler.swift */; };
+		D8196F0927850E0900A7F35D /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8196EC727850E0900A7F35D /* SafariWebExtensionHandler.swift */; };
+		D8196F2127850E0A00A7F35D /* css in Resources */ = {isa = PBXBuildFile; fileRef = D8196F1B27850E0A00A7F35D /* css */; };
+		D8196F2227850E0A00A7F35D /* js in Resources */ = {isa = PBXBuildFile; fileRef = D8196F1C27850E0A00A7F35D /* js */; };
+		D8196F2327850E0A00A7F35D /* icons in Resources */ = {isa = PBXBuildFile; fileRef = D8196F1D27850E0A00A7F35D /* icons */; };
+		D8196F2427850E0A00A7F35D /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = D8196F1E27850E0A00A7F35D /* manifest.json */; };
+		D8196F2527850E0A00A7F35D /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = D8196F1F27850E0A00A7F35D /* _locales */; };
+		D8196F2627850E0A00A7F35D /* src in Resources */ = {isa = PBXBuildFile; fileRef = D8196F2027850E0A00A7F35D /* src */; };
+		D8196F2727850E0A00A7F35D /* css in Resources */ = {isa = PBXBuildFile; fileRef = D8196F1B27850E0A00A7F35D /* css */; };
+		D8196F2827850E0A00A7F35D /* js in Resources */ = {isa = PBXBuildFile; fileRef = D8196F1C27850E0A00A7F35D /* js */; };
+		D8196F2927850E0A00A7F35D /* icons in Resources */ = {isa = PBXBuildFile; fileRef = D8196F1D27850E0A00A7F35D /* icons */; };
+		D8196F2A27850E0A00A7F35D /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = D8196F1E27850E0A00A7F35D /* manifest.json */; };
+		D8196F2B27850E0A00A7F35D /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = D8196F1F27850E0A00A7F35D /* _locales */; };
+		D8196F2C27850E0A00A7F35D /* src in Resources */ = {isa = PBXBuildFile; fileRef = D8196F2027850E0A00A7F35D /* src */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D8196EED27850E0900A7F35D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8196EB927850E0800A7F35D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8196EEA27850E0900A7F35D;
+			remoteInfo = "Workspace ONE Finder Extension (iOS)";
+		};
+		D8196EF727850E0900A7F35D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8196EB927850E0800A7F35D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8196EF427850E0900A7F35D;
+			remoteInfo = "Workspace ONE Finder Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D8196F0F27850E0900A7F35D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D8196EEC27850E0900A7F35D /* Workspace ONE Finder Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8196F1627850E0900A7F35D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D8196EF627850E0900A7F35D /* Workspace ONE Finder Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D8196EC027850E0800A7F35D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
+		D8196EC127850E0800A7F35D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		D8196EC227850E0800A7F35D /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		D8196EC327850E0800A7F35D /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		D8196EC427850E0800A7F35D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D8196EC527850E0900A7F35D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D8196EC727850E0900A7F35D /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		D8196ECC27850E0900A7F35D /* Workspace ONE Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workspace ONE Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8196ECF27850E0900A7F35D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D8196ED127850E0900A7F35D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D8196ED427850E0900A7F35D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D8196ED727850E0900A7F35D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D8196ED927850E0900A7F35D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8196EDE27850E0900A7F35D /* Workspace ONE Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workspace ONE Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8196EE027850E0900A7F35D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D8196EE327850E0900A7F35D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D8196EE527850E0900A7F35D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8196EE627850E0900A7F35D /* Workspace ONE Finder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Workspace ONE Finder.entitlements"; sourceTree = "<group>"; };
+		D8196EEB27850E0900A7F35D /* Workspace ONE Finder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Workspace ONE Finder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8196EF027850E0900A7F35D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8196EF527850E0900A7F35D /* Workspace ONE Finder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Workspace ONE Finder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8196EFA27850E0900A7F35D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8196EFB27850E0900A7F35D /* Workspace ONE Finder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Workspace ONE Finder.entitlements"; sourceTree = "<group>"; };
+		D8196F1B27850E0A00A7F35D /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = "../../web-extension/css"; sourceTree = "<group>"; };
+		D8196F1C27850E0A00A7F35D /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; name = js; path = "../../web-extension/js"; sourceTree = "<group>"; };
+		D8196F1D27850E0A00A7F35D /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = "../../web-extension/icons"; sourceTree = "<group>"; };
+		D8196F1E27850E0A00A7F35D /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = "../../web-extension/manifest.json"; sourceTree = "<group>"; };
+		D8196F1F27850E0A00A7F35D /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _locales; path = "../../web-extension/_locales"; sourceTree = "<group>"; };
+		D8196F2027850E0A00A7F35D /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = "../../web-extension/src"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D8196EC927850E0900A7F35D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8196EDB27850E0900A7F35D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8196EE827850E0900A7F35D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8196EF227850E0900A7F35D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D8196EB827850E0800A7F35D = {
+			isa = PBXGroup;
+			children = (
+				D8196EBD27850E0800A7F35D /* Shared (App) */,
+				D8196EC627850E0900A7F35D /* Shared (Extension) */,
+				D8196ECE27850E0900A7F35D /* iOS (App) */,
+				D8196EDF27850E0900A7F35D /* macOS (App) */,
+				D8196EEF27850E0900A7F35D /* iOS (Extension) */,
+				D8196EF927850E0900A7F35D /* macOS (Extension) */,
+				D8196ECD27850E0900A7F35D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D8196EBD27850E0800A7F35D /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				D8196EC427850E0800A7F35D /* ViewController.swift */,
+				D8196EC527850E0900A7F35D /* Assets.xcassets */,
+				D8196EBE27850E0800A7F35D /* Resources */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		D8196EBE27850E0800A7F35D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D8196EBF27850E0800A7F35D /* Main.html */,
+				D8196EC127850E0800A7F35D /* Icon.png */,
+				D8196EC227850E0800A7F35D /* Style.css */,
+				D8196EC327850E0800A7F35D /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D8196EC627850E0900A7F35D /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				D8196F1A27850E0A00A7F35D /* Resources */,
+				D8196EC727850E0900A7F35D /* SafariWebExtensionHandler.swift */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		D8196ECD27850E0900A7F35D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8196ECC27850E0900A7F35D /* Workspace ONE Finder.app */,
+				D8196EDE27850E0900A7F35D /* Workspace ONE Finder.app */,
+				D8196EEB27850E0900A7F35D /* Workspace ONE Finder Extension.appex */,
+				D8196EF527850E0900A7F35D /* Workspace ONE Finder Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D8196ECE27850E0900A7F35D /* iOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				D8196ECF27850E0900A7F35D /* AppDelegate.swift */,
+				D8196ED127850E0900A7F35D /* SceneDelegate.swift */,
+				D8196ED327850E0900A7F35D /* LaunchScreen.storyboard */,
+				D8196ED627850E0900A7F35D /* Main.storyboard */,
+				D8196ED927850E0900A7F35D /* Info.plist */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		D8196EDF27850E0900A7F35D /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				D8196EE027850E0900A7F35D /* AppDelegate.swift */,
+				D8196EE227850E0900A7F35D /* Main.storyboard */,
+				D8196EE527850E0900A7F35D /* Info.plist */,
+				D8196EE627850E0900A7F35D /* Workspace ONE Finder.entitlements */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		D8196EEF27850E0900A7F35D /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				D8196EF027850E0900A7F35D /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		D8196EF927850E0900A7F35D /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				D8196EFA27850E0900A7F35D /* Info.plist */,
+				D8196EFB27850E0900A7F35D /* Workspace ONE Finder.entitlements */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+		D8196F1A27850E0A00A7F35D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D8196F1B27850E0A00A7F35D /* css */,
+				D8196F1C27850E0A00A7F35D /* js */,
+				D8196F1D27850E0A00A7F35D /* icons */,
+				D8196F1E27850E0A00A7F35D /* manifest.json */,
+				D8196F1F27850E0A00A7F35D /* _locales */,
+				D8196F2027850E0A00A7F35D /* src */,
+			);
+			name = Resources;
+			path = "Shared (Extension)";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D8196ECB27850E0900A7F35D /* Workspace ONE Finder (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8196F1027850E0900A7F35D /* Build configuration list for PBXNativeTarget "Workspace ONE Finder (iOS)" */;
+			buildPhases = (
+				D8196EC827850E0900A7F35D /* Sources */,
+				D8196EC927850E0900A7F35D /* Frameworks */,
+				D8196ECA27850E0900A7F35D /* Resources */,
+				D8196F0F27850E0900A7F35D /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8196EEE27850E0900A7F35D /* PBXTargetDependency */,
+			);
+			name = "Workspace ONE Finder (iOS)";
+			productName = "Workspace ONE Finder (iOS)";
+			productReference = D8196ECC27850E0900A7F35D /* Workspace ONE Finder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D8196EDD27850E0900A7F35D /* Workspace ONE Finder (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8196F1727850E0900A7F35D /* Build configuration list for PBXNativeTarget "Workspace ONE Finder (macOS)" */;
+			buildPhases = (
+				D8196EDA27850E0900A7F35D /* Sources */,
+				D8196EDB27850E0900A7F35D /* Frameworks */,
+				D8196EDC27850E0900A7F35D /* Resources */,
+				D8196F1627850E0900A7F35D /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8196EF827850E0900A7F35D /* PBXTargetDependency */,
+			);
+			name = "Workspace ONE Finder (macOS)";
+			productName = "Workspace ONE Finder (macOS)";
+			productReference = D8196EDE27850E0900A7F35D /* Workspace ONE Finder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D8196EEA27850E0900A7F35D /* Workspace ONE Finder Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8196F0C27850E0900A7F35D /* Build configuration list for PBXNativeTarget "Workspace ONE Finder Extension (iOS)" */;
+			buildPhases = (
+				D8196EE727850E0900A7F35D /* Sources */,
+				D8196EE827850E0900A7F35D /* Frameworks */,
+				D8196EE927850E0900A7F35D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Workspace ONE Finder Extension (iOS)";
+			productName = "Workspace ONE Finder Extension (iOS)";
+			productReference = D8196EEB27850E0900A7F35D /* Workspace ONE Finder Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		D8196EF427850E0900A7F35D /* Workspace ONE Finder Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8196F1327850E0900A7F35D /* Build configuration list for PBXNativeTarget "Workspace ONE Finder Extension (macOS)" */;
+			buildPhases = (
+				D8196EF127850E0900A7F35D /* Sources */,
+				D8196EF227850E0900A7F35D /* Frameworks */,
+				D8196EF327850E0900A7F35D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Workspace ONE Finder Extension (macOS)";
+			productName = "Workspace ONE Finder Extension (macOS)";
+			productReference = D8196EF527850E0900A7F35D /* Workspace ONE Finder Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D8196EB927850E0800A7F35D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					D8196ECB27850E0900A7F35D = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					D8196EDD27850E0900A7F35D = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					D8196EEA27850E0900A7F35D = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					D8196EF427850E0900A7F35D = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = D8196EBC27850E0800A7F35D /* Build configuration list for PBXProject "Workspace ONE Finder" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D8196EB827850E0800A7F35D;
+			productRefGroup = D8196ECD27850E0900A7F35D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D8196ECB27850E0900A7F35D /* Workspace ONE Finder (iOS) */,
+				D8196EDD27850E0900A7F35D /* Workspace ONE Finder (macOS) */,
+				D8196EEA27850E0900A7F35D /* Workspace ONE Finder Extension (iOS) */,
+				D8196EF427850E0900A7F35D /* Workspace ONE Finder Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D8196ECA27850E0900A7F35D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8196EFE27850E0900A7F35D /* Icon.png in Resources */,
+				D8196ED527850E0900A7F35D /* LaunchScreen.storyboard in Resources */,
+				D8196EFC27850E0900A7F35D /* Main.html in Resources */,
+				D8196F0227850E0900A7F35D /* Script.js in Resources */,
+				D8196F0627850E0900A7F35D /* Assets.xcassets in Resources */,
+				D8196ED827850E0900A7F35D /* Main.storyboard in Resources */,
+				D8196F0027850E0900A7F35D /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8196EDC27850E0900A7F35D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8196EFF27850E0900A7F35D /* Icon.png in Resources */,
+				D8196F0127850E0900A7F35D /* Style.css in Resources */,
+				D8196EE427850E0900A7F35D /* Main.storyboard in Resources */,
+				D8196F0327850E0900A7F35D /* Script.js in Resources */,
+				D8196F0727850E0900A7F35D /* Assets.xcassets in Resources */,
+				D8196EFD27850E0900A7F35D /* Main.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8196EE927850E0900A7F35D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8196F2A27850E0A00A7F35D /* manifest.json in Resources */,
+				D8196F2927850E0A00A7F35D /* icons in Resources */,
+				D8196F2727850E0A00A7F35D /* css in Resources */,
+				D8196F2C27850E0A00A7F35D /* src in Resources */,
+				D8196F2B27850E0A00A7F35D /* _locales in Resources */,
+				D8196F2827850E0A00A7F35D /* js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8196EF327850E0900A7F35D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8196F2427850E0A00A7F35D /* manifest.json in Resources */,
+				D8196F2327850E0A00A7F35D /* icons in Resources */,
+				D8196F2127850E0A00A7F35D /* css in Resources */,
+				D8196F2627850E0A00A7F35D /* src in Resources */,
+				D8196F2527850E0A00A7F35D /* _locales in Resources */,
+				D8196F2227850E0A00A7F35D /* js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D8196EC827850E0900A7F35D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8196F0427850E0900A7F35D /* ViewController.swift in Sources */,
+				D8196ED027850E0900A7F35D /* AppDelegate.swift in Sources */,
+				D8196ED227850E0900A7F35D /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8196EDA27850E0900A7F35D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8196F0527850E0900A7F35D /* ViewController.swift in Sources */,
+				D8196EE127850E0900A7F35D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8196EE727850E0900A7F35D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8196F0827850E0900A7F35D /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8196EF127850E0900A7F35D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8196F0927850E0900A7F35D /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D8196EEE27850E0900A7F35D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8196EEA27850E0900A7F35D /* Workspace ONE Finder Extension (iOS) */;
+			targetProxy = D8196EED27850E0900A7F35D /* PBXContainerItemProxy */;
+		};
+		D8196EF827850E0900A7F35D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8196EF427850E0900A7F35D /* Workspace ONE Finder Extension (macOS) */;
+			targetProxy = D8196EF727850E0900A7F35D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D8196EBF27850E0800A7F35D /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8196EC027850E0800A7F35D /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		D8196ED327850E0900A7F35D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8196ED427850E0900A7F35D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D8196ED627850E0900A7F35D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8196ED727850E0900A7F35D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D8196EE227850E0900A7F35D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8196EE327850E0900A7F35D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D8196F0A27850E0900A7F35D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D8196F0B27850E0900A7F35D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		D8196F0D27850E0900A7F35D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workspace ONE Finder Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.ws1-finder.Workspace-ONE-Finder.Extension";
+				PRODUCT_NAME = "Workspace ONE Finder Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D8196F0E27850E0900A7F35D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workspace ONE Finder Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.ws1-finder.Workspace-ONE-Finder.Extension";
+				PRODUCT_NAME = "Workspace ONE Finder Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D8196F1127850E0900A7F35D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workspace ONE Finder";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.ws1-finder.Workspace-ONE-Finder";
+				PRODUCT_NAME = "Workspace ONE Finder";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D8196F1227850E0900A7F35D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workspace ONE Finder";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.ws1-finder.Workspace-ONE-Finder";
+				PRODUCT_NAME = "Workspace ONE Finder";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D8196F1427850E0900A7F35D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Workspace ONE Finder.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workspace ONE Finder Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.ws1-finder.Workspace-ONE-Finder.Extension";
+				PRODUCT_NAME = "Workspace ONE Finder Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D8196F1527850E0900A7F35D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Workspace ONE Finder.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workspace ONE Finder Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.ws1-finder.Workspace-ONE-Finder.Extension";
+				PRODUCT_NAME = "Workspace ONE Finder Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D8196F1827850E0900A7F35D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Workspace ONE Finder.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workspace ONE Finder";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.ws1-finder.Workspace-ONE-Finder";
+				PRODUCT_NAME = "Workspace ONE Finder";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D8196F1927850E0900A7F35D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Workspace ONE Finder.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workspace ONE Finder";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.ws1-finder.Workspace-ONE-Finder";
+				PRODUCT_NAME = "Workspace ONE Finder";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D8196EBC27850E0800A7F35D /* Build configuration list for PBXProject "Workspace ONE Finder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8196F0A27850E0900A7F35D /* Debug */,
+				D8196F0B27850E0900A7F35D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8196F0C27850E0900A7F35D /* Build configuration list for PBXNativeTarget "Workspace ONE Finder Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8196F0D27850E0900A7F35D /* Debug */,
+				D8196F0E27850E0900A7F35D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8196F1027850E0900A7F35D /* Build configuration list for PBXNativeTarget "Workspace ONE Finder (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8196F1127850E0900A7F35D /* Debug */,
+				D8196F1227850E0900A7F35D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8196F1327850E0900A7F35D /* Build configuration list for PBXNativeTarget "Workspace ONE Finder Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8196F1427850E0900A7F35D /* Debug */,
+				D8196F1527850E0900A7F35D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8196F1727850E0900A7F35D /* Build configuration list for PBXNativeTarget "Workspace ONE Finder (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8196F1827850E0900A7F35D /* Debug */,
+				D8196F1927850E0900A7F35D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D8196EB927850E0800A7F35D /* Project object */;
+}
