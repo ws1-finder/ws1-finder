@@ -6,10 +6,10 @@ import Result from './result';
 const Results = ({ results }) => {
     return <List>
         {results.map((result, index) => (
-            <div key={result.key}>
+            <React.Fragment key={result.key}>
                 <Result result={result} />
-                {(index < results.length - 1) ? <Divider /> : null}
-            </div>
+                {(index < results.length - 1) ?  <Divider variant="inset" component="li" /> : null}
+            </React.Fragment>
         ))}
     </List>
 }
