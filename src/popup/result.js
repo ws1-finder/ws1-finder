@@ -1,5 +1,5 @@
 import React from 'react';
-import { launchURL } from './services/url';
+import { handleLaunchURL } from './services/url';
 import Star from '@mui/icons-material/Star';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
@@ -14,8 +14,8 @@ const Result = ({ result }) => {
                 <img width="40" src={result.icon} />
             </Avatar>
         </ListItemAvatar>
-        <ListItemButton component="a" href={result.target} onClick={launchURL}>
-            <ListItemText primary={result.name} />
+        <ListItemButton onClick={handleLaunchURL(result.target)}>
+        <ListItemText primary={result.name} />
         </ListItemButton>
         {result.isFavorite &&
             <ListItemAvatar edge="end">

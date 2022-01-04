@@ -1,3 +1,9 @@
+export function handleLaunchURL(url) {
+    return () => {
+        chrome.tabs.create({url: url})
+    }
+}
+
 export function launchURL(e) {
     if (e.preventDefault) {
         e.preventDefault();
