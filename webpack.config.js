@@ -8,7 +8,7 @@ module.exports = {
     options: path.resolve(__dirname, './src/options/options.js'),
   },
   output: {
-    path: path.resolve(__dirname, './web-extension'),
+    path: path.resolve(__dirname, './build'),
     filename: '[name].js',
   },
   module: {

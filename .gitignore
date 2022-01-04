@@ -2,16 +2,6 @@
 
 dist/*
 
-web-extension/popup.js*
-web-extension/background.js*
-web-extension/*.woff*
-web-extension/ws1-finder.svg
-web-extension/popup.html
-web-extension/_locales/*
-web-extension/icons/*
-web-extension/options.html
-web-extension/options.js
-web-extension/manifest.json
-
+build/*
 node_modules/*
 
