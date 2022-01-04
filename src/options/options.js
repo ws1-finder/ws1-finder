@@ -30,9 +30,9 @@ document.getElementById('save').addEventListener('click',
     function () {
         var vmwareOneUrl = document.getElementById('vmware-one-url').value;
 
-        chrome.permissions.request({
+        browserService.requestPermissions({
             origins: [originURL(vmwareOneUrl)]
-        }, function (granted) {
+        }).then((granted) => {
             if (granted) {
                 save_options(cleanURL(vmwareOneUrl));
             } else {

@@ -21,9 +21,20 @@ const makeBrowserService = () => {
         }
     }
 
+    const makeRequestPermissions = (browser) => {
+        return (permissions) => {
+            return new Promise((resolve, reject) => {
+                browser.permissions.request(permissions, (granted) => {
+                    resolve(granted);
+                });
+            });
+        }
+    }
+
     return {
         getStorage: makeGetStorage(browser),
-        setStorage: makeSetStorage(browser)
+        setStorage: makeSetStorage(browser),
+        requestPermissions: makeRequestPermissions(browser)
     }
 }
 
