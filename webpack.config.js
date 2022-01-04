@@ -5,6 +5,7 @@ module.exports = {
   entry: {
     popup: path.resolve(__dirname, './src/popup/popup.js'),
     background: path.resolve(__dirname, './src/background/background.js'),
+    options: path.resolve(__dirname, './src/options/options.js'),
   },
   output: {
     path: path.resolve(__dirname, './web-extension'),

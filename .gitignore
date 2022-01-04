@@ -9,6 +9,8 @@ web-extension/ws1-finder.svg
 web-extension/popup.html
 web-extension/_locales/*
 web-extension/icons/*
+web-extension/options.html
+web-extension/options.js
 
 node_modules/*
 
