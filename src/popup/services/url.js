@@ -1,6 +1,7 @@
-export function handleLaunchURL(url) {
+export function handleLaunchURLAndClose(url) {
     return () => {
         chrome.tabs.create({url: url})
+        window.close();
     }
 }
 
