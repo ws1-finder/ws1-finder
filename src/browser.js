@@ -1,5 +1,34 @@
 const makeBrowserService = () => {
     const browser = chrome;
+    const _window = window;
+
+    const makeOpenOptions = (browser, window) => {
+        return () => {
+            if (browser.runtime.openOptionsPage) {
+                browser.runtime.openOptionsPage();
+            } else {
+                window.open(browser.runtime.getURL('options.html'));
+            }
+        }
+    }
+
+    const makeWindowClose = (browser, window) => {
+        return () => {
+            window.close();
+        }
+    }
+
+    const makeCreateTab = (browser) => {
+        return (url) => {
+            browser.tabs.create({ url: url })
+        }
+    }
+
+    const makeBackgroundPage = (browser) => {
+        return () => {
+            return browser.extension.getBackgroundPage();
+        }
+    }
 
     const makeGetStorage = (browser) => {
         return (key, _default) => {
@@ -34,7 +63,11 @@ const makeBrowserService = () => {
     return {
         getStorage: makeGetStorage(browser),
         setStorage: makeSetStorage(browser),
-        requestPermissions: makeRequestPermissions(browser)
+        requestPermissions: makeRequestPermissions(browser),
+        getBackgroundPage: makeBackgroundPage(browser),
+        createTab: makeCreateTab(browser),
+        windowClose: makeWindowClose(browser, _window),
+        openOptions: makeOpenOptions(browser, _window)
     }
 }
 

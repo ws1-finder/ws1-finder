@@ -1,23 +1,26 @@
-export function handleLaunchURLAndClose(url) {
+import { browserService as _browserService } from "../../browser";
+
+export function handleLaunchURLAndClose(url, browserService = _browserService) {
     return () => {
-        chrome.tabs.create({url: url})
-        window.close();
+        browserService.createTab(url)
+        browserService.windowClose();
     }
 }
 
-export function launchURL(e) {
+export function launchURL(e, browserService = _browserService) {
     if (e.preventDefault) {
         e.preventDefault();
-        chrome.tabs.create({ url: e.target.href });
+
+        browserService.createTab(e.target.href);
     } else {
-        chrome.tabs.create({ url: e });
+        browserService.createTab(e);
     }
 }
-export function launchURLAndClose(e) {
+export function launchURLAndClose(e, browserService = _browserService) {
     launchURL(e)
-    window.close();
+    browserService.windowClose();
 }
 
-export function getBaseURL(backgroundPage = chrome.extension.getBackgroundPage()) {
-    return backgroundPage.baseURL()
+export function getBaseURL(browserService = _browserService) {
+    return browserService.getBackgroundPage().baseURL()
 }

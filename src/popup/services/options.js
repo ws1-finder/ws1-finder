@@ -1,10 +1,7 @@
-export function launchOptions(e) {
-    e.preventDefault();
+import { browserService as _browserService } from "../../browser";
 
-    if (chrome.runtime.openOptionsPage) {
-        chrome.runtime.openOptionsPage();
-    } else {
-        window.open(chrome.runtime.getURL('options.html'));
-    }
+export function launchOptions(e, browserService = _browserService) {
+    e.preventDefault();
+    browserService.openOptions();
     return false;
 };

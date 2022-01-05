@@ -1,12 +1,10 @@
 import { browserService } from "../browser";
 
-var bg = chrome.extension.getBackgroundPage();
-
 function save_options(vmwareOneUrl) {
     browserService.setStorage('vmwareOneUrl', vmwareOneUrl).then(() => {
         var status = document.getElementById('status');
         status.textContent = 'Options saved.';
-        bg.clear();
+        browserService.getBackgroundPage().clear();
         setTimeout(function () {
             status.textContent = '';
         }, 750);
