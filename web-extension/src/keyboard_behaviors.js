@@ -32,124 +32,123 @@
 
 export default class KeyboardBehaviors {
   constructor (launchURL, jQuery) {
-    this.jQuery = jQuery;
-    this.launchURL = launchURL;
+    this.jQuery = jQuery
+    this.launchURL = launchURL
 
-    this.entryWithFocus = this.entryWithFocus.bind(this);
-    this.isFocusSet = this.isFocusSet.bind(this);
-    this.focus = this.focus.bind(this);
-    this.focusFirst = this.focusFirst.bind(this);
-    this.focusLast = this.focusLast.bind(this);
-    this.focusPrev = this.focusPrev.bind(this);
-    this.focusNext = this.focusNext.bind(this);
-    this.scrollToFocus = this.scrollToFocus.bind(this);
-    this.bindBehaviors = this.bindBehaviors.bind(this);
+    this.entryWithFocus = this.entryWithFocus.bind(this)
+    this.isFocusSet = this.isFocusSet.bind(this)
+    this.focus = this.focus.bind(this)
+    this.focusFirst = this.focusFirst.bind(this)
+    this.focusLast = this.focusLast.bind(this)
+    this.focusPrev = this.focusPrev.bind(this)
+    this.focusNext = this.focusNext.bind(this)
+    this.scrollToFocus = this.scrollToFocus.bind(this)
+    this.bindBehaviors = this.bindBehaviors.bind(this)
   }
 
-  entryWithFocus() {
-    return this.jQuery(".withfocus");
+  entryWithFocus () {
+    return this.jQuery('.withfocus')
   }
 
-  isFocusSet() {
-    return this.entryWithFocus().length > 0;
+  isFocusSet () {
+    return this.entryWithFocus().length > 0
   }
 
-  focus(elem) {
-    this.entryWithFocus().removeClass('withfocus');
-    elem.addClass('withfocus');
-    this.scrollToFocus();
+  focus (elem) {
+    this.entryWithFocus().removeClass('withfocus')
+    elem.addClass('withfocus')
+    this.scrollToFocus()
   }
 
-  focusFirst() {
-    this.focus(this.jQuery(".item:visible:first"));
+  focusFirst () {
+    this.focus(this.jQuery('.item:visible:first'))
   }
 
-  focusLast() {
-    this.focus(this.jQuery(".item:visible:last"))
+  focusLast () {
+    this.focus(this.jQuery('.item:visible:last'))
   }
 
-  focusPrev(skip) {
-    skip = skip || 1;
-    this.entryWithFocus().removeClass('withfocus').prevAll(".item:visible").eq(skip - 1).addClass('withfocus');
+  focusPrev (skip) {
+    skip = skip || 1
+    this.entryWithFocus().removeClass('withfocus').prevAll('.item:visible').eq(skip - 1).addClass('withfocus')
     if (!this.isFocusSet()) {
-      (skip === 1 ? this.focusLast : this.focusFirst)();
+      (skip === 1 ? this.focusLast : this.focusFirst)()
     }
 
-    this.scrollToFocus();
+    this.scrollToFocus()
   }
 
-  focusNext(skip) {
-    skip = skip || 1;
-    this.entryWithFocus().removeClass('withfocus').nextAll(".item:visible").eq(skip - 1).addClass('withfocus');
+  focusNext (skip) {
+    skip = skip || 1
+    this.entryWithFocus().removeClass('withfocus').nextAll('.item:visible').eq(skip - 1).addClass('withfocus')
     if (!this.isFocusSet()) {
-      (skip === 1 ? this.focusFirst : this.focusLast)();
+      (skip === 1 ? this.focusFirst : this.focusLast)()
     }
 
-    this.scrollToFocus();
+    this.scrollToFocus()
   }
 
-
-  scrollToFocus() {
-    const element = this.entryWithFocus();
+  scrollToFocus () {
+    const element = this.entryWithFocus()
 
     // make sure we have an element to scroll to
     if (element.length > 0) {
-      const offset = element.offset().top;
-      const elementHeight = element.outerHeight(true) * 2;
+      const offset = element.offset().top
+      const elementHeight = element.outerHeight(true) * 2
 
-      const visible_area_start = this.jQuery(window).scrollTop();
-      const visible_area_end = visible_area_start + window.innerHeight;
+      const visible_area_start = this.jQuery(window).scrollTop()
+      const visible_area_end = visible_area_start + window.innerHeight
 
       if (offset < visible_area_start + elementHeight) {
         // scrolling up
-        window.scroll({top: offset - elementHeight, left: 0, behavior: 'smooth'});
+        window.scroll({ top: offset - elementHeight, left: 0, behavior: 'smooth' })
       } else if (offset > visible_area_end - elementHeight) {
         // scrolling down
-        window.scroll({top: offset - window.innerHeight + elementHeight, left: 0, behavior: 'smooth'});
+        window.scroll({ top: offset - window.innerHeight + elementHeight, left: 0, behavior: 'smooth' })
       }
     }
   }
 
-  bindBehaviors(document) {
-    let keyboardBehaviors = this;
-    document.on('keydown.down',  function() {
-      keyboardBehaviors.focusNext();
-      return false;
-    });
+  bindBehaviors (document) {
+    const keyboardBehaviors = this
+    document.on('keydown.down', function () {
+      keyboardBehaviors.focusNext()
+      return false
+    })
 
-    document.on('keydown.up', function() {
-      keyboardBehaviors.focusPrev();
-      return false;
-    });
+    document.on('keydown.up', function () {
+      keyboardBehaviors.focusPrev()
+      return false
+    })
 
-    document.on('keydown.tab', function() {
-      keyboardBehaviors.focusNext();
-      return false;
-    });
+    document.on('keydown.tab', function () {
+      keyboardBehaviors.focusNext()
+      return false
+    })
 
-    document.on('keydown.shift_tab', function() {
-      keyboardBehaviors.focusPrev();
-      return false;
-    });
+    document.on('keydown.shift_tab', function () {
+      keyboardBehaviors.focusPrev()
+      return false
+    })
 
-    document.on('keydown.return', function() {
+    document.on('keydown.return', function () {
       if (!keyboardBehaviors.isFocusSet()) {
-        keyboardBehaviors.focusFirst();
+        keyboardBehaviors.focusFirst()
       }
 
       if (keyboardBehaviors.isFocusSet()) {
-        keyboardBehaviors.launchURL({url: keyboardBehaviors.jQuery(keyboardBehaviors.entryWithFocus().find("a")[0]).attr('href')});
+        keyboardBehaviors.launchURL({ url: keyboardBehaviors.jQuery(keyboardBehaviors.entryWithFocus().find('a')[0]).attr('href') })
       }
-    });
+    })
 
-    document.on('keydown.home', function(e) {
-      keyboardBehaviors.focusFirst();
-      return false;
-    });
+    document.on('keydown.home', function (e) {
+      keyboardBehaviors.focusFirst()
+      return false
+    })
 
-    document.on('keydown.end', function(e) {
-      keyboardBehaviors.focusLast();
-      return false;
-    });
+    document.on('keydown.end', function (e) {
+      keyboardBehaviors.focusLast()
+      return false
+    })
   }
 }
