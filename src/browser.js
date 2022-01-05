@@ -1,7 +1,4 @@
-const makeBrowserService = () => {
-    const browser = chrome;
-    const _window = window;
-
+const makeBrowserService = (_browser = chrome, _window = window) => {
     const makeOpenOptions = (browser, window) => {
         return () => {
             if (browser.runtime.openOptionsPage) {
@@ -12,7 +9,7 @@ const makeBrowserService = () => {
         }
     }
 
-    const makeWindowClose = (browser, window) => {
+    const makeWindowClose = (window) => {
         return () => {
             window.close();
         }
@@ -61,13 +58,13 @@ const makeBrowserService = () => {
     }
 
     return {
-        getStorage: makeGetStorage(browser),
-        setStorage: makeSetStorage(browser),
-        requestPermissions: makeRequestPermissions(browser),
-        getBackgroundPage: makeBackgroundPage(browser),
-        createTab: makeCreateTab(browser),
-        windowClose: makeWindowClose(browser, _window),
-        openOptions: makeOpenOptions(browser, _window)
+        getStorage: makeGetStorage(_browser),
+        setStorage: makeSetStorage(_browser),
+        requestPermissions: makeRequestPermissions(_browser),
+        getBackgroundPage: makeBackgroundPage(_browser),
+        createTab: makeCreateTab(_browser),
+        windowClose: makeWindowClose(_window),
+        openOptions: makeOpenOptions(_browser, _window)
     }
 }
 
