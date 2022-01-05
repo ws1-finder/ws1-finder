@@ -4,7 +4,7 @@ import { getEntitlements } from './services/entitlements';
 import useSearch from './use_search';
 import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
-import CircularProgress from '@mui/material/CircularProgress';
+import LinearProgress from '@mui/material/LinearProgress';
 import Chip from '@mui/material/Chip';
 import Box from '@mui/material/Box';
 import Alert from '@mui/material/Alert';
@@ -46,7 +46,7 @@ const Search = () => {
             showMessage("Nothing Loaded")
         )}
         {status === 'error' && <Alert severity="error">{error}</Alert>}
-        {status === 'fetching' && <CircularProgress />}
+        {status === 'fetching' && <LinearProgress />}
         {status === 'fetched' && (
             <>
                 {results.length === 0 && showMessage("No Results Found")}
