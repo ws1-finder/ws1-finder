@@ -1,4 +1,4 @@
-const bg = chrome.extension.getBackgroundPage()
+import { ClearCache } from "./common.js"
 
 function save_options (vmwareOneUrl) {
   chrome.storage.sync.set({
@@ -7,7 +7,7 @@ function save_options (vmwareOneUrl) {
     // Update status to let user know options were saved.
     const status = document.getElementById('status')
     status.textContent = 'Options saved.'
-    bg.clearCache()
+    ClearCache()
     setTimeout(function () {
       status.textContent = ''
     }, 750)
@@ -25,23 +25,22 @@ function cleanURL (url) {
 function restore_options () {
   chrome.storage.sync.get({
     vmwareOneUrl: 'https://myvmware.workspaceair.com'
-  }, function (items) {
+  }, (items) => {
     document.getElementById('vmware-one-url').value = items.vmwareOneUrl
   })
 }
 document.addEventListener('DOMContentLoaded', restore_options)
-document.getElementById('save').addEventListener('click',
-  function () {
-    const vmwareOneUrl = document.getElementById('vmware-one-url').value
+document.getElementById('save').addEventListener('click', () => {
+  const vmwareOneUrl = document.getElementById('vmware-one-url').value
 
-    chrome.permissions.request({
-      origins: [originURL(vmwareOneUrl)]
-    }, function (granted) {
-      if (granted) {
-        save_options(cleanURL(vmwareOneUrl))
-      } else {
-        const status = document.getElementById('status')
-        status.textContent = 'Permission not granted, options not saved!'
-      }
-    })
+  chrome.permissions.request({
+    origins: [originURL(vmwareOneUrl)]
+  }, (granted) => {
+    if (granted) {
+      save_options(cleanURL(vmwareOneUrl))
+    } else {
+      const status = document.getElementById('status')
+      status.textContent = 'Permission not granted, options not saved!'
+    }
   })
+})

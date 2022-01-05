@@ -24,7 +24,7 @@
     "page":   "src/options.html"
   },
   "background": {
-    "scripts": ["src/bg/background.js"],
+    "page": "src/background.html",
     "persistent": false
   },
   "permissions": [

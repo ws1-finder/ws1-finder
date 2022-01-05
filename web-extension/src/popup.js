@@ -1,6 +1,5 @@
 import KeyboardBehaviors from './keyboard_behaviors.js'
-
-const bg = chrome.extension.getBackgroundPage()
+import { BaseURL, GetEntitlements } from './common.js'
 
 function filterEntitlements () {
   let filter, entitlements, entitlement, a, i, txtValue
@@ -20,7 +19,7 @@ function filterEntitlements () {
 }
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
-    if (request.msg === 'close_appfinder_extension') {
+    if (request.msg === 'close-ws1-finder') {
       window.close()
     }
   }
@@ -43,11 +42,11 @@ $(document).ready(function () {
     return false
   })
 
-  bg.baseURL(function (url) {
+  BaseURL(function (url) {
     document.getElementById('ws1-url').href = url
   })
 
-  bg.onPopupLoad(function (entitlements) {
+  GetEntitlements((entitlements) => {
     const list = $('#results')
     list.empty()
 
