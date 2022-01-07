@@ -1,3 +1,3 @@
-import { getEntitlements } from "./common"
+import { getEntitlements } from "./common.js"
 
 getEntitlements()
