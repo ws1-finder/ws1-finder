@@ -8,6 +8,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import Chip from '@mui/material/Chip';
 import Box from '@mui/material/Box';
 import Alert from '@mui/material/Alert';
+import { launchURLAndClose } from './services/url';
 
 const Search = () => {
     const [query, setQuery] = useState('');
@@ -22,6 +23,12 @@ const Search = () => {
         }
     };
 
+    const handleKeyPress = e => {
+        if (e.key === "Enter" && results && results.length > 0) {
+            launchURLAndClose(results[0].target)
+        }
+    };
+
     const showMessage = (message) => {
         return <Box display="flex" flexDirection="column" sx={{ m: "2em" }}>
             <Chip label={message} variant="outlined" />
@@ -33,6 +40,7 @@ const Search = () => {
             id="outlined-basic"
             variant="standard"
             onChange={handleChange}
+            onKeyDown={handleKeyPress}
             placeholder="Search VMware Workspace One"
             fullWidth
             autoFocus
