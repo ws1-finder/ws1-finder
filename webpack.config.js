@@ -3,6 +3,19 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
+const modifyManifest = (manifest) => {
+  var versionPieces = require('./package.json').version.split('-');
+  var newManifest = JSON.parse(manifest);
+
+  newManifest.version = versionPieces[0]; 
+
+  if(versionPieces.length > 1) {
+    newManifest.version_name = `${versionPieces[0]} ${versionPieces[1]}`;
+  }
+
+  return JSON.stringify(newManifest);
+};
+
 var config = {
   entry: {
     popup: path.resolve(__dirname, './src/popup/popup.js'),
@@ -40,7 +53,18 @@ var config = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: "assets", to: "" }
+        {
+          from: "assets",
+          globOptions: {
+            ignore: ["assets/manifest.json"],
+          },
+        },
+        {
+          from: "assets/manifest.json",
+          transform(content, absoluteFrom) {
+            return modifyManifest(content);
+          },
+        }
       ],
     }),
     new MiniCssExtractPlugin(),
