@@ -1,31 +1,31 @@
-import { useEffect, useRef, useReducer } from 'react';
-import { EntitlementsToResults } from './mappers';
-import Result from './result';
+import { useEffect, useReducer, useRef } from "react";
+import { EntitlementsToResults } from "./mappers";
+import Result from "./result";
 
 const useSearch = (getEntitlements: Function, query: string) => {
-    const cache = useRef<Result[]>([])
+    const cache = useRef<Result[]>([]);
 
     type State = {
         data?: Result[];
-        isLoading: boolean;
         error?: string;
+        isLoading: boolean;
     }
 
     type Action =
-        | { type: 'FETCHING' }
-        | { type: 'FETCHED', results: any[] }
-        | { type: 'FETCH_ERROR', error: string };
+        | { type: "FETCHING" }
+        | { type: "FETCHED", results: any[] }
+        | { type: "FETCH_ERROR", error: string };
 
     function reducer(state: State, action: Action): State {
         switch (action.type) {
-            case 'FETCHING':
-                return { isLoading: true };
-            case 'FETCHED':
-                return { isLoading: false, data: EntitlementsToResults(action.results) };
-            case 'FETCH_ERROR':
-                return { isLoading: false, error: action.error };
-            default:
-                return state;
+        case "FETCHING":
+            return { isLoading: true };
+        case "FETCHED":
+            return { data: EntitlementsToResults(action.results), isLoading: false  };
+        case "FETCH_ERROR":
+            return { error: action.error, isLoading: false };
+        default:
+            return state;
         }
     }
 
@@ -34,34 +34,34 @@ const useSearch = (getEntitlements: Function, query: string) => {
     useEffect(() => {
         let cancelRequest = false;
         const fetchEntitlements = async () => {
-            dispatch({ type: 'FETCHING' });
+            dispatch({ type: "FETCHING" });
             if (cache.current && cache.current.length > 0) {
-                dispatch({ type: 'FETCHED', results: cache.current });
+                dispatch({ results: cache.current, type: "FETCHED" });
             } else {
                 try {
                     const entitlements = await getEntitlements();
                     cache.current = entitlements;
                     if (cancelRequest) return;
-                    dispatch({ type: 'FETCHED', results: entitlements });
+                    dispatch({ results: entitlements, type: "FETCHED" });
                 } catch (error: any) {
                     if (cancelRequest) return;
-                    let message = 'Unknown Error'
+                    let message = "Unknown Error";
                     if (error instanceof Error) {
-                        message = error.message
+                        message = error.message;
                     } else {
                         if(error.message) {
-                            message = error.message
+                            message = error.message;
                         }
                     }
-                    dispatch({ type: 'FETCH_ERROR', error: message });
+                    dispatch({ error: message, type: "FETCH_ERROR" });
                 }
             }
-        }
+        };
 
         fetchEntitlements();
 
-        return () => { cancelRequest = true }
-    }, [getEntitlements])
+        return () => { cancelRequest = true; };
+    }, [getEntitlements]);
 
     useEffect(() => {
         let cancelRequest = false;
@@ -70,22 +70,22 @@ const useSearch = (getEntitlements: Function, query: string) => {
         if (!query) return;
         if (!results) return;
 
-        dispatch({ type: 'FETCHING' });
+        dispatch({ type: "FETCHING" });
 
         const filteredResults = results.filter((entitlement): entitlement is any => {
-                return (
-                    entitlement
-                        .name
-                        .toLowerCase()
-                        .includes(query.toLowerCase())
-                );
-            }
+            return (
+                entitlement
+                    .name
+                    .toLowerCase()
+                    .includes(query.toLowerCase())
+            );
+        }
         );
 
         if (cancelRequest) return;
-        dispatch({ type: 'FETCHED', results: filteredResults });
+        dispatch({ results: filteredResults, type: "FETCHED" });
 
-        return () => { cancelRequest = true }
+        return () => { cancelRequest = true; };
     }, [query]);
 
     return state;

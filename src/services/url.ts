@@ -2,9 +2,9 @@ import { browserService as _browserService } from "./browser";
 
 export function handleLaunchURLAndClose(url: string, browserService = _browserService) {
     return () => {
-        browserService.createTab(url)
+        browserService.createTab(url);
         browserService.windowClose();
-    }
+    };
 }
 
 export function launchURL(e: Event | string, browserService = _browserService) {
@@ -16,14 +16,14 @@ export function launchURL(e: Event | string, browserService = _browserService) {
     }
 }
 export function launchURLAndClose(e: Event | string, browserService = _browserService) {
-    launchURL(e)
+    launchURL(e);
     browserService.windowClose();
 }
 
 export function getBaseURL(browserService = _browserService) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         browserService.getBackgroundPage().baseURL((url: string) => {
-            resolve(url)
-        })
+            resolve(url);
+        });
     });
 }
