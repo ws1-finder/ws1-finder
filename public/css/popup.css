@@ -8,10 +8,6 @@
   font-weight: bold;
 }
 
-.favorite {
-  padding-right: 7px;
-}
-
 .title a {
   color: white;
   text-decoration: none;
@@ -37,23 +33,9 @@ input {
   margin-bottom: 12px; /* Add some space below the input */
 }
 
-#results td a {
-  margin-top: -1px; /* Prevent double borders */
-  padding: 12px; /* Add some padding */
-  text-decoration: none; /* Remove default text underline */
-  font-size: 18px; /* Increase the font-size */
-  color: black; /* Add a black text color */
-  display: block; /* Make it into a block element to fill the whole list */
-}
-
-.withfocus {
-  background-color: #eee; /* Add a hover effect to all links, except for headers */
-}
-
 .wrapper {
    width: 450px;
    margin-left: auto;
    margin-right: auto;
    font-family: sans-serif;
 }
-
