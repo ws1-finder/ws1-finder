@@ -5,7 +5,7 @@ function clearCache() {
 }
 
 function storeSuccess(results) {
-    if ('_embedded' in results) {
+    if (results && results.length && results.length > 0) {
         currentResults = results;
     } else {
         currentResults = null;
