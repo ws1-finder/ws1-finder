@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/popup.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this extension.</noscript>
+    <div class="wrapper">
+        <div class="title">
+            <a id="ws1-url" href="https://www.vmware.com/products/workspace-one.html">Workspace One Finder</a>
+        </div>
+        <form autocomplete="off">
+            <input type="text" id="appSearch" placeholder="Search for apps..">
+
+            <div id="root"></div>
+        </form>
+    </div>
+
+    <div class="footer">
+        <a href="#" id="go-to-options">options</a>
+    </div>
+
+    <script type="text/javascript" src="/js/jquery-3.5.1.slim.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.hotkeys-0.8.js"></script>
+    <script type="module" src="popup.js"></script>
+</body>
+
+</html>
