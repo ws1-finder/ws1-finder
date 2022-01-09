@@ -26,13 +26,9 @@
     "watch": "node scripts/watch.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "eject": "react-scripts eject",
+    "lint": "eslint -c .eslintrc.js --ext .js,.jsx,.ts,.tsx .",
+    "lint:fix": "npm run lint -- --fix"
   },
   "browserslist": {
     "production": [
@@ -46,7 +42,9 @@
       "last 1 safari version"
     ]
   },
+  "babel": {},
   "devDependencies": {
+    "@babel/eslint-parser": "^7.16.5",
     "@types/chrome": "^0.0.175"
-  }
+    }
 }
