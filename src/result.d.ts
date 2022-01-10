@@ -2,7 +2,7 @@ interface Result {
     icon: string,
     target: string,
     name: string,
-    isFavorite: string,
+    isFavorite: boolean,
     key: string
 }
 

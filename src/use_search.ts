@@ -1,8 +1,9 @@
 import { useEffect, useReducer, useRef } from "react";
+import Entitlement from "./entitlement";
 import { EntitlementsToResults } from "./mappers";
 import Result from "./result";
 
-const useSearch = (getEntitlements: Function, query: string) => {
+const useSearch = (getEntitlements: () => Promise<Entitlement[]>, query: string) => {
     const cache = useRef<Result[]>([]);
 
     type State = {
@@ -13,7 +14,7 @@ const useSearch = (getEntitlements: Function, query: string) => {
 
     type Action =
         | { type: "FETCHING" }
-        | { type: "FETCHED", results: any[] }
+        | { type: "FETCHED", results: Result[] }
         | { type: "FETCH_ERROR", error: string };
 
     function reducer(state: State, action: Action): State {
@@ -21,7 +22,7 @@ const useSearch = (getEntitlements: Function, query: string) => {
         case "FETCHING":
             return { isLoading: true };
         case "FETCHED":
-            return { data: EntitlementsToResults(action.results), isLoading: false  };
+            return { data: action.results, isLoading: false  };
         case "FETCH_ERROR":
             return { error: action.error, isLoading: false };
         default:
@@ -40,9 +41,10 @@ const useSearch = (getEntitlements: Function, query: string) => {
             } else {
                 try {
                     const entitlements = await getEntitlements();
-                    cache.current = entitlements;
+                    const results = EntitlementsToResults(entitlements);
+                    cache.current = results;
                     if (cancelRequest) return;
-                    dispatch({ results: entitlements, type: "FETCHED" });
+                    dispatch({ results: results, type: "FETCHED" });
                 } catch (error: any) {
                     if (cancelRequest) return;
                     let message = "Unknown Error";
@@ -72,9 +74,9 @@ const useSearch = (getEntitlements: Function, query: string) => {
 
         dispatch({ type: "FETCHING" });
 
-        const filteredResults = results.filter((entitlement): entitlement is any => {
+        const filteredResults = results.filter((result)  => {
             return (
-                entitlement
+                result
                     .name
                     .toLowerCase()
                     .includes(query.toLowerCase())

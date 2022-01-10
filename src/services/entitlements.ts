@@ -1,9 +1,10 @@
 import { browserService as _browserService } from "./browser";
 import { getBaseURL, launchURLAndClose } from "./url";
+import Entitlement from "../entitlement";
 
-export function getEntitlements(browserService = _browserService) {
-    return new Promise((resolve, reject) => {
-        browserService.getBackgroundPage().onPopupLoad((results: any[]) => {
+export function getEntitlements(browserService = _browserService): Promise<Entitlement[]> {
+    return new Promise<Entitlement[]>((resolve, reject) => {
+        browserService.getBackgroundPage().onPopupLoad((results: Entitlement[]) => {
             resolve(results);
         }, (err: Error) => {
 
