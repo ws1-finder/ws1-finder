@@ -1,4 +1,4 @@
-interface Entitlement {
+export interface Entitlement {
     _links: {
         icon: {
             href: string
@@ -10,4 +10,8 @@ interface Entitlement {
     launchUrl: string
 }
 
-export default Entitlement;
+export interface SearchUpdated extends Event {
+    detail?: {
+        text: string;
+    }
+}

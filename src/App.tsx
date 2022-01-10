@@ -12,6 +12,7 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemButton from "@mui/material/ListItemButton";
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import { SearchUpdated } from "./extension";
 import Result from "./result";
 import { getEntitlements } from "./services/entitlements";
 import { handleLaunchURLAndClose } from "./services/url";
@@ -22,12 +23,6 @@ const showMessage = (message: string) => {
         <Chip label={ message } variant="outlined" />
     </Box>;
 };
-
-interface SearchUpdated extends Event {
-    detail?: {
-        text: string;
-    }
-}
 
 function App() {
     const [query, setQuery] = useState("");

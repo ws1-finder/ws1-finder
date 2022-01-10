@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useRef } from "react";
-import Entitlement from "./entitlement";
+import { Entitlement } from "./extension";
 import { EntitlementsToResults } from "./mappers";
 import Result from "./result";
 

@@ -1,6 +1,6 @@
 import { browserService as _browserService } from "./browser";
 import { getBaseURL, launchURLAndClose } from "./url";
-import Entitlement from "../entitlement";
+import { Entitlement } from "../extension";
 
 export function getEntitlements(browserService = _browserService): Promise<Entitlement[]> {
     return new Promise<Entitlement[]>((resolve, reject) => {
