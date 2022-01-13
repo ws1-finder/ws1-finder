@@ -2,5 +2,10 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
       },
-      "eslint.validate": ["typescript", "javascript", "typescriptreact"]
+      "eslint.validate": [
+        "typescript",
+        "javascript",
+        "typescriptreact"
+      ],
+      "jest.jestCommandLine": "npm run test --"
 }

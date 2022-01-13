@@ -45,6 +45,7 @@
   "babel": {},
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.5",
+    "@testing-library/react-hooks": "^7.0.2",
     "@types/chrome": "^0.0.175"
-    }
+  }
 }
