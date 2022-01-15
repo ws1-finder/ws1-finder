@@ -69,6 +69,11 @@ const useSearch = (getEntitlements: () => Promise<Entitlement[]>, query: string)
         let cancelRequest = false;
         const results = cache.current;
 
+        if (!query && results) {
+            if (cancelRequest) return;
+            dispatch({ results: results, type: "FETCHED" });
+        } 
+
         if (!query) return;
         if (!results) return;
 
@@ -87,7 +92,9 @@ const useSearch = (getEntitlements: () => Promise<Entitlement[]>, query: string)
         if (cancelRequest) return;
         dispatch({ results: filteredResults, type: "FETCHED" });
 
-        return () => { cancelRequest = true; };
+        return () => { 
+            cancelRequest = true;
+        };
     }, [query]);
 
     return state;

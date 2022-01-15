@@ -1,7 +1,7 @@
 {
   "name": "Workspace ONE Finder",
-  "version": "0.2.1",
-  "version_name": "0.2.1 alpha",
+  "version": "0.2.2",
+  "version_name": "0.2.2 alpha",
   "manifest_version": 2,
   "description": "Quickly open any app you have access to from VMware Workspace One",
   "homepage_url": "https://ws1-finder.github.io",

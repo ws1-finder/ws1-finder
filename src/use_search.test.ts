@@ -51,3 +51,22 @@ test("that queries update the result set", async () => {
     expect(result.current.data?.length).toEqual(1);
     expect((result.current.data ?? [])[0].name).toEqual("App One");
 });
+
+test("that an empty query shows all results", async() => {
+    const { result, rerender, waitForNextUpdate } = renderHook((q: string) => useSearch(getEntitlements, q), {
+        initialProps: ""
+    });
+    await waitForNextUpdate();
+
+    rerender("Two");
+
+    expect(result.current.data?.length).toEqual(1);
+    expect((result.current.data ?? [])[0].name).toEqual("App Two");
+
+    rerender("");
+
+    expect(result.current).toMatchObject({
+        data: EntitlementsToResults(entitlements),
+        isLoading: false
+    });
+});
