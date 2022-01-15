@@ -1,4 +1,4 @@
-<img src="web-extension/icons/icon48.png" align="right" />
+<img src="public/ws1-finder.svg" width=48 align="right" />
 
 # Workspace One Finder
 >This extension will display a searchable list of the applications to which your are entitled in [VMware Workspace One](https://www.vmware.com/products/workspace-one.html)
