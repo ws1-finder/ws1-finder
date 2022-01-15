@@ -3,6 +3,8 @@
 # Workspace One Finder
 >This extension will display a searchable list of the applications to which your are entitled in [VMware Workspace One](https://www.vmware.com/products/workspace-one.html)
 
+[![test](https://github.com/ws1-finder/ws1-finder/workflows/test.yml/badge.svg)](https://github.com/ws1-finder/ws1-finder/actions)
+
 # Limitations
 Currently, Finder only lists Applications that can be launched from your web browser, that is where the application is not a virtual app / Launched by Horizon.
 
