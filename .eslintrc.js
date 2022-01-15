@@ -18,7 +18,8 @@ module.exports = {
             // ruleset, disable the JS one.
             rules: {
                 "@typescript-eslint/no-array-constructor": "warn",
-                "no-array-constructor": "off"
+                "no-array-constructor": "off",
+                "jsx-a11y/no-autofocus": "off"
             }
         }
     ],

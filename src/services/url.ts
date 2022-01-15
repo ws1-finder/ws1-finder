@@ -1,3 +1,4 @@
+import { MouseEvent } from "react";
 import { browserService as _browserService } from "./browser";
 
 export function handleLaunchURLAndClose(url: string, browserService = _browserService) {
@@ -7,7 +8,7 @@ export function handleLaunchURLAndClose(url: string, browserService = _browserSe
     };
 }
 
-export function launchURL(e: Event | string, browserService = _browserService) {
+export function launchURL(e: MouseEvent | Event | string, browserService = _browserService) {
     if (typeof e === "string") {
         browserService.createTab(e);
     } else if (e.target instanceof HTMLAnchorElement ) {
@@ -21,7 +22,7 @@ export function launchURLAndClose(e: Event | string, browserService = _browserSe
 }
 
 export function getBaseURL(browserService = _browserService) {
-    return new Promise((resolve) => {
+    return new Promise<string>((resolve) => {
         browserService.getBackgroundPage().baseURL((url: string) => {
             resolve(url);
         });

@@ -73,7 +73,7 @@ const useSearch = (getEntitlements: () => Promise<Entitlement[]>, query: string)
         return () => { 
             cancelRequest = true;
         };
-    }, [query]);
+    }, [query, state.error]);
 
     return state;
 };
