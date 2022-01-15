@@ -66,10 +66,11 @@ const useSearch = (getEntitlements: () => Promise<Entitlement[]>, query: string)
     }, [getEntitlements]);
 
     useEffect(() => {
+        if(state.error) return;
         let cancelRequest = false;
         const results = cache.current;
 
-        if (!query && results) {
+        if (!query && results.length > 0) {
             if (cancelRequest) return;
             dispatch({ results: results, type: "FETCHED" });
         } 

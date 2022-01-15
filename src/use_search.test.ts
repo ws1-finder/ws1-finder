@@ -35,6 +35,14 @@ beforeEach(() => {
     getEntitlements = () => Promise.resolve(entitlements);
 });
 
+test("then when input promise returns and error the hook returns an error", () => {
+    const throwError = () => { throw Error("this is a busted return result"); };
+    const { result } = renderHook((q: string) => useSearch(throwError, q), {
+        initialProps: ""
+    });
+    expect(result.current.error).toEqual("this is a busted return result");
+});
+
 test("that queries update the result set", async () => {
     const { result, rerender, waitForNextUpdate } = renderHook((q: string) => useSearch(getEntitlements, q), {
         initialProps: ""
