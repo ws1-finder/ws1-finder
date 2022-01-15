@@ -5,7 +5,7 @@ function clearCache() {
 }
 
 function storeSuccess(results) {
-    if ('_embedded' in results) {
+    if (results && results.length && results.length > 0) {
         currentResults = results;
     } else {
         currentResults = null;
@@ -26,18 +26,13 @@ function sortResults(results) {
 
 function checkAuthenticated(results) {
     if (results.status === 401) {
-        baseURL(function (url) {
-            chrome.tabs.create({url: url});
+        throw new Error('Unauthenticated');
 
-            chrome.runtime.sendMessage({
-                msg: "close_appfinder_extension"
-            });
-        });
     }
     return results;
 }
 
-function onPopupLoad(successCallback) {
+function onPopupLoad(successCallback, errorCallback) {
     if (currentResults !== null) {
         successCallback(currentResults);
     } else {
@@ -50,6 +45,7 @@ function onPopupLoad(successCallback) {
                 .then(sortResults)
                 .then(storeSuccess)
                 .then(successCallback)
+                .catch(errorCallback);
         });
     }
 }
