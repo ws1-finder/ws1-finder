@@ -2,35 +2,12 @@ import { useEffect, useReducer, useRef } from "react";
 import { Entitlement } from "./extension";
 import { EntitlementsToResults } from "./mappers";
 import Result from "./result";
+import UseSearchReducer from "./use_search_reducer";
 
 const useSearch = (getEntitlements: () => Promise<Entitlement[]>, query: string) => {
     const cache = useRef<Result[]>([]);
 
-    type State = {
-        data?: Result[];
-        error?: string;
-        isLoading: boolean;
-    }
-
-    type Action =
-        | { type: "FETCHING" }
-        | { type: "FETCHED", results: Result[] }
-        | { type: "FETCH_ERROR", error: string };
-
-    function reducer(state: State, action: Action): State {
-        switch (action.type) {
-        case "FETCHING":
-            return { isLoading: true };
-        case "FETCHED":
-            return { data: action.results, isLoading: false  };
-        case "FETCH_ERROR":
-            return { error: action.error, isLoading: false };
-        default:
-            return state;
-        }
-    }
-
-    const [state, dispatch] = useReducer(reducer, { isLoading: false });
+    const [state, dispatch] = useReducer(UseSearchReducer, { isLoading: false });
 
     useEffect(() => {
         let cancelRequest = false;
