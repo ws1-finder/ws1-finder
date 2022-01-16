@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import App from "./app";
 import reportWebVitals from "./report_web_vitals";
 
 import "@fontsource/roboto/300.css";
