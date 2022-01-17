@@ -6,14 +6,15 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React, { useEffect, useState } from "react";
 import Options from "./options";
-import { getBaseURL, launchURL } from "./services/url";
+import { browserService } from "./services/browser";
+import { launchURL } from "./services/url_launcher";
 
 const WorkspaceOneHeader = () => {
     const [baseURL, setBaseURL] = useState("https://www.vmware.com/products/workspace-one.html");
 
     useEffect(() => {
         let mounted = true;
-        getBaseURL()
+        browserService.baseURL()
             .then((url: string) => {
                 if (mounted) {
                     setBaseURL(url);

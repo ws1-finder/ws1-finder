@@ -21,6 +21,3 @@ export function launchURLAndClose(e: Event | string, browserService = _browserSe
     browserService.windowClose();
 }
 
-export function getBaseURL(browserService = _browserService): Promise<string> {
-    return browserService.getBackgroundPage().ws1Finder.baseURL();
-}

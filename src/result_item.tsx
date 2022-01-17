@@ -4,7 +4,7 @@ import React, { createRef, useEffect } from "react";
 import FavoriteAvatar from "./favorite_avatar";
 import Result from "./result";
 import ResultAvatar from "./result_avatar";
-import { handleLaunchURLAndClose } from "./services/url";
+import { handleLaunchURLAndClose } from "./services/url_launcher";
 
 const ResultItem = ({ selected, result, ...otherProps }: { selected: boolean, result: Result,  [x:string]: any }) => {
     const listItem = createRef<HTMLInputElement>();
