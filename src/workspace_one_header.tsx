@@ -6,18 +6,18 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React, { useEffect, useState } from "react";
 import Options from "./options";
-import { browserService } from "./services/browser";
+import { baseURL } from "./services/extension";
 import { launchURL } from "./services/url_launcher";
 
 const WorkspaceOneHeader = () => {
-    const [baseURL, setBaseURL] = useState("https://www.vmware.com/products/workspace-one.html");
+    const [ws1URL, setWs1URL] = useState("https://www.vmware.com/products/workspace-one.html");
 
     useEffect(() => {
         let mounted = true;
-        browserService.baseURL()
+        baseURL()
             .then((url: string) => {
                 if (mounted) {
-                    setBaseURL(url);
+                    setWs1URL(url);
                 }
             });
 
@@ -32,7 +32,7 @@ const WorkspaceOneHeader = () => {
                 <Toolbar>
                     <Options />
                     <Typography variant="h6" component="div" sx={ { flexGrow: 1 } }>
-                        <Link underline="none" color="inherit" href={ baseURL } onClick={ launchURL }>
+                        <Link underline="none" color="inherit" href={ ws1URL } onClick={ launchURL }>
                             Workspace One Finder
                         </Link>
                     </Typography>

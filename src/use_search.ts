@@ -1,7 +1,7 @@
 import { useEffect, useReducer, useRef } from "react";
-import { Entitlement } from "./extension";
 import { EntitlementsToResults } from "./mappers";
 import Result from "./result";
+import { Entitlement } from "./services/extension";
 import UseSearchReducer from "./use_search_reducer";
 
 const useSearch = (getEntitlements: () => Promise<Entitlement[]>, query: string) => {

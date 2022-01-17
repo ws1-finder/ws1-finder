@@ -4,7 +4,7 @@ import LinearProgress from "@mui/material/LinearProgress";
 import TextField from "@mui/material/TextField";
 import React, { ChangeEvent, KeyboardEvent, useCallback, useEffect, useState } from "react";
 import "./app.css";
-import { SearchUpdated } from "./extension";
+import { SearchUpdated } from "./services/extension";
 import NoResults from "./no_results";
 import Result from "./result";
 import ResultItem from "./result_item";

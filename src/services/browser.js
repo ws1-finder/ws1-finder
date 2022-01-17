@@ -57,12 +57,9 @@ const makeBrowserService = (_browser = chrome, _window = window) => {
         };
     };
 
-    const getBackgroundPage = makeBackgroundPage(_browser);
-
     return {
-        baseURL: getBackgroundPage().ws1Finder.baseURL,
+        backgroundPage: makeBackgroundPage(_browser),
         createTab: makeCreateTab(_browser),
-        entitlements: getBackgroundPage().ws1Finder.getEntitlements,
         getStorage: makeGetStorage(_browser),
         openOptions: makeOpenOptions(_browser, _window),
         requestPermissions: makeRequestPermissions(_browser),

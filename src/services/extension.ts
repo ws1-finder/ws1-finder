@@ -1,3 +1,5 @@
+import { browserService } from  "./browser";
+
 export interface Entitlement {
     _links: {
         icon: {
@@ -15,3 +17,6 @@ export interface SearchUpdated extends Event {
         text: string;
     }
 }
+
+export const baseURL = browserService.backgroundPage().ws1Finder.baseURL;
+export const entitlements = browserService.backgroundPage().ws1Finder.getEntitlements;

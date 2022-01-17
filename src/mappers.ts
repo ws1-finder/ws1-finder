@@ -1,4 +1,4 @@
-import { Entitlement } from "./extension";
+import { Entitlement } from "./services/extension";
 import Result from "./result";
 
 export const EntitlementToResult = (entitlement: Entitlement): Result => {
