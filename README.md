@@ -70,6 +70,3 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 # Manual Testing
 Looking to test this extension without access to an existing Workspace ONE account? You can sign up for a VMware Test Drive account here: [VMware Test Drive](https://portal.vmtestdrive.com/) and then update this extension's options from your browser to point to: <https://testdrive.vidmpreview.com/>
-
-# Attributions
-[Keyboard behaviors](web-extension/src/keyboard_behaviors.js) are based on [babyman/quick-tabs-chrome-extension](https://github.com/babyman/quick-tabs-chrome-extension)
