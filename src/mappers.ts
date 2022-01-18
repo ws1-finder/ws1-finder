@@ -1,5 +1,5 @@
-import { Entitlement } from "./services/extension";
 import Result from "./result";
+import { Entitlement } from "./services/extension";
 
 export const EntitlementToResult = (entitlement: Entitlement): Result => {
     return {

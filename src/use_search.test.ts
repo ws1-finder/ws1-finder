@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react-hooks";
-import { Entitlement } from "./services/extension";
 import { EntitlementsToResults } from "./mappers";
+import { Entitlement } from "./services/extension";
 import useSearch from "./use_search";
 
 var entitlements: Entitlement[];
