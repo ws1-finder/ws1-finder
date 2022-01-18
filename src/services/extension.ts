@@ -1,4 +1,5 @@
 import { browserService } from  "./browser";
+import { authentication } from "./error_handlers";
 
 export interface Entitlement {
     _links: {
@@ -19,4 +20,4 @@ export interface SearchUpdated extends Event {
 }
 
 export const baseURL = browserService.backgroundPage().ws1Finder.baseURL;
-export const entitlements = browserService.backgroundPage().ws1Finder.getEntitlements;
+export const entitlements = browserService.backgroundPage().ws1Finder.getEntitlements.catch(authentication);

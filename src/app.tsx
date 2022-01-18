@@ -4,19 +4,18 @@ import LinearProgress from "@mui/material/LinearProgress";
 import TextField from "@mui/material/TextField";
 import React, { ChangeEvent, KeyboardEvent, useCallback, useEffect, useState } from "react";
 import "./app.css";
-import { SearchUpdated } from "./services/extension";
 import NoResults from "./no_results";
 import Result from "./result";
 import ResultItem from "./result_item";
 import ResultList from "./result_list";
-import { getEntitlements } from "./services/entitlements";
+import { SearchUpdated, entitlements } from "./services/extension";
 import useSearch from "./use_search";
 import WorkspaceOneHeader from "./workspace_one_header";
 
 function App() {
     const [query, setQuery] = useState("");
     const [cursor, setCursor] = useState(-1);
-    const { isLoading, data, error } = useSearch(getEntitlements, query);
+    const { isLoading, data, error } = useSearch(entitlements, query);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const query = e.target.value;
