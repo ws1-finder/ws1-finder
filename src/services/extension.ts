@@ -19,5 +19,13 @@ export interface SearchUpdated extends Event {
     }
 }
 
+const makeEntitlements = () => {
+    return () => {
+        return browserService.backgroundPage().ws1Finder
+            .getEntitlements()
+            .catch(authentication);
+    };
+};
+
 export const baseURL = browserService.backgroundPage().ws1Finder.baseURL;
-export const entitlements = browserService.backgroundPage().ws1Finder.getEntitlements.catch(authentication);
+export const entitlements = makeEntitlements();
