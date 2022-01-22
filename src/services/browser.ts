@@ -5,7 +5,17 @@ function getBrowserInstance(): typeof chrome {
     return browserInstance;
 }
 
-export interface BackgroundPageWindow extends Window {
+export interface BrowserService {
+    backgroundPage(): BackgroundPageWindow;
+    createTab(url: string): void;
+    getStorage(key: string, _default: string): Promise<string>;
+    openOptions(): void;
+    requestPermissions(permissions: {}): Promise<boolean>;
+    setStorage(key: string, value: string): Promise<void>;
+    windowClose(): void;
+}
+
+export interface BackgroundPageWindow {
     ws1Finder: {
         baseURL(): Promise<string>;
         getEntitlements(): Promise<Entitlement[]>;
@@ -13,7 +23,9 @@ export interface BackgroundPageWindow extends Window {
     }
 }
 
-const makeBrowserService = (_browser: typeof chrome = getBrowserInstance(), _window: Window = window) => {
+const makeBrowserService = (
+    _browser: typeof chrome = getBrowserInstance(),
+    _window: Window = window): BrowserService => {
 
     const makeOpenOptions = (browser: typeof chrome, window: Window) => {
         return () => {
@@ -44,7 +56,7 @@ const makeBrowserService = (_browser: typeof chrome = getBrowserInstance(), _win
                 throw new Error("Background page not found");
             }
 
-            return bgPage as BackgroundPageWindow;
+            return bgPage as unknown as BackgroundPageWindow;
         };
     };
 
@@ -70,7 +82,7 @@ const makeBrowserService = (_browser: typeof chrome = getBrowserInstance(), _win
 
     const makeRequestPermissions = (browser: typeof chrome) => {
         return (permissions: {}) => {
-            return new Promise((resolve) => {
+            return new Promise<boolean>((resolve) => {
                 browser.permissions.request(permissions, (granted) => {
                     resolve(granted);
                 });
