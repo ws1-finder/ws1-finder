@@ -8,7 +8,6 @@ import NoResults from "./no_results";
 import Result from "./result";
 import ResultItem from "./result_item";
 import ResultList from "./result_list";
-import { SearchUpdated } from "./services/extension";
 import { launchURLAndClose } from "./services/url_launcher";
 import useSearch from "./use_search";
 import WorkspaceOneHeader from "./workspace_one_header";
@@ -36,11 +35,6 @@ function App() {
         }
     }, [cursor, data]);
 
-    useEffect(() => {
-        document.body.addEventListener("searchUpdated", ((event: SearchUpdated) => {
-            if (event.detail) setQuery(event.detail.text);
-        }));
-    }, []);
     return (<>
         <WorkspaceOneHeader />
 

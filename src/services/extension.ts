@@ -13,12 +13,6 @@ export interface Entitlement {
     launchUrl: string
 }
 
-export interface SearchUpdated extends Event {
-    detail?: {
-        text: string;
-    }
-}
-
 const makeEntitlements = () => {
     return (_browserService: BrowserService = browserService) => {
         return _browserService.backgroundPage().ws1Finder
