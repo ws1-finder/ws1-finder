@@ -28,7 +28,7 @@ const WorkspaceOneHeader = () => {
 
     return (
         <Box sx={ { flexGrow: 1 } }>
-            <AppBar position="static">
+            <AppBar role="heading" position="static">
                 <Toolbar>
                     <Options />
                     <Typography variant="h6" component="div" sx={ { flexGrow: 1 } }>
