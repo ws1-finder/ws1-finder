@@ -101,5 +101,6 @@ const makeBrowserService = (
     };
 };
 
-export const browserService = makeBrowserService();
-export default makeBrowserService;
+const browserService = makeBrowserService();
+
+export default browserService;

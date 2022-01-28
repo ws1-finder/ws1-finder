@@ -1,4 +1,4 @@
-import { BrowserService, browserService as _browserService } from  "./browser";
+import browserService, { BrowserService } from  "./browser";
 import { authentication } from "./error_handlers";
 
 export interface Entitlement {
@@ -20,12 +20,12 @@ export interface SearchUpdated extends Event {
 }
 
 const makeEntitlements = () => {
-    return (browserService: BrowserService = _browserService) => {
-        return browserService.backgroundPage().ws1Finder
+    return (_browserService: BrowserService = browserService) => {
+        return _browserService.backgroundPage().ws1Finder
             .getEntitlements()
             .catch(authentication);
     };
 };
 
-export const baseURL = _browserService.backgroundPage().ws1Finder.baseURL;
+export const baseURL = browserService.backgroundPage().ws1Finder.baseURL;
 export const entitlements = makeEntitlements();

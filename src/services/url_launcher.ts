@@ -1,23 +1,23 @@
 import { MouseEvent } from "react";
-import { BrowserService, browserService as _browserService } from "./browser";
+import browserService, { BrowserService } from "./browser";
 
-export function handleLaunchURLAndClose(url: string, browserService: BrowserService = _browserService) {
+export function handleLaunchURLAndClose(url: string, _browserService: BrowserService = browserService) {
     return () => {
-        browserService.createTab(url);
-        browserService.windowClose();
+        _browserService.createTab(url);
+        _browserService.windowClose();
     };
 }
 
-export function launchURL(e: MouseEvent | Event | string, browserService: BrowserService = _browserService) {
+export function launchURL(e: MouseEvent | Event | string, _browserService: BrowserService = browserService) {
     if (typeof e === "string") {
-        browserService.createTab(e);
+        _browserService.createTab(e);
     } else if (e.target instanceof HTMLAnchorElement ) {
         e.preventDefault();
-        browserService.createTab(e.target.href);
+        _browserService.createTab(e.target.href);
     }
 }
-export function launchURLAndClose(e: Event | string, browserService: BrowserService = _browserService) {
+export function launchURLAndClose(e: Event | string, _browserService: BrowserService = browserService) {
     launchURL(e);
-    browserService.windowClose();
+    _browserService.windowClose();
 }
 
