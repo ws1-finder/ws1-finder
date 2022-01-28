@@ -9,6 +9,7 @@ import Result from "./result";
 import ResultItem from "./result_item";
 import ResultList from "./result_list";
 import { SearchUpdated, entitlements } from "./services/extension";
+import { launchURLAndClose } from "./services/url_launcher";
 import useSearch from "./use_search";
 import WorkspaceOneHeader from "./workspace_one_header";
 
@@ -30,6 +31,8 @@ function App() {
             setCursor(cursor - 1);
         } else if (e.key === "ArrowDown" && cursor < (data ?? []).length - 1) {
             setCursor(cursor + 1);
+        } else if (e.key === "Enter" && data && data.length > 0) {
+            launchURLAndClose(data[0].target);
         }
     }, [cursor, data]);
 
@@ -43,6 +46,7 @@ function App() {
 
         <TextField
             id="outlined-basic"
+            role="searchbox"
             variant="standard"
             onChange={ handleChange }
             placeholder="Search VMware Workspace One"
