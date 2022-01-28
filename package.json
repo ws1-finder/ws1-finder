@@ -41,6 +41,9 @@
     ]
   },
   "babel": {},
+  "jest": {
+    "restoreMocks": true
+  },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.5",
     "@testing-library/react": "^12.1.2",
