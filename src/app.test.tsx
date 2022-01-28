@@ -45,38 +45,40 @@ it("loads the header", async () => {
     expect(screen.getByRole("list")).toHaveTextContent("App 1");
 });
 
-describe("when there's data", () => {
-    it("launches the first result when enter is hit", async () => {
-        jest.spyOn(useSearch, "default").mockReturnValue({
-            data: mockResults, isLoading: false  
-        });
+describe("enter key behavior", () => {
+    describe("when there's data", () => {
+        it("launches the first result when enter is hit", async () => {
+            jest.spyOn(useSearch, "default").mockReturnValue({
+                data: mockResults, isLoading: false  
+            });
 
-        render(<App />);
-        await screen.findByRole("heading");
+            render(<App />);
+            await screen.findByRole("heading");
   
-        const domNode = screen.getByRole("searchbox");
+            const domNode = screen.getByRole("searchbox");
 
-        fireEvent.keyDown(domNode, { charCode: 13, code: "Enter", key: "Enter" });
+            fireEvent.keyDown(domNode, { charCode: 13, code: "Enter", key: "Enter" });
 
-        expect(browserService.createTab).toHaveBeenCalledTimes(1);
-        expect(browserService.createTab).toHaveBeenCalledWith("https://example.com/1");
+            expect(browserService.createTab).toHaveBeenCalledTimes(1);
+            expect(browserService.createTab).toHaveBeenCalledWith("https://example.com/1");
+        });
     });
-});
 
 
-describe("when there is no data", () => {
-    it("does not try and launch anything", async () => {
-        jest.spyOn(useSearch, "default").mockReturnValue({
-            data: [], isLoading: false  
-        });
+    describe("when there is no data", () => {
+        it("does not try and launch anything", async () => {
+            jest.spyOn(useSearch, "default").mockReturnValue({
+                data: [], isLoading: false  
+            });
 
-        render(<App />);
-        await screen.findByRole("heading");
+            render(<App />);
+            await screen.findByRole("heading");
   
-        const domNode = screen.getByRole("searchbox");
+            const domNode = screen.getByRole("searchbox");
 
-        fireEvent.keyDown(domNode, { charCode: 13, code: "Enter", key: "Enter" });
+            fireEvent.keyDown(domNode, { charCode: 13, code: "Enter", key: "Enter" });
 
-        expect(browserService.createTab).not.toHaveBeenCalled();
+            expect(browserService.createTab).not.toHaveBeenCalled();
+        });
     });
 });
