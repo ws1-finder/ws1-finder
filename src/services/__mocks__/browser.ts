@@ -2,14 +2,20 @@ import { BackgroundPageWindow } from "../browser";
 import { Entitlement } from "../extension";
 
 const makeMockBrowserService = () => {
+    let mockEntitlements: Entitlement[] = [];
+
     return {
+        _setMockEntitlements: (entitlements: Entitlement[]) => {
+            mockEntitlements = entitlements;
+        },
+
         backgroundPage: (): BackgroundPageWindow => {
             return {
                 ws1Finder: {
                     baseURL: () => Promise.resolve("https://finder.example.com"),
                     clearCache: (): void => {},
                     getEntitlements: (): Promise<Entitlement[]> => {
-                        return Promise.resolve([]);
+                        return Promise.resolve(mockEntitlements);
                     }
                 }
             };
