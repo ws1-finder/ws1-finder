@@ -5,10 +5,6 @@ const makeMockBrowserService = () => {
     let mockEntitlements: Entitlement[] = [];
 
     return {
-        _setMockEntitlements: (entitlements: Entitlement[]) => {
-            mockEntitlements = entitlements;
-        },
-
         backgroundPage: (): BackgroundPageWindow => {
             return {
                 ws1Finder: {
