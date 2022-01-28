@@ -6,6 +6,8 @@ import useSearch from "./use_search";
 var entitlements: Entitlement[];
 var getEntitlements: () => Promise<Entitlement[]>;
 
+jest.mock("./services/browser");
+
 beforeEach(() => {
     entitlements = [
         {
@@ -37,14 +39,14 @@ beforeEach(() => {
 
 test("then when input promise returns and error the hook returns an error", () => {
     const throwError = () => { throw Error("this is a busted return result"); };
-    const { result } = renderHook((q: string) => useSearch(throwError, q), {
+    const { result } = renderHook((q: string) => useSearch(q, throwError), {
         initialProps: ""
     });
     expect(result.current.error).toEqual("this is a busted return result");
 });
 
 test("that queries update the result set", async () => {
-    const { result, rerender, waitForNextUpdate } = renderHook((q: string) => useSearch(getEntitlements, q), {
+    const { result, rerender, waitForNextUpdate } = renderHook((q: string) => useSearch(q,getEntitlements), {
         initialProps: ""
     });
     await waitForNextUpdate();
@@ -61,7 +63,7 @@ test("that queries update the result set", async () => {
 });
 
 test("that an empty query shows all results", async() => {
-    const { result, rerender, waitForNextUpdate } = renderHook((q: string) => useSearch(getEntitlements, q), {
+    const { result, rerender, waitForNextUpdate } = renderHook((q: string) => useSearch(q, getEntitlements), {
         initialProps: ""
     });
     await waitForNextUpdate();

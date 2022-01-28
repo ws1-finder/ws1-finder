@@ -1,10 +1,10 @@
 import { useEffect, useReducer, useRef } from "react";
 import { EntitlementsToResults } from "./mappers";
 import Result from "./result";
-import { Entitlement } from "./services/extension";
+import { Entitlement, entitlements } from "./services/extension";
 import UseSearchReducer from "./use_search_reducer";
 
-const useSearch = (getEntitlements: () => Promise<Entitlement[]>, query: string) => {
+const useSearch = (query: string, getEntitlements: () => Promise<Entitlement[]> = entitlements) => {
     const cache = useRef<Result[]>([]);
 
     const [state, dispatch] = useReducer(UseSearchReducer, { isLoading: false });

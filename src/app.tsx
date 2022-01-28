@@ -8,7 +8,7 @@ import NoResults from "./no_results";
 import Result from "./result";
 import ResultItem from "./result_item";
 import ResultList from "./result_list";
-import { SearchUpdated, entitlements } from "./services/extension";
+import { SearchUpdated } from "./services/extension";
 import { launchURLAndClose } from "./services/url_launcher";
 import useSearch from "./use_search";
 import WorkspaceOneHeader from "./workspace_one_header";
@@ -16,7 +16,7 @@ import WorkspaceOneHeader from "./workspace_one_header";
 function App() {
     const [query, setQuery] = useState("");
     const [cursor, setCursor] = useState(-1);
-    const { isLoading, data, error } = useSearch(entitlements, query);
+    const { isLoading, data, error } = useSearch(query);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const query = e.target.value;
