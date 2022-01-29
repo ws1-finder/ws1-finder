@@ -45,6 +45,30 @@ it("loads the header", async () => {
     expect(screen.getByRole("list")).toHaveTextContent("App 1");
 });
 
+describe("updates from custom hook", () => {
+    describe("when the data changes", () => {
+        it("updates the list", async () => {
+            jest.spyOn(useSearch, "default").mockReturnValue({
+                data: mockResults, isLoading: false  
+            });
+
+            const { rerender } = render(<App />);
+            await screen.findByRole("heading");
+ 
+            expect(screen.getByRole("list")).toHaveTextContent("App 1");
+            expect(screen.getByRole("list")).toHaveTextContent("App 2");
+
+            jest.spyOn(useSearch, "default").mockReturnValue({
+                data: mockResults.slice(0,1), isLoading: false  
+            });
+
+            rerender(<App />);
+            await screen.findByRole("heading");
+            expect(screen.getByRole("list")).not.toHaveTextContent("App 2");
+        });
+    });
+});
+
 describe("enter key behavior", () => {
     describe("when there's data", () => {
         it("launches the first result when enter is hit", async () => {
