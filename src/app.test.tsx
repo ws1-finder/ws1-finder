@@ -69,6 +69,19 @@ describe("updates from custom hook", () => {
     });
 });
 
+describe("when there's an error", () => {
+    it("displays the erorr", async () => {
+        jest.spyOn(useSearch, "default").mockReturnValue({
+            data: [], error: "Something went wrong", isLoading: false 
+        });
+
+        render(<App />);
+        await screen.findByRole("heading");
+  
+        expect(screen.getByRole("alert")).toHaveTextContent("Something went wrong");
+    });
+});
+
 describe("enter key behavior", () => {
     describe("when there's data", () => {
         it("launches the first result when enter is hit", async () => {

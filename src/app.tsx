@@ -53,7 +53,7 @@ function App() {
             sx={ { mt: "1em" } }
         />
 
-        { error !== undefined && <Alert severity="error">{ error }</Alert> }
+        { error !== undefined && <Alert severity="error" role="alert">{ error }</Alert> }
         { isLoading && <LinearProgress /> }
         { !isLoading && (
             <>
