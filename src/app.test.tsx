@@ -69,6 +69,35 @@ describe("updates from custom hook", () => {
     });
 });
 
+describe("the progress bar", () => {
+
+    describe("when the data is loading", () => {
+        it("displays an indication", async () => {
+            jest.spyOn(useSearch, "default").mockReturnValue({
+                data: [], error: "Something went wrong", isLoading: true 
+            });
+
+            render(<App />);
+            await screen.findByRole("heading");
+
+            expect(screen.getByRole("progressbar")).toBeInTheDocument();
+        });
+    });
+
+    describe("when the data has loaded", () => {
+        it("does not display an indication", async () => {
+            jest.spyOn(useSearch, "default").mockReturnValue({
+                data: [], error: "Something went wrong", isLoading: false 
+            });
+
+            render(<App />);
+            await screen.findByRole("heading");
+
+            expect(screen.queryByRole("progressbar")).not.toBeInTheDocument();
+        });
+    });
+});
+
 describe("when there's an error", () => {
     it("displays the erorr", async () => {
         jest.spyOn(useSearch, "default").mockReturnValue({
