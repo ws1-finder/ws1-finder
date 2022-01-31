@@ -40,7 +40,6 @@ function App() {
 
         <TextField
             id="outlined-basic"
-            role="searchbox"
             variant="standard"
             onChange={ handleChange }
             placeholder="Search VMware Workspace One"

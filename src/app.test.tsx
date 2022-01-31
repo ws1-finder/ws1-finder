@@ -121,7 +121,7 @@ describe("enter key behavior", () => {
             render(<App />);
             await screen.findByRole("heading");
   
-            const domNode = screen.getByRole("searchbox");
+            const domNode = screen.getByRole("textbox");
 
             fireEvent.keyDown(domNode, { charCode: 13, code: "Enter", key: "Enter" });
 
@@ -140,7 +140,7 @@ describe("enter key behavior", () => {
             render(<App />);
             await screen.findByRole("heading");
   
-            const domNode = screen.getByRole("searchbox");
+            const domNode = screen.getByRole("textbox");
 
             fireEvent.keyDown(domNode, { charCode: 13, code: "Enter", key: "Enter" });
 
