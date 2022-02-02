@@ -50,6 +50,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/chrome": "^0.0.176",
     "mini-css-extract-plugin": "2.4.5",
+    "nth-check": ">=2.0.1",
     "react-scripts": "^5.0.0"
   }
 }
