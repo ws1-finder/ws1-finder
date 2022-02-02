@@ -44,7 +44,6 @@ it("loads the header", async () => {
     expect(screen.getByRole("heading")).toHaveTextContent("Workspace One Finder");
     expect(screen.getByRole("list")).toHaveTextContent("App 1");
 });
-
 describe("updates from custom hook", () => {
     describe("when the data changes", () => {
         it("updates the list", async () => {

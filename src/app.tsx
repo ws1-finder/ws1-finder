@@ -20,9 +20,7 @@ function App() {
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const query = e.target.value;
 
-        if (query) {
-            setQuery(query);
-        }
+        setQuery(query);
     };
 
     const handleKeyDown = useCallback((e: KeyboardEvent<HTMLElement>) => {
