@@ -1,5 +1,6 @@
 import { MouseEvent } from "react";
-import browserService, { BrowserService } from "./browser";
+import browserService  from "./browser";
+import { BrowserService } from "./browser_service";
 
 export function handleLaunchURLAndClose(url: string, _browserService: BrowserService = browserService) {
     return () => {

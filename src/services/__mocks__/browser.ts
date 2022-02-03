@@ -1,4 +1,4 @@
-import { BackgroundPageWindow } from "../browser";
+import { BackgroundPageWindow } from "../browser_service";
 import { Entitlement } from "../extension";
 
 const makeMockBrowserService = () => {

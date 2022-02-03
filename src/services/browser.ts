@@ -1,26 +1,8 @@
-import { Entitlement } from "./extension";
+import { BackgroundPageWindow, BrowserService } from "./browser_service";
 
 function getBrowserInstance(): typeof chrome {
     const browserInstance = window.chrome || (window as any)["browser"];
     return browserInstance;
-}
-
-export interface BrowserService {
-    backgroundPage(): BackgroundPageWindow;
-    createTab(url: string): void;
-    getStorage(key: string, _default: string): Promise<string>;
-    openOptions(): void;
-    requestPermissions(permissions: {}): Promise<boolean>;
-    setStorage(key: string, value: string): Promise<void>;
-    windowClose(): void;
-}
-
-export interface BackgroundPageWindow {
-    ws1Finder: {
-        baseURL(): Promise<string>;
-        getEntitlements(): Promise<Entitlement[]>;
-        clearCache: () => void;
-    }
 }
 
 const makeBrowserService = (
@@ -100,6 +82,7 @@ const makeBrowserService = (
         windowClose: makeWindowClose(_window)
     };
 };
+
 
 const browserService = makeBrowserService();
 

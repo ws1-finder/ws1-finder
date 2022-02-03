@@ -1,4 +1,5 @@
-import browserService, { BrowserService } from  "./browser";
+import browserService from  "./browser";
+import { BrowserService } from "./browser_service";
 import { authentication } from "./error_handlers";
 
 export interface Entitlement {
