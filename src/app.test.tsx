@@ -4,6 +4,7 @@ import "@testing-library/jest-dom";
 import App from "./app";
 import browserService from "./services/browser";    
 import * as useSearch from "./use_search";
+import userEvent from "@testing-library/user-event";
 
 jest.mock("./services/browser");
 
@@ -65,6 +66,20 @@ describe("updates from custom hook", () => {
             rerender(<App />);
             await screen.findByRole("heading");
             expect(screen.getByRole("list")).not.toHaveTextContent("App 2");
+        });
+    });
+});
+
+describe("searching for results", () => {
+    describe("when typing in the search box", ()=> {
+        it("filters the search results", () => {
+            jest.spyOn(useSearch, "default").mockReturnValue({
+                data: mockResults, isLoading: false  
+            });
+
+            render(<App />);
+            userEvent.type(screen.getByRole("textbox"), "2");
+            expect(useSearch.default).toHaveBeenCalledWith("2");
         });
     });
 });
