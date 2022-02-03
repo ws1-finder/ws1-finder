@@ -1,11 +1,9 @@
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import "@testing-library/jest-dom";
-import App from "./app";
 import Result from "./result";
 import ResultItem from "./result_item";
 import * as UrlUtilities from "./services/url_launcher";    
-import * as useSearch from "./use_search";
 
 jest.mock("./services/url_launcher");
 
