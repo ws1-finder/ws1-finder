@@ -44,6 +44,7 @@ it("loads the header", async () => {
     expect(screen.getByRole("heading")).toHaveTextContent("Workspace One Finder");
     expect(screen.getByRole("list")).toHaveTextContent("App 1");
 });
+
 describe("updates from custom hook", () => {
     describe("when the data changes", () => {
         it("updates the list", async () => {
@@ -68,7 +69,7 @@ describe("updates from custom hook", () => {
     });
 });
 
-describe("the progress bar", () => {
+describe("waiting for data to load", () => {
 
     describe("when the data is loading", () => {
         it("displays an indication", async () => {
@@ -110,7 +111,7 @@ describe("when there's an error", () => {
     });
 });
 
-describe("enter key behavior", () => {
+describe("keyboard behaviors", () => {
     describe("when there's data", () => {
         it("launches the first result when enter is hit", async () => {
             jest.spyOn(useSearch, "default").mockReturnValue({
