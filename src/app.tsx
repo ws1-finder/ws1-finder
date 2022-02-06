@@ -2,7 +2,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import Alert from "@mui/material/Alert";
 import LinearProgress from "@mui/material/LinearProgress";
 import TextField from "@mui/material/TextField";
-import React, { ChangeEvent, KeyboardEvent, useCallback, useEffect, useState } from "react";
+import React, { ChangeEvent, KeyboardEvent, useCallback, useState } from "react";
 import "./app.css";
 import NoResults from "./no_results";
 import Result from "./result";
