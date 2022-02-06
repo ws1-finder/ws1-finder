@@ -1,4 +1,5 @@
 import { BackgroundPageWindow, BrowserService } from "./browser_service";
+import { makeFakeBrowserService } from "./fake_browser_service";
 
 function getBrowserInstance(): typeof chrome {
     const browserInstance = window.chrome || (window as any)["browser"];
@@ -83,7 +84,13 @@ const makeBrowserService = (
     };
 };
 
+const browserInstance = getBrowserInstance();
+let browserService: BrowserService;
 
-const browserService = makeBrowserService();
+if (!(browserInstance && browserInstance.runtime && browserInstance.runtime.id)) {
+    browserService = makeFakeBrowserService(window);
+} else {
+    browserService = makeBrowserService(browserInstance, window);
+}
 
 export default browserService;
