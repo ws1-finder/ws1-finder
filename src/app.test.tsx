@@ -1,10 +1,10 @@
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import React from "react";
 import "@testing-library/jest-dom";
 import App from "./app";
 import browserService from "./services/browser";    
 import * as useSearch from "./use_search";
-import userEvent from "@testing-library/user-event";
 
 jest.mock("./services/browser");
 
