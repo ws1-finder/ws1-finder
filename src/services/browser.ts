@@ -7,8 +7,8 @@ function getBrowserInstance(): typeof chrome {
 }
 
 const makeBrowserService = (
-    _browser: typeof chrome = getBrowserInstance(),
-    _window: Window = window): BrowserService => {
+    _browser: typeof chrome,
+    _window: Window): BrowserService => {
 
     const makeOpenOptions = (browser: typeof chrome, window: Window) => {
         return () => {
