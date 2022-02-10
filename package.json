@@ -1,6 +1,6 @@
 {
   "name": "ws1-finder",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.7.1",
