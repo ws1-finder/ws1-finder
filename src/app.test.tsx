@@ -128,20 +128,41 @@ describe("when there's an error", () => {
 
 describe("keyboard behaviors", () => {
     describe("when there's data", () => {
+
         it("launches the first result when enter is hit", async () => {
             jest.spyOn(useSearch, "default").mockReturnValue({
                 data: mockResults, isLoading: false  
             });
 
             render(<App />);
-            await screen.findByRole("heading");
-  
+
+            screen.getByRole("button", { name: /App 1/ });
+
             const domNode = screen.getByRole("textbox");
 
             fireEvent.keyDown(domNode, { charCode: 13, code: "Enter", key: "Enter" });
 
-            expect(browserService.createTab).toHaveBeenCalledTimes(1);
             expect(browserService.createTab).toHaveBeenCalledWith("https://example.com/1");
+        });
+
+        describe("when a user tabs through the list and then hits enter", () => {
+            it("only launches the focused result", () => {
+                jest.spyOn(useSearch, "default").mockReturnValue({
+                    data: mockResults, isLoading: false  
+                });
+
+                render(<App />);
+
+                screen.getByRole("button", { name: /App 1/ });
+
+                fireEvent.keyDown(
+                    screen.getByRole("button", { name: /App 2/ }), 
+                    { charCode: 13, code: "Enter", key: "Enter" }
+                );
+
+                expect(browserService.createTab).toHaveBeenCalledTimes(1);
+                expect(browserService.createTab).toHaveBeenCalledWith("https://example.com/2");
+            });
         });
     });
 

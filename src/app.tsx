@@ -22,16 +22,21 @@ function App() {
 
         setQuery(query);
     };
-
     const handleKeyDown = useCallback((e: KeyboardEvent<HTMLElement>) => {
         if (e.key === "ArrowUp" && cursor > 0) {
             setCursor(cursor - 1);
         } else if (e.key === "ArrowDown" && cursor < (data ?? []).length - 1) {
             setCursor(cursor + 1);
+        } 
+    }, [cursor, data]);
+
+    const handleTextBoxKeyDown = (e: KeyboardEvent<HTMLElement>) => {
+        if (e.key === "ArrowDown" && cursor < (data ?? []).length - 1) {
+            setCursor(cursor + 1);
         } else if (e.key === "Enter" && data && data.length > 0) {
             launchURLAndClose(data[0].target);
         }
-    }, [cursor, data]);
+    };
 
     return (<>
         <WorkspaceOneHeader />
@@ -43,7 +48,7 @@ function App() {
             placeholder="Search VMware Workspace One"
             fullWidth
             autoFocus
-            onKeyDown={ handleKeyDown }
+            onKeyDown={ handleTextBoxKeyDown }
             InputProps={ {
                 startAdornment: <SearchIcon />
             } }
