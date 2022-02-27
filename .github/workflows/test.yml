@@ -1,4 +1,4 @@
-name: ws1-finder:test
+name: ws1-finder:ci
 on:
   push:
     branches: [ master ]
