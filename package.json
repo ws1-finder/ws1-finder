@@ -18,8 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint -c .eslintrc.js --ext .js,.jsx,.ts,.tsx .",
-    "lint:fix": "npm run lint -- --fix",
-    "postbuild": "react-snap"
+    "lint:fix": "npm run lint -- --fix"
   },
   "browserslist": {
     "production": [
@@ -53,7 +52,6 @@
     "mini-css-extract-plugin": "2.4.5",
     "nth-check": ">=2.0.1",
     "react-scripts": "^5.0.0",
-    "react-snap": "^1.23.0",
     "typescript": "^4.5.5"
   }
 }
