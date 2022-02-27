@@ -10,8 +10,7 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "web_accessible_resources": [
-  ],
+  "web_accessible_resources": [],
   "default_locale": "en",
   "browser_action": {
     "default_popup": "index.html"
@@ -21,7 +20,7 @@
     "https://*/"
   ],
   "options_ui": {
-    "page":   "options.html"
+    "page": "options.html"
   },
   "background": {
     "page": "background.html"
