@@ -1,7 +1,7 @@
 {
   "name": "Workspace ONE Finder",
-  "version": "0.2.9",
-  "version_name": "0.2.9",
+  "version": "0.2.11",
+  "version_name": "0.2.11",
   "manifest_version": 2,
   "description": "Quickly open any app you have access to from VMware Workspace One",
   "homepage_url": "https://ws1-finder.github.io",
@@ -10,8 +10,7 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "web_accessible_resources": [
-  ],
+  "web_accessible_resources": [],
   "default_locale": "en",
   "browser_action": {
     "default_popup": "index.html"
@@ -21,7 +20,7 @@
     "https://*/"
   ],
   "options_ui": {
-    "page":   "options.html"
+    "page": "options.html"
   },
   "background": {
     "page": "background.html"

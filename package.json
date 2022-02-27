@@ -1,13 +1,13 @@
 {
   "name": "ws1-finder",
-  "version": "0.2.9",
+  "version": "0.2.11",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@fontsource/roboto": "^4.5.2",
-    "@mui/icons-material": "^5.2.5",
-    "@mui/material": "^5.2.7",
+    "@mui/icons-material": "^5.3.1",
+    "@mui/material": "^5.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -19,7 +19,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint -c .eslintrc.js --ext .js,.jsx,.ts,.tsx .",
     "lint:fix": "npm run lint -- --fix",
-    "postbuild": "react-snap"
+    "preversion": "npm install && npm test -- --watchAll=false",
+    "postversion": "scripts/postversion.sh && git push && git push --tags"
   },
   "browserslist": {
     "production": [
@@ -53,7 +54,6 @@
     "mini-css-extract-plugin": "2.4.5",
     "nth-check": ">=2.0.1",
     "react-scripts": "^5.0.0",
-    "react-snap": "^1.23.0",
     "typescript": "^4.5.5"
   }
 }
