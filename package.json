@@ -18,7 +18,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint -c .eslintrc.js --ext .js,.jsx,.ts,.tsx .",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "preversion": "npm install && npm test -- --watchAll=false",
+    "postversion": "scripts/postversion.sh && git push && git push --tags"
   },
   "browserslist": {
     "production": [
