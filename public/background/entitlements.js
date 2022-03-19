@@ -2,15 +2,25 @@ import { baseURL as _baseURL } from './base_url.js';
 import { clear, get as cacheGet } from './cached_response.js';
 import { checkStatus } from './check_status.js';
 
-function filter(results) {
-    return results._embedded.entitlements.filter(function (entitlement) {
-        const links = entitlement._links;
-        return ('launch' in links) && !('appLaunchUrls' in links) && !('appLaunchUrlsV2' in links)
-    });
+function mergeBookmarksAndEntitlements(results) {
+    const bookmarks = results._embedded.bookmarks;
+    const entitlements = results._embedded.entitlements;
+
+    for(const bookmark of bookmarks) {
+        const matched = entitlements.findIndex(e => e.appId == bookmark.appId);
+        if(matched !== -1) {
+            entitlements.splice(matched, 1);
+        }
+    }
+
+    return bookmarks.concat(entitlements);
 }
 
-function sort(results) {
-    return results.sort(function (a, b) { return b.favorite - a.favorite });
+function filter(results) {
+    return results.filter(function (app) {
+        const links = app._links;
+        return ('launch' in links) && !('appLaunchUrls' in links) && !('appLaunchUrlsV2' in links)
+    });
 }
 
 function get(baseURL = _baseURL) {
@@ -20,8 +30,8 @@ function get(baseURL = _baseURL) {
                 credentials: 'include'
             }).then(checkStatus)
                 .then(res => res.json())
+                .then(mergeBookmarksAndEntitlements)
                 .then(filter)
-                .then(sort)
         });
 }
 
