@@ -11,7 +11,7 @@ const manifestFilename = path.join(process.env[UPDATE_BUILT_MANIFEST] === 'true'
 let rawManifest = fs.readFileSync(manifestFilename);
 let manifest = JSON.parse(rawManifest);
 
-manifest["version"] = package.version;
+manifest["version"] = package.version.replace(/-.*$/, '');
 let versionName = [ package.version ]
 
 if(argv[0] && argv[0].length > 0)
