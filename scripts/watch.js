@@ -61,4 +61,7 @@ function copyPublicFolder() {
     dereference: true,
     filter: file => file !== paths.appHtml
   });
+
+  var cp = require('child_process');
+  cp.fork(path.join(__dirname, '/update_manifest_version.js'),[ 'dev-watch']);
 }
