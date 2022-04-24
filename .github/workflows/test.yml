@@ -1,4 +1,4 @@
-name: ws1-finder:ci
+name: ws1-finder:test
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  test:
     env:
       NODE_ENV: test
     runs-on: ubuntu-latest
@@ -18,9 +18,3 @@ jobs:
           node-version: 16
       - run: npm ci
       - run: npm test
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          draft: true
-          files: dist/ws1-finder*.zip
