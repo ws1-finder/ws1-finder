@@ -15,7 +15,7 @@
     "start": "react-scripts start",
     "watch": "node scripts/watch.js",
     "build": "react-scripts build",
-    "postbuild": "node scripts/update_manifest_version.js && zip-build -t %NAME%_%VERSION%.%EXT%",
+    "postbuild": "node scripts/update_manifest_version.js && mkdir -p ./dist && zip-build -t %NAME%_%VERSION%.%EXT%",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint -c .eslintrc.js --ext .js,.jsx,.ts,.tsx .",
