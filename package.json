@@ -21,7 +21,7 @@
     "lint": "eslint -c .eslintrc.js --ext .js,.jsx,.ts,.tsx .",
     "lint:fix": "npm run lint -- --fix",
     "preversion": "npm install && npm test -- --watchAll=false",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push origin --tags"
   },
   "browserslist": {
     "production": [
