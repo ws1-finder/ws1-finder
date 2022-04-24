@@ -18,6 +18,7 @@ jobs:
           node-version: 16
       - run: npm ci
       - run: npm test
+      - run: npm build
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
