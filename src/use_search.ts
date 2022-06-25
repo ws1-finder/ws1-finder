@@ -4,6 +4,12 @@ import Result from "./result";
 import { Entitlement, entitlements } from "./services/extension";
 import UseSearchReducer from "./use_search_reducer";
 
+const isError = (obj: unknown): obj is Error => {
+    return (
+        typeof obj === "object" && obj !== null && "message" in obj
+    );
+};
+
 const useSearch = (query: string, getEntitlements: () => Promise<Entitlement[]> = entitlements) => {
     const cache = useRef<Result[]>([]);
 
@@ -22,16 +28,12 @@ const useSearch = (query: string, getEntitlements: () => Promise<Entitlement[]> 
                     cache.current = results;
                     if (cancelRequest) return;
                     dispatch({ results: results, type: "FETCHED" });
-                } catch (error: any) {
+                } catch (error: unknown) {
                     if (cancelRequest) return;
                     let message = "Unknown Error";
-                    if (error instanceof Error) {
+                    if (isError(error)) {
                         message = error.message;
-                    } else {
-                        if(error.message) {
-                            message = error.message;
-                        }
-                    }
+                    } 
                     dispatch({ error: message, type: "FETCH_ERROR" });
                 }
             }

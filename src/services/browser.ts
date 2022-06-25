@@ -1,8 +1,24 @@
 import { BackgroundPageWindow, BrowserService } from "./browser_service";
 import { makeFakeBrowserService } from "./fake_browser_service";
 
+
+interface windowWithBrowser extends Window {
+    browser: typeof chrome
+}
+
+const hasBrowser = (obj: unknown): obj is windowWithBrowser => {
+    return (
+        typeof obj === "object" && obj !== null && "browser" in obj
+    );
+};
+
 function getBrowserInstance(): typeof chrome {
-    const browserInstance = window.chrome || (window as any)["browser"];
+    let browserInstance = window.chrome;
+    
+    if(!browserInstance && hasBrowser(window)) {
+        browserInstance = window.browser;
+    }
+
     return browserInstance;
 }
 
