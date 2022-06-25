@@ -64,7 +64,7 @@ const makeBrowserService = (
     };
 
     const makeRequestPermissions = (browser: typeof chrome) => {
-        return (permissions: {}) => {
+        return (permissions: Record<string, unknown>) => {
             return new Promise<boolean>((resolve) => {
                 browser.permissions.request(permissions, (granted) => {
                     resolve(granted);

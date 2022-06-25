@@ -16,7 +16,7 @@ export const makeFakeBrowserService = (
                         _window.localStorage.getItem("vmwareOneUrl") ||
                         "https://myvmware.workspaceair.com"
                     ),
-                    clearCache: () => { },
+                    clearCache: () => undefined,
                     getEntitlements: () => Promise.resolve([
                         {
                             _links: {
@@ -68,7 +68,7 @@ export const makeFakeBrowserService = (
         },
         createTab: (url) => { _window.open(url); },
         getStorage: (k, _default) => Promise.resolve(_window.localStorage.getItem(k) || _default),
-        openOptions: () => { },
+        openOptions: () => undefined,
         requestPermissions: () => Promise.resolve(true),
         setStorage: (k, v) => Promise.resolve(_window.localStorage.setItem(k, v)),
         windowClose: () => _window.close()
