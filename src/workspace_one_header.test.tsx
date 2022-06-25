@@ -5,9 +5,6 @@ import WorkspaceOneHeader from "./workspace_one_header";
 
 jest.mock("./services/browser");
 
-beforeEach(() => {
-});
-
 afterEach(() => {
     cleanup();
 });
