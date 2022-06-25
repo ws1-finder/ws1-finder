@@ -7,17 +7,14 @@ import * as UrlUtilities from "./services/url_launcher";
 
 jest.mock("./services/url_launcher");
 
-let selected=true;
-let mockResult: Result = {
+const selected=true;
+const mockResult: Result = {
     icon: "icon1.png",
     isFavorite: false,
     key: "app-1",
     name: "App 1",
     target: "https://example.com/1"
 };
-
-beforeEach(() => {
-});
 
 afterEach(() => {
     cleanup();

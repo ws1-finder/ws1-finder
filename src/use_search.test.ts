@@ -3,8 +3,8 @@ import { EntitlementsToResults } from "./mappers";
 import { Entitlement } from "./services/extension";
 import useSearch from "./use_search";
 
-var entitlements: Entitlement[];
-var getEntitlements: () => Promise<Entitlement[]>;
+let entitlements: Entitlement[];
+let getEntitlements: () => Promise<Entitlement[]>;
 
 jest.mock("./services/browser");
 

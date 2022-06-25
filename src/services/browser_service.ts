@@ -13,7 +13,7 @@ export interface BrowserService {
     createTab(url: string): void;
     getStorage(key: string, _default: string): Promise<string>;
     openOptions(): void;
-    requestPermissions(permissions: {}): Promise<boolean>;
+    requestPermissions(permissions: Record<string, unknown>): Promise<boolean>;
     setStorage(key: string, value: string): Promise<void>;
     windowClose(): void;
 }
