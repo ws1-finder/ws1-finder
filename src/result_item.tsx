@@ -1,3 +1,4 @@
+import type { ListItemButtonProps } from "@mui/material";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import React, { createRef, useEffect } from "react";
@@ -6,7 +7,12 @@ import Result from "./result";
 import ResultAvatar from "./result_avatar";
 import { handleLaunchURLAndClose } from "./services/url_launcher";
 
-const ResultItem = ({ selected, result, ...otherProps }: { selected: boolean, result: Result,  [x:string]: any }) => {
+type ResultItemType = {
+    result: Result;
+    selected: boolean;
+} & ListItemButtonProps;
+
+const ResultItem = ({ selected, result, ...otherProps }: ResultItemType) => {
     const listItem = createRef<HTMLInputElement>();
 
     useEffect(() => {
