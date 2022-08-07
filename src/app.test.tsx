@@ -89,7 +89,7 @@ describe("waiting for data to load", () => {
     describe("when the data is loading", () => {
         it("displays an indication", async () => {
             jest.spyOn(useSearch, "default").mockReturnValue({
-                data: [], error: "Something went wrong", isLoading: true 
+                data: [], isLoading: true 
             });
 
             render(<App />);
@@ -102,7 +102,7 @@ describe("waiting for data to load", () => {
     describe("when the data has loaded", () => {
         it("does not display an indication", async () => {
             jest.spyOn(useSearch, "default").mockReturnValue({
-                data: [], error: "Something went wrong", isLoading: false 
+                data: [], isLoading: false 
             });
 
             render(<App />);
@@ -116,7 +116,7 @@ describe("waiting for data to load", () => {
 describe("when there's an error", () => {
     it("displays the erorr", async () => {
         jest.spyOn(useSearch, "default").mockReturnValue({
-            data: [], error: "Something went wrong", isLoading: false 
+            data: [], error: new Error("Something went wrong"), isLoading: false 
         });
 
         render(<App />);

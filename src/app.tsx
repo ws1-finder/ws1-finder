@@ -1,5 +1,6 @@
 import SearchIcon from "@mui/icons-material/Search";
 import Alert from "@mui/material/Alert";
+
 import LinearProgress from "@mui/material/LinearProgress";
 import TextField from "@mui/material/TextField";
 import React, { ChangeEvent, KeyboardEvent, useCallback, useState } from "react";
@@ -15,7 +16,8 @@ import WorkspaceOneHeader from "./workspace_one_header";
 function App() {
     const [query, setQuery] = useState("");
     const [cursor, setCursor] = useState(-1);
-    const { isLoading, data, error } = useSearch(query);
+
+    const { isLoading, error, data } = useSearch(query);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const query = e.target.value;
@@ -27,7 +29,7 @@ function App() {
             setCursor(cursor - 1);
         } else if (e.key === "ArrowDown" && cursor < (data ?? []).length - 1) {
             setCursor(cursor + 1);
-        } 
+        }
     }, [cursor, data]);
 
     const handleTextBoxKeyDown = (e: KeyboardEvent<HTMLElement>) => {
@@ -55,7 +57,7 @@ function App() {
             sx={ { mt: "1em" } }
         />
 
-        { error !== undefined && <Alert severity="error" >{ error }</Alert> }
+        { error !== undefined && error !== null && <Alert severity="error" >{ error.message }</Alert> }
         { isLoading && <LinearProgress /> }
         { !isLoading && (
             <>
@@ -66,7 +68,7 @@ function App() {
                             selected={ i === cursor }
                             key={ r.key }
                             result={ r }
-                            onKeyDown= { handleKeyDown }
+                            onKeyDown={ handleKeyDown }
                         />) }
                     </ResultList>
                 ) }

@@ -1,82 +1,26 @@
-import { useEffect, useReducer, useRef } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { EntitlementsToResults } from "./mappers";
 import Result from "./result";
 import { Entitlement, entitlements } from "./services/extension";
-import UseSearchReducer from "./use_search_reducer";
 
-const isError = (obj: unknown): obj is Error => {
-    return (
-        typeof obj === "object" && obj !== null && "message" in obj
-    );
-};
+type searchResult = {
+    data: Result[] | undefined;
+    error?: Error | null;
+    isLoading: boolean;
+}
 
-const useSearch = (query: string, getEntitlements: () => Promise<Entitlement[]> = entitlements) => {
-    const cache = useRef<Result[]>([]);
-
-    const [state, dispatch] = useReducer(UseSearchReducer, { isLoading: false });
-
-    useEffect(() => {
-        let cancelRequest = false;
-        const fetchEntitlements = async () => {
-            dispatch({ type: "FETCHING" });
-            if (cache.current && cache.current.length > 0) {
-                dispatch({ results: cache.current, type: "FETCHED" });
-            } else {
-                try {
-                    const entitlements = await getEntitlements();
-                    const results = EntitlementsToResults(entitlements);
-                    cache.current = results;
-                    if (cancelRequest) return;
-                    dispatch({ results: results, type: "FETCHED" });
-                } catch (error: unknown) {
-                    if (cancelRequest) return;
-                    let message = "Unknown Error";
-                    if (isError(error)) {
-                        message = error.message;
-                    } 
-                    dispatch({ error: message, type: "FETCH_ERROR" });
-                }
-            }
-        };
-
-        fetchEntitlements();
-
-        return () => { cancelRequest = true; };
-    }, [getEntitlements]);
-
-    useEffect(() => {
-        if(state.error) return;
-        let cancelRequest = false;
-        const results = cache.current;
-
-        if (!query && results.length > 0) {
-            if (cancelRequest) return;
-            dispatch({ results: results, type: "FETCHED" });
-        } 
-
-        if (!query) return;
-        if (!results) return;
-
-        dispatch({ type: "FETCHING" });
-
-        const filteredResults = results.filter((result)  => {
+const useSearch = (query: string, getEntitlements: () => Promise<Entitlement[]> = entitlements): searchResult => {
+    const { data, isLoading, error } = useQuery<Result[], Error>(["entitlements", query], (): Promise<Result[]> => {
+        return getEntitlements().then(entitlements => entitlements.filter((result)  => {
             return (
                 result
                     .name
                     .toLowerCase()
                     .includes(query.toLowerCase())
             );
-        }
-        );
+        })).then(EntitlementsToResults);  
+    });
 
-        if (cancelRequest) return;
-        dispatch({ results: filteredResults, type: "FETCHED" });
-
-        return () => { 
-            cancelRequest = true;
-        };
-    }, [query, state.error]);
-
-    return state;
+    return { data: data,  error: error, isLoading: isLoading };
 };
 export default useSearch;
