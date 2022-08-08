@@ -1,4 +1,4 @@
-import { cleanup, render, screen , waitFor } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 import React from "react";
 import "@testing-library/jest-dom";
 import WorkspaceOneHeader from "./workspace_one_header";
@@ -13,9 +13,6 @@ it("renders the item", async () => {
     render(<WorkspaceOneHeader />);
     await screen.findByRole("heading");
   
-    await waitFor(() => {
-        expect(screen.getByRole("link")).toHaveAttribute("href", "https://finder.example.com");
-    });
-
     expect(screen.getByRole("link")).toHaveTextContent("Workspace One Finder");
+    expect(screen.getByRole("link")).toHaveAttribute("href", "https://finder.example.com");
 });

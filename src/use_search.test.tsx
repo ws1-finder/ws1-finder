@@ -54,8 +54,12 @@ beforeEach(() => {
         }
     });
 
-    // eslint-disable-next-line react/display-name, react/prop-types, testing-library/no-node-access, max-len
-    wrapper = (props) => ( <QueryClientProvider client= { queryClient } > { (props as { children?: React.ReactNode }).children } </QueryClientProvider>);
+    // eslint-disable-next-line react/display-name, react/prop-types
+    wrapper = ({ children }) => (
+        <QueryClientProvider client= { queryClient } >
+            { children }
+        </QueryClientProvider>
+    );
 
     getEntitlements = () => Promise.resolve(entitlements);
 });
