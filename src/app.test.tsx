@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import "@testing-library/jest-dom";
@@ -72,14 +72,16 @@ describe("updates from custom hook", () => {
 
 describe("searching for results", () => {
     describe("when typing in the search box", ()=> {
-        it("filters the search results", () => {
+        it("filters the search results", async () => {
             jest.spyOn(useSearch, "default").mockReturnValue({
                 data: mockResults, isLoading: false  
             });
 
             render(<App />);
             userEvent.type(screen.getByRole("textbox"), "2");
-            expect(useSearch.default).toHaveBeenCalledWith("2");
+            await waitFor(() => {
+                expect(useSearch.default).toHaveBeenCalledWith("2");
+            });
         });
     });
 });
