@@ -1,9 +1,9 @@
-import { Entitlement } from "./extension";
+import Result from "../result";
 
 export interface BackgroundPageWindow {
     ws1Finder: {
         baseURL(): Promise<string>;
-        getEntitlements(): Promise<Entitlement[]>;
+        getEntitlements(): Promise<Result[]>;
         clearCache: () => void;
     }
 }

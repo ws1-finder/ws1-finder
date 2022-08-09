@@ -2,13 +2,25 @@ import { baseURL as _baseURL } from './base_url.js';
 import { clear, get as cacheGet } from './cached_response.js';
 import { checkStatus } from './check_status.js';
 
+function transformToResult(entitlements) {
+    entitlements.map(entitlement => {
+        return {
+            icon: entitlement._links.icon.href,
+            isFavorite: entitlement.favorite,
+            key: entitlement.appId,
+            name: entitlement.name,
+            target: entitlement.launchUrl
+        }
+    })
+};
+
 function mergeBookmarksAndEntitlements(results) {
     const bookmarks = results._embedded.bookmarks;
     const entitlements = results._embedded.entitlements;
 
-    for(const bookmark of bookmarks) {
+    for (const bookmark of bookmarks) {
         const matched = entitlements.findIndex(e => e.appId == bookmark.appId);
-        if(matched !== -1) {
+        if (matched !== -1) {
             entitlements.splice(matched, 1);
         }
     }
@@ -32,6 +44,7 @@ function get(baseURL = _baseURL) {
                 .then(res => res.json())
                 .then(mergeBookmarksAndEntitlements)
                 .then(filter)
+                .then(transformToResult)
         });
 }
 

@@ -1,40 +1,31 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WrapperComponent, renderHook } from "@testing-library/react-hooks";
 import React from "react";
-import { EntitlementsToResults } from "./mappers";
-import { Entitlement } from "./services/extension";
+import Result from "./result";
 import useSearch from "./use_search";
 
-let entitlements: Entitlement[];
-let getEntitlements: () => Promise<Entitlement[]>;
+let results: Result[];
+let getEntitlements: () => Promise<Result[]>;
 let wrapper: WrapperComponent<string>;
 
 jest.mock("./services/browser");
 
 
 beforeEach(() => {
-    entitlements = [
+    results = [
         {
-            _links: {
-                icon: {
-                    href: "http://example.com/icon1.png"
-                }
-            },
-            appId: "app-one-id",
-            favorite: true,
-            launchUrl: "https://example.com/app-one",
-            name: "App One"
+            icon:  "http://example.com/icon1.png",
+            isFavorite: true,
+            key: "app-one-id",
+            name: "App One",
+            target: "https://example.com/app-one"
         },
         {
-            _links: {
-                icon: {
-                    href: "http://example.com/icon2.png"
-                }
-            },
-            appId: "app-two-id",
-            favorite: true,
-            launchUrl: "https://example.com/app-two",
-            name: "App Two"
+            icon:  "http://example.com/icon2.png",
+            isFavorite: true,
+            key: "app-two-id",
+            name: "App Two",
+            target: "https://example.com/app-twp"
         }
     ];
 
@@ -61,7 +52,7 @@ beforeEach(() => {
         </QueryClientProvider>
     );
 
-    getEntitlements = () => Promise.resolve(entitlements);
+    getEntitlements = () => Promise.resolve(results);
 });
 
 test("then when input promise returns and error the hook returns an error", async () => {
@@ -89,7 +80,7 @@ test("that queries update the result set", async () => {
     });
 
     expect(result.current).toMatchObject({
-        data: EntitlementsToResults(entitlements),
+        data: results,
         isLoading: false
     });
 
@@ -124,7 +115,7 @@ test("that an empty query shows all results", async() => {
     rerender("");
 
     expect(result.current).toMatchObject({
-        data: EntitlementsToResults(entitlements),
+        data: results,
         isLoading: false
     });
 });

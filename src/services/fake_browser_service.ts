@@ -19,48 +19,32 @@ export const makeFakeBrowserService = (
                     clearCache: () => undefined,
                     getEntitlements: () => Promise.resolve([
                         {
-                            _links: {
-                                icon: {
-                                    href: app1Icon
-                                }
-                            },
-                            appId: "app-one-id",
-                            favorite: true,
-                            launchUrl: "https://example.com/fly-one",
-                            name: "Fly One"
+                            icon: app1Icon,
+                            isFavorite: true,
+                            key: "app-one-id",
+                            name: "Fly One",
+                            target: "https://example.com/fly-one"
                         },
                         {
-                            _links: {
-                                icon: {
-                                    href: app2Icon
-                                }
-                            },
-                            appId: "app-two-id",
-                            favorite: true,
-                            launchUrl: "https://example.com/workopedia",
-                            name: "Workopedia"
+                            icon: app2Icon,
+                            isFavorite: true,
+                            key: "app-two-id",
+                            name: "Workopedia",
+                            target: "https://example.com/workopedia"
                         },
                         {
-                            _links: {
-                                icon: {
-                                    href: app1Icon
-                                }
-                            },
-                            appId: "app-three-id",
-                            favorite: true,
-                            launchUrl: "https://example.com/concise-services",
-                            name: "Concise Services"
+                            icon: app1Icon,
+                            isFavorite: true,
+                            key: "app-three-id",
+                            name: "Concise Services",
+                            target: "https://example.com/concise-services"
                         },
                         {
-                            _links: {
-                                icon: {
-                                    href: app2Icon
-                                }
-                            },
-                            appId: "app-four-id",
-                            favorite: true,
-                            launchUrl: "https://example.com/sporksheets",
-                            name: "Sporksheets"
+                            icon: app2Icon,
+                            isFavorite: true,
+                            key: "app-four-id",
+                            name: "Sporksheets",
+                            target: "https://example.com/sporksheets"
                         }
                     ])
                 }
