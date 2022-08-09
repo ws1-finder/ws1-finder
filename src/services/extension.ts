@@ -23,4 +23,5 @@ const makeEntitlements = () => {
 };
 
 export const baseURL = browserService.backgroundPage().ws1Finder.baseURL;
+export const prereleaseMarker = browserService.getPrereleaseMarker();
 export const entitlements = makeEntitlements();

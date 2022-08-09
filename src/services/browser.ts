@@ -59,6 +59,16 @@ const makeBrowserService = (
         };
     };
 
+    const makeGetPrereleaseMarker = (browser: typeof chrome) => {
+        return () : string => {
+            const versionName = browser.runtime.getManifest().version_name;
+            if(versionName && versionName.includes("-")) {
+                return versionName;
+            }
+            return "";
+        };
+    };
+
     const makeGetStorage = (browser: typeof chrome) => {
         return (key: string, _default: string) => {
             return new Promise<string>((resolve) => {
@@ -92,6 +102,7 @@ const makeBrowserService = (
     return {
         backgroundPage: makeBackgroundPage(_browser),
         createTab: makeCreateTab(_browser),
+        getPrereleaseMarker: makeGetPrereleaseMarker(_browser),
         getStorage: makeGetStorage(_browser),
         openOptions: makeOpenOptions(_browser, _window),
         requestPermissions: makeRequestPermissions(_browser),

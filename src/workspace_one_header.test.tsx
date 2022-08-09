@@ -15,4 +15,6 @@ it("renders the item", async () => {
   
     expect(screen.getByRole("link")).toHaveTextContent("Workspace One Finder");
     expect(screen.getByRole("link")).toHaveAttribute("href", "https://finder.example.com");
+    expect(screen.getByRole("note")).toHaveTextContent("0.0.0-test");
 });
+

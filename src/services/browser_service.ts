@@ -11,6 +11,7 @@ export interface BackgroundPageWindow {
 export interface BrowserService {
     backgroundPage(): BackgroundPageWindow;
     createTab(url: string): void;
+    getPrereleaseMarker(): string;
     getStorage(key: string, _default: string): Promise<string>;
     openOptions(): void;
     requestPermissions(permissions: Record<string, unknown>): Promise<boolean>;

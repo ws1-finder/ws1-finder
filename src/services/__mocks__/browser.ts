@@ -17,6 +17,9 @@ const makeMockBrowserService = () => {
             };
         },
         createTab: () => undefined,
+        getPrereleaseMarker: (): string => {
+            return "0.0.0-test";
+        },
         getStorage: (_k: string, _default: string) => {
             return Promise.resolve(_default);
         },

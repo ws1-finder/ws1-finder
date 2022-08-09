@@ -67,6 +67,7 @@ export const makeFakeBrowserService = (
             };
         },
         createTab: (url) => { _window.open(url); },
+        getPrereleaseMarker: () => "0.0.0-dev",
         getStorage: (k, _default) => Promise.resolve(_window.localStorage.getItem(k) || _default),
         openOptions: () => undefined,
         requestPermissions: () => Promise.resolve(true),
