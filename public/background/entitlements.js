@@ -3,7 +3,7 @@ import { clear, get as cacheGet } from './cached_response.js';
 import { checkStatus } from './check_status.js';
 
 function transformToResult(entitlements) {
-    entitlements.map(entitlement => {
+    return entitlements.map(entitlement => {
         return {
             icon: entitlement._links.icon.href,
             isFavorite: entitlement.favorite,
