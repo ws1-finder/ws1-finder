@@ -30,6 +30,6 @@ const useSearch = (query: string,
         })
     });
 
-    return { data: queryResults[0].data, error: queryResults[0].error as Error, isLoading: queryResults[0].isLoading  };
+    return { data: queryResults[0].data, error: queryResults[0].error, isLoading: queryResults[0].isLoading  };
 };
 export default useSearch;
