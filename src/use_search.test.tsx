@@ -57,7 +57,7 @@ beforeEach(() => {
 
 test("then when input promise returns and error the hook returns an error", async () => {
     const throwError = () => { throw Error("this is a busted return result"); };
-    const { result, waitFor } = renderHook((q: string) => useSearch(q, throwError), {
+    const { result, waitFor } = renderHook((q: string) => useSearch(q, { "e": throwError }), {
         initialProps: "",
         wrapper: wrapper
     });
@@ -70,7 +70,7 @@ test("then when input promise returns and error the hook returns an error", asyn
 });
 
 test("that queries update the result set", async () => {
-    const { result, rerender, waitFor } = renderHook((q: string) => useSearch(q,getEntitlements), {
+    const { result, rerender, waitFor } = renderHook((q: string) => useSearch(q,{ "e": getEntitlements }), {
         initialProps: "",
         wrapper: wrapper
     });
@@ -78,7 +78,7 @@ test("that queries update the result set", async () => {
     await waitFor(() => {
         return !result.current.isLoading;
     });
-
+    
     expect(result.current).toMatchObject({
         data: results,
         isLoading: false
@@ -95,7 +95,7 @@ test("that queries update the result set", async () => {
 });
 
 test("that an empty query shows all results", async() => {
-    const { result, rerender, waitFor } = renderHook((q: string) => useSearch(q, getEntitlements), {
+    const { result, rerender, waitFor } = renderHook((q: string) => useSearch(q, { "e": getEntitlements }), {
         initialProps: "",
         wrapper: wrapper
     });

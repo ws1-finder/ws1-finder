@@ -13,6 +13,12 @@ import { launchURLAndClose } from "./services/url_launcher";
 import useSearch from "./use_search";
 import WorkspaceOneHeader from "./workspace_one_header";
 
+const isError = (obj: unknown): obj is Error => {
+    return (
+        typeof obj === "object" && obj !== null && "message" in obj
+    );
+};
+
 function App() {
     const [query, setQuery] = useState("");
     const [cursor, setCursor] = useState(-1);
@@ -57,7 +63,7 @@ function App() {
             sx={ { mt: "1em" } }
         />
 
-        { error !== undefined && error !== null && <Alert severity="error" >{ error.message }</Alert> }
+        { isError(error) && <Alert severity="error" >{ error.message }</Alert> }
         { isLoading && <LinearProgress /> }
         { !isLoading && (
             <>
