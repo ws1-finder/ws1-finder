@@ -46,6 +46,15 @@ export const makeFakeBrowserService = (
                             name: "Sporksheets",
                             target: "https://example.com/sporksheets"
                         }
+                    ]),
+                    getPersonalBookmarks: () => Promise.resolve([
+                        {
+                            icon: app1Icon,
+                            isFavorite: true,
+                            key: "bellows",
+                            name: "Bellows",
+                            target: "https://example.com/bellows"
+                        }
                     ])
                 }
             };

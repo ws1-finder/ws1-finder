@@ -3,6 +3,7 @@ import { BackgroundPageWindow } from "../browser_service";
 
 const makeMockBrowserService = () => {
     const mockResults: Result[] = [];
+    const mockBookmarks: Result[] = [];
 
     return {
         backgroundPage: (): BackgroundPageWindow => {
@@ -12,6 +13,9 @@ const makeMockBrowserService = () => {
                     clearCache: (): void => undefined,
                     getEntitlements: (): Promise<Result[]> => {
                         return Promise.resolve(mockResults);
+                    },
+                    getPersonalBookmarks: (): Promise<Result[]> => {
+                        return Promise.resolve(mockBookmarks);
                     }
                 }
             };

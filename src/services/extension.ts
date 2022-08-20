@@ -10,6 +10,16 @@ const makeEntitlements = () => {
     };
 };
 
+const makePersonalBookmarks = () => {
+    return (_browserService: BrowserService = browserService) => {
+        return _browserService.backgroundPage().ws1Finder
+            .getPersonalBookmarks()
+            .catch(authentication);
+    };
+};
+
+
 export const baseURL = browserService.backgroundPage().ws1Finder.baseURL;
 export const prereleaseMarker = browserService.getPrereleaseMarker();
 export const entitlements = makeEntitlements();
+export const personalBookmarks = makePersonalBookmarks();

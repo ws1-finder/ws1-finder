@@ -4,6 +4,7 @@ export interface BackgroundPageWindow {
     ws1Finder: {
         baseURL(): Promise<string>;
         getEntitlements(): Promise<Result[]>;
+        getPersonalBookmarks(): Promise<Result[]>;
         clearCache: () => void;
     }
 }
