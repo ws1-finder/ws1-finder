@@ -1,5 +1,4 @@
 import { baseURL as _baseURL } from './base_url.js';
-import { clear, get as cacheGet } from './cached_response.js';
 import { checkStatus } from './check_status.js';
 
 function transformToResult(entitlements) {
@@ -35,10 +34,12 @@ function filter(results) {
     });
 }
 
-function get(baseURL = _baseURL) {
+function get(query, baseURL = _baseURL) {
     return baseURL()
         .then(url => {
-            return fetch(url + '/catalog-portal/services/api/entitlements', {
+            return fetch(`${url}/catalog-portal/services/api/entitlements?${new URLSearchParams({
+                q: query,
+            })}`, {
                 credentials: 'include'
             }).then(checkStatus)
                 .then(res => res.json())
@@ -50,6 +51,6 @@ function get(baseURL = _baseURL) {
 
 export { clear }
 
-export function getEntitlements() {
-    return cacheGet(get)
+export function getEntitlements(query) {
+    return get(query)
 }

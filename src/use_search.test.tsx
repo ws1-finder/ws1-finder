@@ -5,7 +5,7 @@ import Result from "./result";
 import useSearch from "./use_search";
 
 let results: Result[];
-let getEntitlements: () => Promise<Result[]>;
+let getEntitlements: (query: string) => Promise<Result[]>;
 let wrapper: WrapperComponent<string>;
 
 jest.mock("./services/browser");
@@ -52,7 +52,14 @@ beforeEach(() => {
         </QueryClientProvider>
     );
 
-    getEntitlements = () => Promise.resolve(results);
+    getEntitlements = (query: string) => Promise.resolve(results).then(r => r.filter((result)  => {
+        return (
+            result
+                .name
+                .toLowerCase()
+                .includes(query.toLowerCase())
+        );
+    }));
 });
 
 test("then when input promise returns and error the hook returns an error", async () => {

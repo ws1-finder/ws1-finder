@@ -10,13 +10,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
 
-const queryClient = new QueryClient({
-    defaultOptions: {
-        queries: {
-            keepPreviousData: true
-        }
-    }
-});
+const queryClient = new QueryClient();
 
 ReactDOM.render(
     <React.StrictMode>

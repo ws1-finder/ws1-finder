@@ -3,7 +3,7 @@ import Result from "../result";
 export interface BackgroundPageWindow {
     ws1Finder: {
         baseURL(): Promise<string>;
-        getEntitlements(): Promise<Result[]>;
+        getEntitlements(query: string): Promise<Result[]>;
         clearCache: () => void;
     }
 }

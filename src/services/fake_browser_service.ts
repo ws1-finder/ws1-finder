@@ -17,7 +17,7 @@ export const makeFakeBrowserService = (
                         "https://myvmware.workspaceair.com"
                     ),
                     clearCache: () => undefined,
-                    getEntitlements: () => Promise.resolve([
+                    getEntitlements: (query: string) => Promise.resolve([
                         {
                             icon: app1Icon,
                             isFavorite: true,
@@ -46,7 +46,15 @@ export const makeFakeBrowserService = (
                             name: "Sporksheets",
                             target: "https://example.com/sporksheets"
                         }
-                    ])
+                    ]).then(r => r.filter((result)  => {
+                        console.log(`fake browser service: entitlements ${query}`)
+                        return (
+                            result
+                                .name
+                                .toLowerCase()
+                                .includes(query.toLowerCase())
+                        );
+                    }))
                 }
             };
         },

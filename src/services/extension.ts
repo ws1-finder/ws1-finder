@@ -3,9 +3,9 @@ import { BrowserService } from "./browser_service";
 import { authentication } from "./error_handlers";
 
 const makeEntitlements = () => {
-    return (_browserService: BrowserService = browserService) => {
+    return (query: string, _browserService: BrowserService = browserService) => {
         return _browserService.backgroundPage().ws1Finder
-            .getEntitlements()
+            .getEntitlements(query)
             .catch(authentication);
     };
 };
