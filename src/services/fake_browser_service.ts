@@ -47,7 +47,8 @@ export const makeFakeBrowserService = (
                             target: "https://example.com/sporksheets"
                         }
                     ]).then(r => r.filter((result)  => {
-                        console.log(`fake browser service: entitlements ${query}`)
+                        // eslint-disable-next-line no-console
+                        console.log(`fake browser service: entitlements ${query}`);
                         return (
                             result
                                 .name
