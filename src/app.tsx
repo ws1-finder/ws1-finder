@@ -3,7 +3,8 @@ import Alert from "@mui/material/Alert";
 
 import LinearProgress from "@mui/material/LinearProgress";
 import TextField from "@mui/material/TextField";
-import React, { ChangeEvent, KeyboardEvent, useCallback, useState } from "react";
+import React, { KeyboardEvent, useCallback, useState } from "react";
+import { useDebouncedCallback } from "use-debounce";
 import "./app.css";
 import NoResults from "./no_results";
 import Result from "./result";
@@ -25,11 +26,10 @@ function App() {
 
     const { isLoading, error, data } = useSearch(query);
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const query = e.target.value;
+    const debounced = useDebouncedCallback((value) => {
+        setQuery(value);
+    }, 250);
 
-        setQuery(query);
-    };
     const handleKeyDown = useCallback((e: KeyboardEvent<HTMLElement>) => {
         if (e.key === "ArrowUp" && cursor > 0) {
             setCursor(cursor - 1);
@@ -52,7 +52,7 @@ function App() {
         <TextField
             id="outlined-basic"
             variant="standard"
-            onChange={ handleChange }
+            onChange={ (e) => debounced(e.target.value) }
             placeholder="Search VMware Workspace One"
             fullWidth
             autoFocus
