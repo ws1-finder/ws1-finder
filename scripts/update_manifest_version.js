@@ -11,10 +11,19 @@ let rawManifest = fs.readFileSync(manifestFilename);
 let manifest = JSON.parse(rawManifest);
 
 manifest["version"] = package.version.replace(/-.*$/, '');
-let versionName = [ package.version ]
+let versionName = [package.version]
 
-if(argv[0] && argv[0].length > 0)
-   versionName.push(argv[0]);
+if (process.env.NODE_ENV == "development") {
+   revision = require('child_process')
+      .execSync('git rev-parse --short HEAD')
+      .toString().trim()
+
+   versionName.push(revision)
+} else {
+   if (argv[0] && argv[0].length > 0)
+      versionName.push(argv[0]);
+
+}
 
 manifest["version_name"] = versionName.join('-');
 
