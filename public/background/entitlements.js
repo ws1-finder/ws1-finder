@@ -49,8 +49,6 @@ function get(query, baseURL = _baseURL) {
         });
 }
 
-export { clear }
-
 export function getEntitlements(query) {
     return get(query)
 }

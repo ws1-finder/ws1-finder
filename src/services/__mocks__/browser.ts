@@ -9,7 +9,6 @@ const makeMockBrowserService = () => {
             return {
                 ws1Finder: {
                     baseURL: () => Promise.resolve("https://finder.example.com"),
-                    clearCache: (): void => undefined,
                     getEntitlements: (): Promise<Result[]> => {
                         return Promise.resolve(mockResults);
                     }
