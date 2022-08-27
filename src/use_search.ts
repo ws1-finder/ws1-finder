@@ -3,7 +3,7 @@ import Result from "./result";
 import { entitlements } from "./services/extension";
 
 type searchResult = {
-    data: Result[] | undefined;
+    data: Result[];
     error?: unknown;
     isLoading: boolean;
 }
@@ -36,7 +36,7 @@ const useSearch = (query: string,
     if(data && queryResults[0].isPreviousData) {
         data = filteredResults(data, query);
     }
-    return { data: data , error: queryResults[0].error, isLoading: queryResults[0].isLoading  };
+    return { data: data ?? [] , error: queryResults[0].error, isLoading: queryResults[0].isLoading  };
 };
 
 export default useSearch;

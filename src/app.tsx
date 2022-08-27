@@ -67,8 +67,8 @@ function App() {
         { isLoading && <LinearProgress /> }
         { !isLoading && (
             <>
-                { data && data.length === 0 && <NoResults /> }
-                { (data !== undefined && data.length > 0) && (
+                { data.length === 0 && <NoResults /> }
+                { data.length > 0 && (
                     <ResultList>
                         { data.map((r: Result, i: number) => <ResultItem
                             selected={ i === cursor }
