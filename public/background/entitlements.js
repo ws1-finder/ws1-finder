@@ -1,6 +1,8 @@
 import { baseURL as _baseURL } from './base_url.js';
 import { checkStatus } from './check_status.js';
 
+const entitlementCache = new Map();
+
 function transformToResult(entitlements) {
     return entitlements.map(entitlement => {
         return {
@@ -35,18 +37,26 @@ function filter(results) {
 }
 
 function get(query, baseURL = _baseURL) {
-    return baseURL()
-        .then(url => {
-            return fetch(`${url}/catalog-portal/services/api/entitlements?${new URLSearchParams({
-                q: query,
-            })}`, {
-                credentials: 'include'
-            }).then(checkStatus)
-                .then(res => res.json())
-                .then(mergeBookmarksAndEntitlements)
-                .then(filter)
-                .then(transformToResult)
-        });
+    if (!entitlementCache.has(query)) {
+        return baseURL()
+            .then(url => {
+                return fetch(`${url}/catalog-portal/services/api/entitlements?${new URLSearchParams({
+                    q: query,
+                })}`, {
+                    credentials: 'include'
+                }).then(checkStatus)
+                    .then(res => res.json())
+                    .then(mergeBookmarksAndEntitlements)
+                    .then(filter)
+                    .then(transformToResult)
+                    .then(result => {
+                        entitlementCache.set(query, result)
+                        return result;
+                    })
+            });
+    }
+
+    return entitlementCache.get(query);
 }
 
 export function getEntitlements(query) {
