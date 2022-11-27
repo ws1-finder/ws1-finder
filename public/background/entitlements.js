@@ -56,7 +56,7 @@ function get(query, baseURL = _baseURL) {
             });
     }
 
-    return entitlementCache.get(query);
+    return Promise.resolve(entitlementCache.get(query));
 }
 
 export function getEntitlements(query) {
