@@ -7,7 +7,6 @@ function save_options(vmwareOneUrl) {
         // Update status to let user know options were saved.
         var status = document.getElementById('status');
         status.textContent = 'Options saved.';
-        bg.ws1Finder.clearCache();
         setTimeout(function() {
             status.textContent = '';
         }, 750);

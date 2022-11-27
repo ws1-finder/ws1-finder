@@ -1,14 +1,25 @@
 import { baseURL as _baseURL } from './base_url.js';
-import { clear, get as cacheGet } from './cached_response.js';
 import { checkStatus } from './check_status.js';
+
+function transformToResult(entitlements) {
+    return entitlements.map(entitlement => {
+        return {
+            icon: entitlement._links.icon.href,
+            isFavorite: entitlement.favorite,
+            key: entitlement.appId,
+            name: entitlement.name,
+            target: entitlement.launchUrl
+        }
+    })
+};
 
 function mergeBookmarksAndEntitlements(results) {
     const bookmarks = results._embedded.bookmarks;
     const entitlements = results._embedded.entitlements;
 
-    for(const bookmark of bookmarks) {
+    for (const bookmark of bookmarks) {
         const matched = entitlements.findIndex(e => e.appId == bookmark.appId);
-        if(matched !== -1) {
+        if (matched !== -1) {
             entitlements.splice(matched, 1);
         }
     }
@@ -23,20 +34,21 @@ function filter(results) {
     });
 }
 
-function get(baseURL = _baseURL) {
+function get(query, baseURL = _baseURL) {
     return baseURL()
         .then(url => {
-            return fetch(url + '/catalog-portal/services/api/entitlements', {
+            return fetch(`${url}/catalog-portal/services/api/entitlements?${new URLSearchParams({
+                q: query,
+            })}`, {
                 credentials: 'include'
             }).then(checkStatus)
                 .then(res => res.json())
                 .then(mergeBookmarksAndEntitlements)
                 .then(filter)
+                .then(transformToResult)
         });
 }
 
-export { clear }
-
-export function getEntitlements() {
-    return cacheGet(get)
+export function getEntitlements(query) {
+    return get(query)
 }

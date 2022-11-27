@@ -1,22 +1,24 @@
+import Result from "../../result";
 import { BackgroundPageWindow } from "../browser_service";
-import { Entitlement } from "../extension";
 
 const makeMockBrowserService = () => {
-    const mockEntitlements: Entitlement[] = [];
+    const mockResults: Result[] = [];
 
     return {
         backgroundPage: (): BackgroundPageWindow => {
             return {
                 ws1Finder: {
                     baseURL: () => Promise.resolve("https://finder.example.com"),
-                    clearCache: (): void => undefined,
-                    getEntitlements: (): Promise<Entitlement[]> => {
-                        return Promise.resolve(mockEntitlements);
+                    getEntitlements: (): Promise<Result[]> => {
+                        return Promise.resolve(mockResults);
                     }
                 }
             };
         },
         createTab: () => undefined,
+        getPrereleaseMarker: (): string => {
+            return "0.0.0-test";
+        },
         getStorage: (_k: string, _default: string) => {
             return Promise.resolve(_default);
         },

@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import "@testing-library/jest-dom";
@@ -7,6 +7,7 @@ import browserService from "./services/browser";
 import * as useSearch from "./use_search";
 
 jest.mock("./services/browser");
+jest.useFakeTimers();
 
 const mockResults = [
     {
@@ -78,7 +79,13 @@ describe("searching for results", () => {
             });
 
             render(<App />);
+
             userEvent.type(screen.getByRole("textbox"), "2");
+            
+            act(() => {
+                jest.runAllTimers();
+            });
+
             expect(useSearch.default).toHaveBeenCalledWith("2");
         });
     });
@@ -89,7 +96,7 @@ describe("waiting for data to load", () => {
     describe("when the data is loading", () => {
         it("displays an indication", async () => {
             jest.spyOn(useSearch, "default").mockReturnValue({
-                data: [], error: "Something went wrong", isLoading: true 
+                data: [], isLoading: true 
             });
 
             render(<App />);
@@ -102,7 +109,7 @@ describe("waiting for data to load", () => {
     describe("when the data has loaded", () => {
         it("does not display an indication", async () => {
             jest.spyOn(useSearch, "default").mockReturnValue({
-                data: [], error: "Something went wrong", isLoading: false 
+                data: [], isLoading: false 
             });
 
             render(<App />);
@@ -116,7 +123,7 @@ describe("waiting for data to load", () => {
 describe("when there's an error", () => {
     it("displays the erorr", async () => {
         jest.spyOn(useSearch, "default").mockReturnValue({
-            data: [], error: "Something went wrong", isLoading: false 
+            data: [], error: new Error("Something went wrong"), isLoading: false 
         });
 
         render(<App />);

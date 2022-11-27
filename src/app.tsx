@@ -1,8 +1,10 @@
 import SearchIcon from "@mui/icons-material/Search";
 import Alert from "@mui/material/Alert";
+
 import LinearProgress from "@mui/material/LinearProgress";
 import TextField from "@mui/material/TextField";
-import React, { ChangeEvent, KeyboardEvent, useCallback, useState } from "react";
+import React, { KeyboardEvent, useCallback, useState } from "react";
+import { useDebouncedCallback } from "use-debounce";
 import "./app.css";
 import NoResults from "./no_results";
 import Result from "./result";
@@ -12,22 +14,28 @@ import { launchURLAndClose } from "./services/url_launcher";
 import useSearch from "./use_search";
 import WorkspaceOneHeader from "./workspace_one_header";
 
+const isError = (obj: unknown): obj is Error => {
+    return (
+        typeof obj === "object" && obj !== null && "message" in obj
+    );
+};
+
 function App() {
     const [query, setQuery] = useState("");
     const [cursor, setCursor] = useState(-1);
-    const { isLoading, data, error } = useSearch(query);
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const query = e.target.value;
+    const { isLoading, error, data } = useSearch(query);
 
-        setQuery(query);
-    };
+    const debounced = useDebouncedCallback((value) => {
+        setQuery(value);
+    }, 250);
+
     const handleKeyDown = useCallback((e: KeyboardEvent<HTMLElement>) => {
         if (e.key === "ArrowUp" && cursor > 0) {
             setCursor(cursor - 1);
         } else if (e.key === "ArrowDown" && cursor < (data ?? []).length - 1) {
             setCursor(cursor + 1);
-        } 
+        }
     }, [cursor, data]);
 
     const handleTextBoxKeyDown = (e: KeyboardEvent<HTMLElement>) => {
@@ -44,7 +52,7 @@ function App() {
         <TextField
             id="outlined-basic"
             variant="standard"
-            onChange={ handleChange }
+            onChange={ (e) => debounced(e.target.value) }
             placeholder="Search VMware Workspace One"
             fullWidth
             autoFocus
@@ -55,7 +63,7 @@ function App() {
             sx={ { mt: "1em" } }
         />
 
-        { error !== undefined && <Alert severity="error" >{ error }</Alert> }
+        { isError(error) && <Alert severity="error" >{ error.message }</Alert> }
         { isLoading && <LinearProgress /> }
         { !isLoading && (
             <>
@@ -66,7 +74,7 @@ function App() {
                             selected={ i === cursor }
                             key={ r.key }
                             result={ r }
-                            onKeyDown= { handleKeyDown }
+                            onKeyDown={ handleKeyDown }
                         />) }
                     </ResultList>
                 ) }
