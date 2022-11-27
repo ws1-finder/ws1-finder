@@ -1,6 +1,6 @@
 {
   "name": "ws1-finder",
-  "version": "1.4.1-beta.2",
+  "version": "1.4.1-beta.3",
   "private": true,
   "dependencies": {
     "@emotion/styled": "^11.9.3",
